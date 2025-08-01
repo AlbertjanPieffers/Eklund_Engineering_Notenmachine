@@ -1,0 +1,76 @@
+﻿FUNCTION_BLOCK "FB_Encoder64Bit"
+{ S7_Optimized_Access := 'FALSE' }
+VERSION : 0.1
+   VAR_INPUT 
+      EncoderRaw : DInt;   // // Ruwe encoderwaarde van hardware (%ID112)
+      PulsFactor : Real;
+      MaxRawValue : DInt := 20000;
+      FirstCycle { ExternalVisible := 'False'; ExternalWritable := 'False'} : Bool := true;
+   END_VAR
+
+   VAR_OUTPUT 
+      TotalPulses : DInt;
+      Total_mm : Real;
+      GlobalCounter : DInt;
+      SegmentCounter : DInt;
+   END_VAR
+
+   VAR_TEMP 
+      Delta : DInt;
+      LastEncoder_2 : DInt;
+      InternalSum_2 : DInt;
+      LastEncoder : DInt;
+      InternalSum : DInt;
+      InternalCount : DInt;
+      Delta64 : Int;
+      Global_mm : Real;
+      Segment_mm : Real;
+   END_VAR
+
+   VAR CONSTANT 
+      OverflowLimit : DInt := 2000000000;   // // Ondergrens van veilige DINT-waarde
+   END_VAR
+
+
+BEGIN
+	// Init
+	IF #FirstCycle THEN
+	    #LastEncoder := #EncoderRaw;
+	    #FirstCycle := FALSE;
+	END_IF;
+	
+	// Delta berekenen
+	#Delta := #EncoderRaw - #LastEncoder;
+	
+	// Gebruik waarden binnen DINT-bereik
+	// Corrigeer overflow (positief → negatief)
+	IF #Delta > 1000000000 THEN
+	    #Delta := #Delta - 2147483647;
+	    #Delta := #Delta - 2147483647; // 2x max DINT
+	    #Delta := #Delta - 2; // totaal 4294967296
+	END_IF;
+	
+	// Corrigeer onderflow (negatief → positief)
+	IF #Delta < -1000000000 THEN
+	    #Delta := #Delta + 2147483647;
+	    #Delta := #Delta + 2147483647;
+	    #Delta := #Delta + 2;
+	END_IF;
+	
+	// Teller bijwerken
+	#InternalCount := #InternalCount + #Delta;
+	#LastEncoder := #EncoderRaw;
+	
+	// Output absolute teller
+	#GlobalCounter := #InternalCount;
+	#Global_mm := DINT_TO_REAL(#GlobalCounter) * #PulsFactor;
+	
+	// Segmentpositie berekenen (positief binnen 0..MaxRawValue)
+	#SegmentCounter := #InternalCount MOD #MaxRawValue;
+	IF #SegmentCounter < 0 THEN
+	    #SegmentCounter := #SegmentCounter + #MaxRawValue;
+	END_IF;
+	
+	#Segment_mm := DINT_TO_REAL(#SegmentCounter) * #PulsFactor;
+END_FUNCTION_BLOCK
+
