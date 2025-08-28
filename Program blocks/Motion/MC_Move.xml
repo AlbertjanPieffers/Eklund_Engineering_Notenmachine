@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2025-08-01T13:38:02.0293169Z</Created>
+    <Created>2025-08-28T20:21:46.0156722Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -195,57 +195,32 @@
         <Component Name="Go" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="22">
-      <Symbol>
-        <Component Name="PositionManagement" />
-        <Component Name="Demo_Pos" />
-        <Component Name="SetRefRunActive" />
-      </Symbol>
-    </Access>
-    <Access Scope="LocalVariable" UId="23">
-      <Symbol>
-        <Component Name="SR_1" />
-      </Symbol>
-    </Access>
-    <Access Scope="LocalVariable" UId="24">
+    <Access Scope="LocalVariable" UId="22">
       <Symbol>
         <Component Name="Desired Position" />
       </Symbol>
     </Access>
-    <Access Scope="LocalVariable" UId="25">
+    <Access Scope="LocalVariable" UId="23">
       <Symbol>
         <Component Name="Desired Position Out" />
       </Symbol>
     </Access>
-    <Part Name="Sr" UId="26" />
-    <Part Name="Move" UId="27">
+    <Part Name="Move" UId="24">
       <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
     </Part>
   </Parts>
   <Wires>
-    <Wire UId="28">
+    <Wire UId="25">
       <IdentCon UId="21" />
-      <NameCon UId="26" Name="s" />
+      <NameCon UId="24" Name="en" />
     </Wire>
-    <Wire UId="29">
+    <Wire UId="26">
       <IdentCon UId="22" />
-      <NameCon UId="26" Name="r1" />
+      <NameCon UId="24" Name="in" />
     </Wire>
-    <Wire UId="30">
+    <Wire UId="27">
+      <NameCon UId="24" Name="out1" />
       <IdentCon UId="23" />
-      <NameCon UId="26" Name="operand" />
-    </Wire>
-    <Wire UId="31">
-      <NameCon UId="26" Name="q" />
-      <NameCon UId="27" Name="en" />
-    </Wire>
-    <Wire UId="32">
-      <IdentCon UId="24" />
-      <NameCon UId="27" Name="in" />
-    </Wire>
-    <Wire UId="33">
-      <NameCon UId="27" Name="out1" />
-      <IdentCon UId="25" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>

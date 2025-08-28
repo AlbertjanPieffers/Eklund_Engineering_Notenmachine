@@ -6,6 +6,7 @@ VERSION : 0.1
       EncoderPosition : DInt;   // Koppel aan Encoder Data Instance
       TriggerDistance : DInt;   // Gewenste Afstand Product voor trigger
       TriggerFeedback : Bool;
+      DirectionSign : DInt;   // irectionSign = +1 for positive counting encoders, -1 for negative counting encoders
    END_VAR
 
    VAR_OUTPUT 
@@ -43,11 +44,17 @@ BEGIN
 	    END_IF;
 	END_FOR;
 	
-	// 3️⃣ Zoek eerste product dat zijn afstand heeft afgelegd
+	// DirectionSign = +1 for positive counting encoders, -1 for negative counting encoders
+	// Example for your case (negative encoder): DirectionSign := -1;
+	
 	IF NOT #MovementActive THEN
 	    FOR #i := 0 TO 9 DO
 	        IF #ProductBuffer[#i].Active THEN
-	            #Distance := #ProductBuffer[#i].StartPosition - #EncoderPosition;
+	            // Distance is oriented by DirectionSign:
+	            //  - If DirectionSign = +1: Distance = Encoder - Start  (forward positive)
+	            //  - If DirectionSign = -1: Distance = Start   - Encoder (forward negative)
+	            #Distance := #DirectionSign * (#EncoderPosition - #ProductBuffer[#i].StartPosition);
+	            
 	            IF #Distance >= #TriggerDistance THEN
 	                #TriggerMovement := TRUE;
 	                #MovementActive := TRUE;
@@ -57,6 +64,7 @@ BEGIN
 	        END_IF;
 	    END_FOR;
 	END_IF;
+	
 	
 	// 4️⃣ Wacht op feedback om beweging af te ronden
 	IF #MovementActive AND #TriggerFeedback THEN

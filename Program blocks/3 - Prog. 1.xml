@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2025-08-01T13:37:55.1249587Z</Created>
+    <Created>2025-08-28T20:21:46.144517Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -86,6 +86,7 @@
     <Member Name="StartBlowOff" Datatype="Bool" />
     <Member Name="BlowOffTimer" Datatype="Bool" />
     <Member Name="Democoil" Datatype="Bool" />
+    <Member Name="WaitForMove2" Datatype="Bool" />
   </Section>
   <Section Name="Constant" />
   <Section Name="Return">
@@ -1304,9 +1305,10 @@
         <Component Name="Systeem RUN" />
       </Symbol>
     </Access>
-    <Access Scope="LocalVariable" UId="22">
+    <Access Scope="GlobalVariable" UId="22">
       <Symbol>
-        <Component Name="Move2Busy" />
+        <Component Name="Move2Done" />
+        <Component Name="Q" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="23">
@@ -1550,7 +1552,7 @@
     </Access>
     <Access Scope="TypedConstant" UId="22">
       <Constant>
-        <ConstantValue>T#100MS</ConstantValue>
+        <ConstantValue>T#10MS</ConstantValue>
       </Constant>
     </Access>
     <Part Name="Contact" UId="23" />
@@ -1620,7 +1622,7 @@
     </Access>
     <Access Scope="TypedConstant" UId="22">
       <Constant>
-        <ConstantValue>T#200MS</ConstantValue>
+        <ConstantValue>T#800MS</ConstantValue>
       </Constant>
     </Access>
     <Part Name="Contact" UId="23" />

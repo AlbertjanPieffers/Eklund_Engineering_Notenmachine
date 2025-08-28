@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2025-08-01T13:37:56.7794074Z</Created>
+    <Created>2025-08-28T20:21:46.346418Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -2301,10 +2301,11 @@
         <Component Name="Sensor Op Band" />
       </Symbol>
     </Access>
-    <Access Scope="TypedConstant" UId="23">
-      <Constant>
-        <ConstantValue>T#2S</ConstantValue>
-      </Constant>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="InfeedTimeOutPT" />
+      </Symbol>
     </Access>
     <Access Scope="LocalVariable" UId="24">
       <Symbol>
