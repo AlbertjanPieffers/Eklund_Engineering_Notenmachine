@@ -1,0 +1,51 @@
+﻿FUNCTION_BLOCK "SCLTestingEnc"
+{ S7_Optimized_Access := 'FALSE' }
+VERSION : 0.1
+   VAR_TEMP 
+      tempDWord : Word;
+      LocalCtrlWord : Word;
+      CtrlWordDword : DWord;
+      WordLow : Word;
+      WordHigh : Word;
+      InLow : Word;
+      InHigh : Word;
+      RawDINT : DInt;
+      TempControl : DWord;
+   END_VAR
+
+
+BEGIN
+	// --- ControlWord opbouwen (gate openen via bit 0)
+	IF "DB_EncoderBand".EnableGate THEN
+	    "DB_EncoderBand".ControlWord := 16#0001; // Alleen bit 0 actief
+	ELSE
+	    "DB_EncoderBand".ControlWord := 16#0000;
+	END_IF;
+	
+	// --- Omzetten naar DWORD
+	#CtrlWordDword := WORD_TO_DWORD("DB_EncoderBand".ControlWord);
+	
+	// --- Opsplitsen in 2 WORDs
+	#WordLow := DWORD_TO_WORD(#CtrlWordDword AND 16#0000FFFF);
+	#WordHigh := DWORD_TO_WORD(DWORD_TO_DINT(#CtrlWordDword) / 65536);
+	
+	// --- Wegschrijven naar uitgangsgebied (1Count kaart op QW110/QW112)
+	"Enable" := #WordLow;
+	"Tag_61" := #WordHigh;
+	
+	// --- Inlezen uit 1Count kaart (IW110/IW112)
+	#InLow := "EncoderBand_Alive";
+	#InHigh := "Enc3(6)";
+	
+	// --- Samenvoegen tot DINT
+	#RawDINT := WORD_TO_DINT(#InLow) + (WORD_TO_DINT(#InHigh) * 65536);
+	
+	// --- Wegschrijven naar datablock
+	"DB_EncoderBand".EncoderValue := #RawDINT;
+	
+	//Enable Word
+	"DB_EncoderBand".ControlWord := 16#0041; // Bit 6 + Bit 0 (sommige kaarten vereisen extra enable-bits)
+	
+	
+END_FUNCTION_BLOCK
+
