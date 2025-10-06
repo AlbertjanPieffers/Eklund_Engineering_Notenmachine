@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2025-10-06T17:54:28.2033192Z</Created>
+    <Created>2025-10-06T19:25:43.1505755Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -899,7 +899,7 @@ OUTPUTS:
               <MultilingualTextItem ID="2D" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text>Function block for Emergency Stop Output to the Drives.</Text>
+                  <Text>Function block for Emergency Stop Output to the Drives. Drives will turn in ES (External Stop or E-Stop)</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -990,7 +990,12 @@ OUTPUTS:
               <MultilingualTextItem ID="32" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>Function Block for System RUN, this will run the machine in automatic mode.
+Input config is as follows:
+- Safety Relais Contact - This input is for checking if the safety is oké, otherwise it's not possible to switch on the machine in automatic mode.
+- Stop Machine NC Contact is the Input for the Stop button.
+- Fill Magazine Contact is the input for the Magazine empty feedback error signal - This signal needs to be high, otherwise it's not possible to switch to automatic mode.
+- Start Machine NO Contact is the input for Start button.</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -1041,7 +1046,7 @@ OUTPUTS:
               <MultilingualTextItem ID="37" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>This function block start the infeed belt before there's program selection. This is configured because in this way it's possible to start the machine without program selection. So products are not getting stuck on the transistion between the production line and the machine infeed belt.</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -1268,7 +1273,7 @@ OUTPUTS:
               <MultilingualTextItem ID="3C" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>This network manages the selection of Program 1. It's a bit unorganized, but i'll edited it later on. Important, the move posions are not used! Axis 3 uses the movve position from the PositionManagement DB instead of these parameters!!</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -1450,7 +1455,7 @@ OUTPUTS:
               <MultilingualTextItem ID="41" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>This network manages the selection of Program 2. It's a bit unorganized, but i'll edited it later on. Important, the move posions are not used! Axis 3 uses the movve position from the PositionManagement DB instead of these parameters!!</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -1630,7 +1635,7 @@ OUTPUTS:
               <MultilingualTextItem ID="46" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>This network manages the selection of Program 3. It's a bit unorganized, but i'll edited it later on. Important, the move posions are not used! Axis 3 uses the movve position from the PositionManagement DB instead of these parameters!!</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -1684,7 +1689,7 @@ OUTPUTS:
               <MultilingualTextItem ID="4B" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text>DONT DELETE!</Text>
+                  <Text>DONT DELETE! - This Function block is for setting the ouput decoupler on.</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -1724,7 +1729,7 @@ OUTPUTS:
               <MultilingualTextItem ID="50" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>This function block / program manages the Error warnings, both for the HMI and also the visual lights and beeping.</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -1764,7 +1769,7 @@ OUTPUTS:
               <MultilingualTextItem ID="55" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>This Function Block / Program is used for developing.</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -1928,7 +1933,8 @@ OUTPUTS:
               <MultilingualTextItem ID="5A" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>This Function Block / Program makes sure that all Drives and outputs are reset when System RUN is not enabled or Stop Machine Button is pressed. 
+- It's made for max 5 outputs - </Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -1968,7 +1974,7 @@ OUTPUTS:
               <MultilingualTextItem ID="5F" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>This Function Block / Program is used for developing or testing.</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -2038,7 +2044,7 @@ OUTPUTS:
               <MultilingualTextItem ID="64" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>This Function Block / Program Manages the Cleaning mode. It needs Safety high, and also the HMI NOT in manual control! This is important, otherwise it will be impossible to set drives because the're claimed by the manual controls.</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -2099,7 +2105,7 @@ OUTPUTS:
               <MultilingualTextItem ID="69" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>This short code helps putting a short filter on Sensor of Axis 3.</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -2109,7 +2115,7 @@ OUTPUTS:
               <MultilingualTextItem ID="6B" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text>Delay Ref Switch</Text>
+                  <Text>Ref Switch Axis 3 - Delay Ref Switch</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -2169,7 +2175,7 @@ OUTPUTS:
               <MultilingualTextItem ID="6E" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>This short code helps putting a short filter on Sensor of Axis 3.</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -2179,7 +2185,7 @@ OUTPUTS:
               <MultilingualTextItem ID="70" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text>Reset Ref Switch Temp</Text>
+                  <Text>Ref Switch Axis 3 - Reset Ref Switch Temp</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -2231,7 +2237,7 @@ OUTPUTS:
               <MultilingualTextItem ID="73" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>This short code helps putting a short filter on Sensor of Axis 3.</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -2241,7 +2247,7 @@ OUTPUTS:
               <MultilingualTextItem ID="75" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text>RefTempSwtich</Text>
+                  <Text>Ref Switch Axis 3 - RefTempSwtich</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -2726,7 +2732,7 @@ OUTPUTS:
               <MultilingualTextItem ID="78" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>This is the Drive Manager function block, it controls the Asynchronous Servo Axis combined with an Siko IG06 Encoder. More about this can be found on the wiki page on Notion.</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -2780,7 +2786,7 @@ OUTPUTS:
               <MultilingualTextItem ID="7D" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>This Function Block/ Program is for the use of the Noodsleutel, when this input is HIGH, the infeed conveyorbelt is only turning. </Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -2990,7 +2996,7 @@ OUTPUTS:
               <MultilingualTextItem ID="82" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>This Function Block is used by all 3 of programs, just to set the get and drop positions of axis 3 to the Servo Drive Manager. I will try to add this on the wiki too.</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -3108,7 +3114,7 @@ OUTPUTS:
               <MultilingualTextItem ID="87" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>This Function Block is used for manual jogging of Axis 3</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -3238,7 +3244,7 @@ OUTPUTS:
               <MultilingualTextItem ID="8C" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>This is the Oldest version of the productBuffer it's not used anymore.</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -3248,7 +3254,7 @@ OUTPUTS:
               <MultilingualTextItem ID="8E" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text>ProductBuffer</Text>
+                  <Text>ProductBuffer - Old (Legacy)</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -3407,7 +3413,7 @@ OUTPUTS:
               <MultilingualTextItem ID="91" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>This is Version 2 of the product buffer, and also not used anymore.</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -3558,7 +3564,8 @@ OUTPUTS:
               <MultilingualTextItem ID="96" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>This is the newest version of the Product Buffer, it's working great, and uses the encoder position of Axis 1 to ensure precise product place data. 
+Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI, or manual trough tag M222.1</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -3576,34 +3583,6 @@ OUTPUTS:
         </ObjectList>
       </SW.Blocks.CompileUnit>
       <SW.Blocks.CompileUnit ID="99" CompositionName="CompileUnits">
-        <AttributeList>
-          <NetworkSource />
-          <ProgrammingLanguage>LAD</ProgrammingLanguage>
-        </AttributeList>
-        <ObjectList>
-          <MultilingualText ID="9A" CompositionName="Comment">
-            <ObjectList>
-              <MultilingualTextItem ID="9B" CompositionName="Items">
-                <AttributeList>
-                  <Culture>nl-NL</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-          <MultilingualText ID="9C" CompositionName="Title">
-            <ObjectList>
-              <MultilingualTextItem ID="9D" CompositionName="Items">
-                <AttributeList>
-                  <Culture>nl-NL</Culture>
-                  <Text>Reset Position</Text>
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-        </ObjectList>
-      </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="9E" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -3659,19 +3638,19 @@ OUTPUTS:
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="9F" CompositionName="Comment">
+          <MultilingualText ID="9A" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="A0" CompositionName="Items">
+              <MultilingualTextItem ID="9B" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>This Program ensures that when the machine is not in automatic mode, and the axis will always go to an safe position it will be done with a safe speed (25%)</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="A1" CompositionName="Title">
+          <MultilingualText ID="9C" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="A2" CompositionName="Items">
+              <MultilingualTextItem ID="9D" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>Speed Select 25%</Text>
@@ -3681,7 +3660,7 @@ OUTPUTS:
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="A3" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="9E" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -3735,19 +3714,19 @@ OUTPUTS:
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="A4" CompositionName="Comment">
+          <MultilingualText ID="9F" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="A5" CompositionName="Items">
+              <MultilingualTextItem ID="A0" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>This program ensures that when the machine is in automatic mode, the speed will rise up to 75% what is 105-110 Hz on the Frequency Converter.</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="A6" CompositionName="Title">
+          <MultilingualText ID="A1" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="A7" CompositionName="Items">
+              <MultilingualTextItem ID="A2" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>Speed Select 75%</Text>
@@ -3757,7 +3736,7 @@ OUTPUTS:
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="A8" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="A3" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -3907,19 +3886,19 @@ OUTPUTS:
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="A9" CompositionName="Comment">
+          <MultilingualText ID="A4" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="AA" CompositionName="Items">
+              <MultilingualTextItem ID="A5" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>This Function Block is for controlling and reading encoder data from the Axis 1 SIKO IG09 encoder. More can be found on the wiki.</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="AB" CompositionName="Title">
+          <MultilingualText ID="A6" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="AC" CompositionName="Items">
+              <MultilingualTextItem ID="A7" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>Encoder Band Function Block</Text>
@@ -3929,7 +3908,7 @@ OUTPUTS:
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="AD" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="A8" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -3991,29 +3970,29 @@ OUTPUTS:
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="AE" CompositionName="Comment">
+          <MultilingualText ID="A9" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="AF" CompositionName="Items">
+              <MultilingualTextItem ID="AA" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>This program makes sure that when the E-Stop is pressed, the axis Has Reference flag is removed. It's done, because otherwise the Axis will lose position, due to the encoder position is set to zero locally on the PLC Card.</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="B0" CompositionName="Title">
+          <MultilingualText ID="AB" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="B1" CompositionName="Items">
+              <MultilingualTextItem ID="AC" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text>Reference Run Band</Text>
+                  <Text>Reference Run Band (1)</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="B2" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="AD" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -4129,29 +4108,29 @@ OUTPUTS:
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="B3" CompositionName="Comment">
+          <MultilingualText ID="AE" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="B4" CompositionName="Items">
+              <MultilingualTextItem ID="AF" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>This Program will demand Axis 1 to do an Reference run. It wil only turn about half a turn, to find the indexpuls of the encoder. For Axis 3 it's done with an external sensor. This Axis uses the internal indexpuls of the encoder. And that's because we're not going to control this Axis on position, but on velocity.</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="B5" CompositionName="Title">
+          <MultilingualText ID="B0" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="B6" CompositionName="Items">
+              <MultilingualTextItem ID="B1" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text>Reference Run Band 2.</Text>
+                  <Text>Reference Run Band (2)</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="B7" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="B2" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -4206,19 +4185,19 @@ OUTPUTS:
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="B8" CompositionName="Comment">
+          <MultilingualText ID="B3" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="B9" CompositionName="Items">
+              <MultilingualTextItem ID="B4" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>This Program is for controlling the Z-pulse or Index Pulse of the Axis 1 Encoder.</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="BA" CompositionName="Title">
+          <MultilingualText ID="B5" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="BB" CompositionName="Items">
+              <MultilingualTextItem ID="B6" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>Set Reference Sensor</Text>
@@ -4228,7 +4207,7 @@ OUTPUTS:
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="BC" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="B7" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -4279,29 +4258,30 @@ OUTPUTS:
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="BD" CompositionName="Comment">
+          <MultilingualText ID="B8" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="BE" CompositionName="Items">
+              <MultilingualTextItem ID="B9" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>This network is used for some internal use - Probably legacy ;)
+</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="BF" CompositionName="Title">
+          <MultilingualText ID="BA" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="C0" CompositionName="Items">
+              <MultilingualTextItem ID="BB" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>Reference Run Band (3)</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="C1" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="BC" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -4327,19 +4307,19 @@ OUTPUTS:
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="C2" CompositionName="Comment">
+          <MultilingualText ID="BD" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="C3" CompositionName="Items">
+              <MultilingualTextItem ID="BE" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text />
+                  <Text>This network will read the PLC Uptime. It was used for timestamp purposes.</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="C4" CompositionName="Title">
+          <MultilingualText ID="BF" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="C5" CompositionName="Items">
+              <MultilingualTextItem ID="C0" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>SystemTime</Text>
@@ -4349,12 +4329,12 @@ OUTPUTS:
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <MultilingualText ID="C6" CompositionName="Title">
+      <MultilingualText ID="C1" CompositionName="Title">
         <ObjectList>
-          <MultilingualTextItem ID="C7" CompositionName="Items">
+          <MultilingualTextItem ID="C2" CompositionName="Items">
             <AttributeList>
               <Culture>nl-NL</Culture>
-              <Text>MAIN Program</Text>
+              <Text>MAIN Program - Sweep</Text>
             </AttributeList>
           </MultilingualTextItem>
         </ObjectList>
