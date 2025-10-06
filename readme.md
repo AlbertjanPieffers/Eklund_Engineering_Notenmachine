@@ -1,4 +1,8 @@
 # Eklund Engineering – Notenmachine
+-
+<p align="center">
+	<img src="https://img.shields.io/badge/Current%20Version%3A-V2.1.1--Alpha-yellow?style=for-the-badge&logo=siemens" alt="Badge">
+</p>
 
 This repository contains all project files related to the **Eklund Engineering Notenmachine** project.
 
@@ -28,3 +32,8 @@ Author
 Albert-Jan Pieffers
 Eklund Engineering
 © 2025 All rights reserved.
+-
+<p align="center">
+  <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python"> 
+  <img src="https://forthebadge.com/images/badges/built-with-love.svg" alt="Grunt status">
+</p>
