@@ -11,7 +11,7 @@ The Notenmachine is an automated system developed for Eklund Engineering.
 It includes mechanical, electrical, and software components for production automation.
 
 ## Structure
-- **/PLC/** – PLC programs and configurations (Siemens or Beckhoff)
+- **/PLC/** – PLC programs and configurations (Siemens ET200S)
 - **/HMI/** – Human Machine Interface designs and assets
 - **/Drawings/** – Mechanical or electrical drawings
 - **/Docs/** – Documentation, manuals, and reports
