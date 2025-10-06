@@ -1,0 +1,297 @@
+﻿FUNCTION "Servo360Axis" : Void
+{ S7_Optimized_Access := 'FALSE' }
+VERSION : 0.1
+   VAR_INPUT 
+      ActEncPos : Real;
+      "[NAME] Axis Name" : String;
+      "[INPUT] ReferenceSwitch_Input" : Bool;
+      "[INPUT] Drive Ready" : Bool;
+      "[INPUT] E-STOP Check" : Bool;
+      "[COMMAND] Start_Reference Run" : Bool;
+      "[COMMAND] Take_over_Pos" : Bool;
+      "[COMMAND] Go to Position" : Bool;
+      "[COMMAND] Axis Manual Forward" : Bool;
+      "[COMMAND] Axis Manual Reverse" : Bool;
+      "[COMMAND] Axis Speed" : Int;
+      "[COMMAND] Axis Fast Stop" : Bool;
+      "[COMMAND] Go To Rest" : Bool;
+      "[COMMAND] Axis Brake" : Bool;
+      "[VALUE] Reference Position" : Int;
+      "[VALUE] Set Position" : Real;
+      "[VALUE] Rest Position" : Real;
+      "[VALUE] Accelerating" : Real;
+      "[VALUE] Deaccelerating" : Real;
+      "[VALUE] Position Tolerance" : Real;
+      "[VALUE] Modulo Factor" : Real;
+      "[COMMUNICATION] MasterWord" : String;
+      "[COMMUNICATION] Callback" : String;
+      "[VALUE] Pulsfactor" : Int;
+   END_VAR
+
+   VAR_OUTPUT 
+      "[OUTPUT] Drive FWD Command" : Bool;
+      "[OUTPUT] Drive REV Command" : Bool;
+      "[OUTPUT] Drive Speed 2 (50%)" : Bool;
+      "[OUTPUT] Drive Speed 3 (75%)" : Bool;
+      "[OUTPUT] Drive Fast Stop Command" : Bool;
+      "[MESSAGE] Axis Busy" : Bool;
+      "[MESSAGE] Error Executing" : Bool;
+      "[MESSAGE] Axis On Position" : Bool;
+      "[MESSAGE] Axis On Rest" : Bool;
+      "[MESSAGE] Drive State" : String;
+      "[MESSAGE] Axis Slips" : String;
+   END_VAR
+
+   VAR_TEMP 
+      UnscPos : Bool;
+      ScPos : Bool;
+      SetRefRun : Bool;
+      SetRefRun_Q : Bool;
+      MoveToRest : Bool;
+      MoveToRest_Q : Bool;
+      Automatic_Positive : Bool;
+      Manual_Positive : Bool;
+      Automatic_Negative : Bool;
+      Manual_Negative : Bool;
+      HS_Positive : Bool;
+      MasterWordHex : Bool;
+      Speed50 : Bool;
+      Speed75 : Bool;
+      Min_Position : Real;
+      Max_Position : Real;
+      Axis_On_Position : Bool;
+      Direction_Forward : Bool;
+      Direction_Backward : Bool;
+      Drive_Auto_Fwd : Bool;
+      InternalFastStop : Bool;
+      RefRunSetSignal : Bool;
+      GoToRest2 : Bool;
+      "[COMMAND] Go to Position_Rest" : Bool;
+      RestPos_SpareMove : Bool;
+      tmp : Real;
+      diff : Real;
+      AbsDiff : Real;
+      HalfModulo : Real;
+      TargetPos : Real;
+      RefTarget : Real;
+      RefDiff : Real;
+      RefAbs : Real;
+      RefBusy : Bool;
+      RefMode : Bool;
+      AutoMode : Bool;
+      ActiveTarget : Real;
+      DirCmd : Int;
+      AbsDiffActive : Real;
+      TolStop : Real;
+      TolSwitch : Real;
+      diffActive : Real;
+      RefSw_Old : Bool;
+      "[VALUE] Position Offset" : Int;
+      _ppu : Int;
+      AutoMove_Q : Bool;
+   END_VAR
+
+
+BEGIN
+	// =======================
+	// ====== IMPLEMENT ======
+	// =======================
+	
+	// --- 0. Safety (fast stop)
+	#"[OUTPUT] Drive Fast Stop Command" := #"[COMMAND] Axis Fast Stop" OR (NOT #"[INPUT] E-STOP Check");
+	
+	// --- 1. Referentie-latch (SR)
+	IF #"[INPUT] ReferenceSwitch_Input" THEN
+	    #"SetRefRun_Q" := FALSE; // switch geraakt -> referentie klaar
+	ELSIF #"[COMMAND] Start_Reference Run" THEN
+	    #"SetRefRun_Q" := TRUE;  // start ref
+	END_IF;
+	
+	// --- 2. GoTo latch (pulsbestendig)
+	IF (NOT #"GoPos_Old") AND #"[COMMAND] Go to Position" AND #"[INPUT] Drive Ready" AND #"[INPUT] E-STOP Check" THEN
+	    #"AutoMove_Q" := TRUE;
+	END_IF;
+	#"GoPos_Old" := #"[COMMAND] Go to Position";
+	
+	// --- 3. Modus (exclusief: Ref heeft voorrang)
+	#"RefMode" := #"SetRefRun_Q" AND (NOT #"[INPUT] ReferenceSwitch_Input");
+	
+	// Auto actief zolang gelatcht, mits niet in Ref
+	IF #"RefMode" THEN
+	    // tijdens ref move wordt auto gepauzeerd
+	ELSE
+	    // reset automove bij aankomen of door safety/fast stop
+	    IF #"[OUTPUT] Drive Fast Stop Command" OR (NOT #"[INPUT] Drive Ready") OR (NOT #"[INPUT] E-STOP Check") THEN
+	        #"AutoMove_Q" := FALSE;
+	    END_IF;
+	END_IF;
+	
+	// --- 4. Encoder scaling (raw -> units)
+	VAR_TEMP
+	_ppu:
+	Real;
+	END_VAR;
+	
+	#_ppu := #"[VALUE] Pulsfactor";
+	IF #_ppu <= 0.0 THEN
+	    #_ppu := 1.0; // anti-div/0
+	END_IF;
+	
+	#"ActEncPos" := INT_TO_REAL("Counter2_IW102") / #_ppu + #"[VALUE] Position Offset";
+	
+	// --- 5. Active target
+	IF #"RefMode" THEN
+	    #"ActiveTarget" := INT_TO_REAL(#"[VALUE] Reference Position");
+	ELSE
+	    #"ActiveTarget" := #"[VALUE] Set Position";
+	END_IF;
+	
+	// --- 6. Diff + modulo (kortste pad)
+	#"diff" := #"ActiveTarget" - #"ActEncPos";
+	
+	IF #"[VALUE] Modulo Factor" > 0.0 THEN
+	    // normaliseer (-Modulo .. +Modulo)
+	    WHILE #"diff" >= #"[VALUE] Modulo Factor" DO
+	        #"diff" := #"diff" - #"[VALUE] Modulo Factor";
+	    END_WHILE;
+	    WHILE #"diff" < - #"[VALUE] Modulo Factor" DO
+	        #"diff" := #"diff" + #"[VALUE] Modulo Factor";
+	    END_WHILE;
+	    
+	    // kortste pad (± Modulo/2)
+	    IF #"diff" > (#"[VALUE] Modulo Factor" * 0.5) THEN
+	        #"diff" := #"diff" - #"[VALUE] Modulo Factor";
+	    ELSIF #"diff" < - (#"[VALUE] Modulo Factor" * 0.5) THEN
+	        #"diff" := #"diff" + #"[VALUE] Modulo Factor";
+	    END_IF;
+	END_IF;
+	
+	#"AbsDiff" := ABS(#"diff");
+	
+	// --- 7. Hysterese-banden
+	#"TolStop" := #"[VALUE] Position Tolerance";
+	IF #"TolStop" < 0.0 THEN
+	    #"TolStop" := 0.0;
+	END_IF;
+	
+	// "TolSwitch" = max(1.5*TolStop, TolStop+0.01)  → zonder MAX()
+	#"TolSwitch" := #"TolStop" * 1.5;
+	IF (#"TolStop" + 0.01) > #"TolSwitch" THEN
+	    #"TolSwitch" := #"TolStop" + 0.01;
+	END_IF;
+	
+	// --- 8. OnPosition (alleen betekenisvol in Auto)
+	IF #"RefMode" THEN
+	    #"[MESSAGE] Axis On Position" := FALSE;
+	ELSE
+	    #"[MESSAGE] Axis On Position" := (#"AbsDiff" <= #"TolStop");
+	    // AutoMove reset bij aankomen
+	    IF #"[MESSAGE] Axis On Position" THEN
+	        #"AutoMove_Q" := FALSE;
+	    END_IF;
+	END_IF;
+	
+	// --- 9. Manual overrides (niet tijdens ref)
+	#"Manual_Positive" := (NOT #"RefMode") AND #"[COMMAND] Axis Manual Forward" AND NOT #"[COMMAND] Axis Manual Reverse";
+	#"Manual_Negative" := (NOT #"RefMode") AND #"[COMMAND] Axis Manual Reverse" AND NOT #"[COMMAND] Axis Manual Forward";
+	
+	// --- 10. Busy (ref of automove of manual) + safety
+	#"[MESSAGE] Axis Busy" :=
+	(
+	(#"RefMode" OR #"AutoMove_Q" OR #"Manual_Positive" OR #"Manual_Negative")
+	AND #"[INPUT] Drive Ready"
+	AND #"[INPUT] E-STOP Check"
+	);
+	
+	// --- 11. Richting met hysterese (op basis van Diff)
+	IF #"AbsDiff" <= #"TolStop" THEN
+	    #"DirCmd" := 0; // STOP
+	ELSIF #"AbsDiff" >= #"TolSwitch" THEN
+	    IF #"diff" > 0.0 THEN
+	        #"DirCmd" := 1;  // FWD
+	    ELSIF #"diff" < 0.0 THEN
+	        #"DirCmd" := -1; // REV
+	    END_IF;
+	ELSE
+	    // tussenband: behoud vorige #"DirCmd"
+	END_IF;
+	
+	// --- 12. Speed select (minstens één speed aan tijdens bewegen)
+	#"[OUTPUT] Drive Speed 2 (50%)" := FALSE;
+	#"[OUTPUT] Drive Speed 3 (75%)" := FALSE;
+	
+	IF #"[MESSAGE] Axis Busy" THEN
+	    IF #"[COMMAND] Axis Speed" >= 75 THEN
+	        #"[OUTPUT] Drive Speed 3 (75%)" := TRUE;
+	    ELSE
+	        #"[OUTPUT] Drive Speed 2 (50%)" := TRUE; // default
+	    END_IF;
+	END_IF;
+	
+	// --- 13. Outputs (prioriteit: Manual > Ref/Auto; alleen bij Busy & safety)
+	#"[OUTPUT] Drive FWD Command" := FALSE;
+	#"[OUTPUT] Drive REV Command" := FALSE;
+	
+	IF #"[INPUT] Drive Ready" AND #"[INPUT] E-STOP Check" AND #"[MESSAGE] Axis Busy" THEN
+	    // Manual
+	    IF #"Manual_Positive" THEN
+	        #"[OUTPUT] Drive FWD Command" := TRUE;
+	    ELSIF #"Manual_Negative" THEN
+	        #"[OUTPUT] Drive REV Command" := TRUE;
+	    ELSE
+	        // Ref/Auto
+	        CASE #"DirCmd" OF
+	            1:
+	                #"[OUTPUT] Drive FWD Command" := TRUE;
+	            -1:
+	                #"[OUTPUT] Drive REV Command" := TRUE;
+	        END_CASE;
+	    END_IF;
+	END_IF;
+	
+	// Safety en autostop bij bereikt (alleen in Auto)
+	IF (NOT #"[INPUT] Drive Ready") OR (NOT #"[INPUT] E-STOP Check") OR ((NOT #"RefMode") AND #"[MESSAGE] Axis On Position") THEN
+	    #"[OUTPUT] Drive FWD Command" := FALSE;
+	    #"[OUTPUT] Drive REV Command" := FALSE;
+	    // bij autostop ook speed uit
+	    IF (NOT #"RefMode") AND #"[MESSAGE] Axis On Position" THEN
+	        #"[OUTPUT] Drive Speed 2 (50%)" := FALSE;
+	        #"[OUTPUT] Drive Speed 3 (75%)" := FALSE;
+	    END_IF;
+	END_IF;
+	
+	// --- 14. Referentie-offset zetten op flank van switch
+	IF (NOT #"RefSw_Old") AND #"[INPUT] ReferenceSwitch_Input" THEN
+	    // offset = RefPos - (raw/ppu)
+	    #"[VALUE] Position Offset" := INT_TO_REAL(#"[VALUE] Reference Position") - (INT_TO_REAL("Counter2_IW102") / #_ppu);
+	    #"SetRefRun_Q" := FALSE; // ref klaar
+	END_IF;
+	#"RefSw_Old" := #"[INPUT] ReferenceSwitch_Input";
+	
+	// --- 15. State string
+	IF #"[OUTPUT] Drive Fast Stop Command" THEN
+	    #"[MESSAGE] Drive State" := 'FAST STOP';
+	ELSIF #"[OUTPUT] Drive FWD Command" THEN
+	    IF #"[OUTPUT] Drive Speed 3 (75%)" THEN
+	        #"[MESSAGE] Drive State" := 'RUN FWD / 75%';
+	    ELSE
+	        #"[MESSAGE] Drive State" := 'RUN FWD / 50%';
+	    END_IF;
+	ELSIF #"[OUTPUT] Drive REV Command" THEN
+	    IF #"[OUTPUT] Drive Speed 3 (75%)" THEN
+	        #"[MESSAGE] Drive State" := 'RUN REV / 75%';
+	    ELSE
+	        #"[MESSAGE] Drive State" := 'RUN REV / 50%';
+	    END_IF;
+	ELSE
+	    IF #"RefMode" THEN
+	        #"[MESSAGE] Drive State" := 'REF RUN';
+	    ELSIF #"[MESSAGE] Axis On Position" THEN
+	        #"[MESSAGE] Drive State" := 'ON POSITION';
+	    ELSE
+	        #"[MESSAGE] Drive State" := 'IDLE';
+	    END_IF;
+	END_IF;
+	
+END_FUNCTION
+

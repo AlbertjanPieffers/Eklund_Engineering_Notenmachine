@@ -1,0 +1,76 @@
+﻿FUNCTION_BLOCK "ProductBuffer_V3"
+{ S7_Optimized_Access := 'FALSE' }
+VERSION : 0.1
+   VAR_INPUT 
+      SensorInput : Bool;   // Sensor aan begin band
+      EncoderPosition : DInt;   // Koppel aan Encoder Data Instance
+      TriggerDistance : DInt;   // Gewenste Afstand Product voor trigger
+      TriggerFeedback : Bool;
+      DirectionSign : DInt;   // irectionSign = +1 for positive counting encoders, -1 for negative counting encoders
+   END_VAR
+
+   VAR_OUTPUT 
+      TriggerMovement : Bool;   // Trigger Start Movement
+      ProductCount : Int;   // Count products in buffer
+   END_VAR
+
+   VAR 
+      ProductBuffer { S7_SetPoint := 'False'} : Array[0..12] of "ProductTrack";
+      PrevSensor { S7_SetPoint := 'True'} : Bool;
+      MovementActive : Bool;
+      i : Int;
+      Distance : DInt;
+   END_VAR
+
+
+BEGIN
+	// 1️⃣ Flankdetectie - detecteer nieuw product
+	IF #SensorInput AND NOT #PrevSensor THEN
+	    FOR #i := 0 TO 12 DO
+	        IF NOT #ProductBuffer[#i].Active THEN
+	            #ProductBuffer[#i].StartPosition := #EncoderPosition;
+	            #ProductBuffer[#i].Active := TRUE;
+	            EXIT;
+	        END_IF;
+	    END_FOR;
+	END_IF;
+	#PrevSensor := #SensorInput;
+	
+	// 2️⃣ Tel actieve producten
+	#ProductCount := 0;
+	FOR #i := 0 TO 12 DO
+	    IF #ProductBuffer[#i].Active THEN
+	        #ProductCount := #ProductCount + 1;
+	    END_IF;
+	END_FOR;
+	
+	// DirectionSign = +1 for positive counting encoders, -1 for negative counting encoders
+	// Example for your case (negative encoder): DirectionSign := -1;
+	
+	IF NOT #MovementActive THEN
+	    FOR #i := 0 TO 12 DO
+	        IF #ProductBuffer[#i].Active THEN
+	            // Distance is oriented by DirectionSign:
+	            //  - If DirectionSign = +1: Distance = Encoder - Start  (forward positive)
+	            //  - If DirectionSign = -1: Distance = Start   - Encoder (forward negative)
+	            #Distance := #DirectionSign * (#EncoderPosition - #ProductBuffer[#i].StartPosition);
+	            
+	            IF #Distance >= #TriggerDistance THEN
+	                #TriggerMovement := TRUE;
+	                #MovementActive := TRUE;
+	                #ProductBuffer[#i].Active := FALSE;
+	                EXIT;
+	            END_IF;
+	        END_IF;
+	    END_FOR;
+	END_IF;
+	
+	
+	// 4️⃣ Wacht op feedback om beweging af te ronden
+	IF #MovementActive AND #TriggerFeedback THEN
+	    #TriggerMovement := FALSE;
+	    #MovementActive := FALSE;
+	END_IF;
+	
+END_FUNCTION_BLOCK
+

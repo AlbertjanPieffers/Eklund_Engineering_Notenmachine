@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V16" />
+  <DocumentInfo>
+    <Created>2025-10-06T17:54:38.1020322Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC Advanced</DisplayName>
+        <DisplayVersion>V16</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Blocks.InstanceDB ID="0">
+    <AttributeList>
+      <AutoNumber>true</AutoNumber>
+      <InstanceOfName>OutputUniversal</InstanceOfName>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v4">
+  <Section Name="Input">
+    <Member Name="EnableDrive" Datatype="Bool" Remanence="Retain"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList></Member>
+    <Member Name="IntAtMaxVelocity" Datatype="Int" Remanence="Retain"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList></Member>
+    <Member Name="OutErr" Datatype="Bool" Remanence="Retain"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList></Member>
+  </Section>
+  <Section Name="Output">
+    <Member Name="OutputValue" Datatype="Int" Remanence="Retain"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList></Member>
+    <Member Name="OutValAbs" Datatype="Int" Remanence="Retain"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList></Member>
+    <Member Name="OutValSign" Datatype="Bool" Remanence="Retain"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList></Member>
+  </Section>
+  <Section Name="InOut">
+    <Member Name="Axis" Datatype="Struct" Remanence="Retain">
+      <Member Name="Sample_T" Datatype="Real" />
+      <Member Name="AxisType" Datatype="Bool" />
+      <Member Name="EncoderType" Datatype="Bool" />
+      <Member Name="Sim" Datatype="Bool" />
+      <Member Name="AxisLimitMax" Datatype="Real" />
+      <Member Name="AxisLimitMin" Datatype="Real" />
+      <Member Name="MaxVelocity" Datatype="Real" />
+      <Member Name="MaxAcceleration" Datatype="Real" />
+      <Member Name="MaxDeceleration" Datatype="Real" />
+      <Member Name="MonTimeTargetAppr" Datatype="Real" />
+      <Member Name="TargetRange" Datatype="Real" />
+      <Member Name="StandstillRange" Datatype="Real" />
+      <Member Name="MaxFollowingDist" Datatype="Real" />
+      <Member Name="MonitorTargetAppr" Datatype="Bool" />
+      <Member Name="SWLimitEnable" Datatype="Bool" />
+      <Member Name="FactorP" Datatype="Real" />
+      <Member Name="ManVelocity" Datatype="Real" />
+      <Member Name="ManEnable" Datatype="Bool" />
+      <Member Name="EmergencyDec" Datatype="Real" />
+      <Member Name="InputModuleInAddr" Datatype="Int" />
+      <Member Name="InputModuleOutAddr" Datatype="Int" />
+      <Member Name="InputChannelNo" Datatype="Int" />
+      <Member Name="StepsPerRev" Datatype="DInt" />
+      <Member Name="DisplacementPerRev" Datatype="Real" />
+      <Member Name="NumberRevs" Datatype="Int" />
+      <Member Name="PolarityEncoder" Datatype="Int" />
+      <Member Name="PositionOffset" Datatype="DInt" />
+      <Member Name="OutputModuleOutAddr" Datatype="Int" />
+      <Member Name="OutputModuleInAddr" Datatype="Int" />
+      <Member Name="OutputChannelNo" Datatype="Int" />
+      <Member Name="PolarityDrive" Datatype="Int" />
+      <Member Name="DriveInputAtMaxVel" Datatype="Real" />
+      <Member Name="OffsetCompensation" Datatype="Real" />
+      <Member Name="DriveInputAt100" Datatype="Real" />
+      <Member Name="Override" Datatype="Real" />
+      <Member Name="ActPosition" Datatype="Real" />
+      <Member Name="FollowingDistance" Datatype="Real" />
+      <Member Name="RemainingDistance" Datatype="Real" />
+      <Member Name="NomVelocity" Datatype="Real" />
+      <Member Name="ActVelocity" Datatype="Real" />
+      <Member Name="Sync" Datatype="Bool" />
+      <Member Name="Error" Datatype="Bool" />
+      <Member Name="ErrorAck" Datatype="Bool" />
+      <Member Name="AxisState" Datatype="Int" />
+      <Member Name="Err" Datatype="Struct">
+        <Member Name="SWLimitMinExceeded" Datatype="Bool" />
+        <Member Name="SWLimitMaxExceeded" Datatype="Bool" />
+        <Member Name="TargetErr" Datatype="Bool" />
+        <Member Name="NoSync" Datatype="Bool" />
+        <Member Name="DirectionErr" Datatype="Bool" />
+        <Member Name="DataErr" Datatype="Bool" />
+        <Member Name="StartErr" Datatype="Bool" />
+        <Member Name="DistanceErr" Datatype="Bool" />
+        <Member Name="MasterErr" Datatype="Bool" />
+        <Member Name="bit09" Datatype="Bool" />
+        <Member Name="bit10" Datatype="Bool" />
+        <Member Name="bit11" Datatype="Bool" />
+        <Member Name="bit12" Datatype="Bool" />
+        <Member Name="bit13" Datatype="Bool" />
+        <Member Name="bit14" Datatype="Bool" />
+        <Member Name="bit15" Datatype="Bool" />
+        <Member Name="StoppedMotion" Datatype="Bool" />
+        <Member Name="EnableDriveErr" Datatype="Bool" />
+        <Member Name="FollowingDistErr" Datatype="Bool" />
+        <Member Name="StandstillErr" Datatype="Bool" />
+        <Member Name="TargetApproachErr" Datatype="Bool" />
+        <Member Name="EncoderErr" Datatype="Bool" />
+        <Member Name="OutputErr" Datatype="Bool" />
+        <Member Name="ConfigErr" Datatype="Bool" />
+        <Member Name="DriveErr" Datatype="Bool" />
+        <Member Name="bit25" Datatype="Bool" />
+        <Member Name="bit26" Datatype="Bool" />
+        <Member Name="bit27" Datatype="Bool" />
+        <Member Name="bit28" Datatype="Bool" />
+        <Member Name="bit29" Datatype="Bool" />
+        <Member Name="bit30" Datatype="Bool" />
+        <Member Name="bit31" Datatype="Bool" />
+      </Member>
+      <Member Name="Config" Datatype="Struct">
+        <Member Name="Err_AxisLimit" Datatype="Bool" />
+        <Member Name="Err_MaxVelocity" Datatype="Bool" />
+        <Member Name="Err_MaxAcceleration" Datatype="Bool" />
+        <Member Name="Err_MaxDeceleration" Datatype="Bool" />
+        <Member Name="Err_MonTimeTargetAppr" Datatype="Bool" />
+        <Member Name="Err_TargetRange" Datatype="Bool" />
+        <Member Name="Err_StandstillRange" Datatype="Bool" />
+        <Member Name="Err_MaxFollowingDist" Datatype="Bool" />
+        <Member Name="Err_EmergencyDec" Datatype="Bool" />
+        <Member Name="Err_StepsPerRev" Datatype="Bool" />
+        <Member Name="Err_DisplacementPerRev" Datatype="Bool" />
+        <Member Name="Err_NumberRevs" Datatype="Bool" />
+        <Member Name="Err_PolarityEncoder" Datatype="Bool" />
+        <Member Name="Err_PolarityDrive" Datatype="Bool" />
+        <Member Name="Err_DriveInputAtMaxVel" Datatype="Bool" />
+        <Member Name="Err_AxisLength" Datatype="Bool" />
+        <Member Name="Err_EncoderRange" Datatype="Bool" />
+        <Member Name="Err_MaxVelRotaryAxis" Datatype="Bool" />
+        <Member Name="Err_DriveInputAt100" Datatype="Bool" />
+      </Member>
+      <Member Name="EncoderValue" Datatype="DInt" />
+      <Member Name="RefPoint" Datatype="Real" />
+      <Member Name="OutVelocity" Datatype="Real" />
+      <Member Name="LastNomPosition" Datatype="Real" />
+      <Member Name="LastNomVelocity" Datatype="Real" />
+      <Member Name="LastNomDeceleration" Datatype="Real" />
+      <Member Name="InternalNomPosition" Datatype="Real" />
+      <Member Name="InternalActPos" Datatype="Real" />
+      <Member Name="InternalPosOffset" Datatype="Real" />
+      <Member Name="aufl" Datatype="Real" />
+      <Member Name="AchsLaenge" Datatype="Real" />
+      <Member Name="AchsLaenge_DI" Datatype="DInt" />
+      <Member Name="AbsGeberLaenge_DI" Datatype="DInt" />
+      <Member Name="LageIstwert_DI" Datatype="DInt" />
+      <Member Name="Coord" Datatype="DInt" />
+      <Member Name="DoneRef" Datatype="Bool" />
+      <Member Name="EinInitLaeuft" Datatype="Bool" />
+      <Member Name="AusInitLaeuft" Datatype="Bool" />
+      <Member Name="EinQuittungLaeuft" Datatype="Bool" />
+      <Member Name="AusQuittungLaeuft" Datatype="Bool" />
+      <Member Name="EintreiberFahrbereit" Datatype="Bool" />
+      <Member Name="ExecRef" Datatype="Int" />
+      <Member Name="VLastNomPosition" Datatype="Real" />
+      <Member Name="VLastNomVelocity" Datatype="Real" />
+      <Member Name="LastInternalPosOffset" Datatype="Real" />
+      <Member Name="RundKorrektur" Datatype="Real" />
+      <Member Name="LastRundKorrektur" Datatype="Real" />
+      <Member Name="LengthUnit" Datatype="String[4]" />
+      <Member Name="InputModuleType" Datatype="String[24]" />
+      <Member Name="OutputModuleType" Datatype="String[24]" />
+      <Member Name="Init" Datatype="Struct">
+        <Member Name="I0" Datatype="Bool" />
+        <Member Name="I1" Datatype="Bool" />
+        <Member Name="I2" Datatype="Bool" />
+        <Member Name="I3" Datatype="Bool" />
+        <Member Name="I4" Datatype="Bool" />
+        <Member Name="I5" Datatype="Bool" />
+        <Member Name="I6" Datatype="Bool" />
+        <Member Name="I7" Datatype="Bool" />
+        <Member Name="I8" Datatype="Bool" />
+        <Member Name="I9" Datatype="Bool" />
+        <Member Name="I10" Datatype="Bool" />
+        <Member Name="I11" Datatype="Bool" />
+        <Member Name="I12" Datatype="Bool" />
+        <Member Name="I13" Datatype="Bool" />
+        <Member Name="I14" Datatype="Bool" />
+        <Member Name="I15" Datatype="Bool" />
+        <Member Name="I16" Datatype="Bool" />
+        <Member Name="I17" Datatype="Bool" />
+        <Member Name="I18" Datatype="Bool" />
+        <Member Name="I19" Datatype="Bool" />
+        <Member Name="I20" Datatype="Bool" />
+        <Member Name="I21" Datatype="Bool" />
+        <Member Name="I22" Datatype="Bool" />
+        <Member Name="I23" Datatype="Bool" />
+        <Member Name="I24" Datatype="Bool" />
+        <Member Name="I25" Datatype="Bool" />
+        <Member Name="I26" Datatype="Bool" />
+        <Member Name="I27" Datatype="Bool" />
+        <Member Name="I28" Datatype="Bool" />
+        <Member Name="I29" Datatype="Bool" />
+        <Member Name="I30" Datatype="Bool" />
+        <Member Name="I31" Datatype="Bool" />
+      </Member>
+    </Member>
+    <Member Name="Init" Datatype="Bool" Remanence="Retain"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute></AttributeList></Member>
+  </Section>
+  <Section Name="Static">
+    <Member Name="Velo2Volt" Datatype="Real" Remanence="Retain"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member>
+    <Member Name="Volt2Int" Datatype="Real" Remanence="Retain"><AttributeList><BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute><BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute></AttributeList></Member>
+  </Section>
+</Sections></Interface>
+      <Name>OutputUniversal_DB</Name>
+      <Number>9</Number>
+      <OfSystemLibElement>OutputUniversal</OfSystemLibElement>
+      <OfSystemLibVersion>2.1</OfSystemLibVersion>
+      <ProgrammingLanguage>DB</ProgrammingLanguage>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>nl-NL</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <MultilingualText ID="3" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="4" CompositionName="Items">
+            <AttributeList>
+              <Culture>nl-NL</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.InstanceDB>
+</Document>
