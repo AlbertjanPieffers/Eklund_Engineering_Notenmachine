@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2025-10-06T17:54:26.9716631Z</Created>
+    <Created>2025-10-07T21:39:07.2132897Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -1595,49 +1595,56 @@
     </Access>
     <Access Scope="GlobalVariable" UId="24">
       <Symbol>
-        <Component Name="Enc2" />
+        <Component Name="PLCMemory" />
+        <Component Name="SimulateSensor" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="Enc2" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="26">
       <Symbol>
         <Component Name="PLCMemory" />
         <Component Name="TriggerDistanceAandruk" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="26">
+    <Access Scope="GlobalVariable" UId="27">
       <Symbol>
         <Component Name="ProductBufferTimer" />
         <Component Name="Q" />
       </Symbol>
     </Access>
-    <Access Scope="LiteralConstant" UId="27">
+    <Access Scope="LiteralConstant" UId="28">
       <Constant>
         <ConstantType>DInt</ConstantType>
         <ConstantValue>-1</ConstantValue>
       </Constant>
     </Access>
-    <Access Scope="LocalVariable" UId="28">
+    <Access Scope="LocalVariable" UId="29">
       <Symbol>
         <Component Name="AandrukCilindersOut" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="29">
+    <Access Scope="GlobalVariable" UId="30">
       <Symbol>
         <Component Name="PLCMemory" />
         <Component Name="ProductBufferBehindWals" />
         <Component Name="Product_Count" />
       </Symbol>
     </Access>
-    <Part Name="Contact" UId="30" />
-    <Part Name="Contact" UId="31">
+    <Part Name="Contact" UId="31" />
+    <Part Name="Contact" UId="32">
       <Negated Name="operand" />
     </Part>
-    <Call UId="32">
+    <Call UId="33">
       <CallInfo Name="ProductBuffer_V3" BlockType="FB">
-        <Instance Scope="GlobalVariable" UId="33">
+        <Instance Scope="GlobalVariable" UId="34">
           <Component Name="ProductBuffer_V3_BehindWals_DB" />
         </Instance>
         <Parameter Name="SensorInput" Section="Input" Type="Bool" />
+        <Parameter Name="DevSensorInput" Section="Input" Type="Bool" />
         <Parameter Name="EncoderPosition" Section="Input" Type="DInt" />
         <Parameter Name="TriggerDistance" Section="Input" Type="DInt" />
         <Parameter Name="TriggerFeedback" Section="Input" Type="Bool" />
@@ -1648,53 +1655,57 @@
     </Call>
   </Parts>
   <Wires>
-    <Wire UId="34">
-      <Powerrail />
-      <NameCon UId="30" Name="in" />
-    </Wire>
     <Wire UId="35">
-      <IdentCon UId="21" />
-      <NameCon UId="30" Name="operand" />
-    </Wire>
-    <Wire UId="36">
-      <NameCon UId="30" Name="out" />
+      <Powerrail />
       <NameCon UId="31" Name="in" />
     </Wire>
-    <Wire UId="37">
-      <IdentCon UId="22" />
+    <Wire UId="36">
+      <IdentCon UId="21" />
       <NameCon UId="31" Name="operand" />
     </Wire>
-    <Wire UId="38">
+    <Wire UId="37">
       <NameCon UId="31" Name="out" />
-      <NameCon UId="32" Name="en" />
+      <NameCon UId="32" Name="in" />
+    </Wire>
+    <Wire UId="38">
+      <IdentCon UId="22" />
+      <NameCon UId="32" Name="operand" />
     </Wire>
     <Wire UId="39">
-      <IdentCon UId="23" />
-      <NameCon UId="32" Name="SensorInput" />
+      <NameCon UId="32" Name="out" />
+      <NameCon UId="33" Name="en" />
     </Wire>
     <Wire UId="40">
-      <IdentCon UId="24" />
-      <NameCon UId="32" Name="EncoderPosition" />
+      <IdentCon UId="23" />
+      <NameCon UId="33" Name="SensorInput" />
     </Wire>
     <Wire UId="41">
-      <IdentCon UId="25" />
-      <NameCon UId="32" Name="TriggerDistance" />
+      <IdentCon UId="24" />
+      <NameCon UId="33" Name="DevSensorInput" />
     </Wire>
     <Wire UId="42">
-      <IdentCon UId="26" />
-      <NameCon UId="32" Name="TriggerFeedback" />
+      <IdentCon UId="25" />
+      <NameCon UId="33" Name="EncoderPosition" />
     </Wire>
     <Wire UId="43">
-      <IdentCon UId="27" />
-      <NameCon UId="32" Name="DirectionSign" />
+      <IdentCon UId="26" />
+      <NameCon UId="33" Name="TriggerDistance" />
     </Wire>
     <Wire UId="44">
-      <NameCon UId="32" Name="TriggerMovement" />
-      <IdentCon UId="28" />
+      <IdentCon UId="27" />
+      <NameCon UId="33" Name="TriggerFeedback" />
     </Wire>
     <Wire UId="45">
-      <NameCon UId="32" Name="ProductCount" />
+      <IdentCon UId="28" />
+      <NameCon UId="33" Name="DirectionSign" />
+    </Wire>
+    <Wire UId="46">
+      <NameCon UId="33" Name="TriggerMovement" />
       <IdentCon UId="29" />
+    </Wire>
+    <Wire UId="47">
+      <NameCon UId="33" Name="ProductCount" />
+      <IdentCon UId="30" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
