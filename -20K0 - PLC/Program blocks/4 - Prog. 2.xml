@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2025-10-07T21:39:07.3659731Z</Created>
+    <Created>2025-10-27T20:47:53.837391Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -1768,7 +1768,7 @@
               <MultilingualTextItem ID="61" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text>PorductBuffer Behind Wals V3</Text>
+                  <Text>ProductBuffer Behind Wals V3</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -2368,7 +2368,7 @@
               <MultilingualTextItem ID="89" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text>Blow off (1) - Set Blow Off Timer</Text>
+                  <Text>Blow off (0) - Set Blow Off Timer (NOT USED!)</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -2381,58 +2381,79 @@
   <Parts>
     <Access Scope="GlobalVariable" UId="21">
       <Symbol>
-        <Component Name="ProductBufferTimer" />
-        <Component Name="Q" />
+        <Component Name="ProductBuffer_V3_DB" />
+        <Component Name="TriggerMovement" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="PositionManagement" />
+        <Component Name="Axis 3" />
+        <Component Name="Messages" />
+        <Component Name="Axis Busy" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
       <Symbol>
         <Component Name="PLCMemory" />
         <Component Name="Blow Off Timer on" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="23">
+    <Access Scope="GlobalVariable" UId="24">
       <Symbol>
         <Component Name="Valve_2_Auto" />
       </Symbol>
     </Access>
-    <Part Name="Contact" UId="24" />
-    <Part Name="TOF" Version="1.0" UId="25">
-      <Instance Scope="GlobalVariable" UId="26">
+    <Part Name="Contact" UId="25">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="Contact" UId="26">
+      <Negated Name="operand" />
+    </Part>
+    <Part Name="TOF" Version="1.0" UId="27">
+      <Instance Scope="GlobalVariable" UId="28">
         <Component Name="BlowOffTimerV2" />
       </Instance>
       <TemplateValue Name="time_type" Type="Type">Time</TemplateValue>
     </Part>
-    <Part Name="Coil" UId="27" />
+    <Part Name="Coil" UId="29" />
   </Parts>
   <Wires>
-    <Wire UId="29">
-      <Powerrail />
-      <NameCon UId="24" Name="in" />
-    </Wire>
-    <Wire UId="30">
-      <IdentCon UId="21" />
-      <NameCon UId="24" Name="operand" />
-    </Wire>
     <Wire UId="31">
-      <NameCon UId="24" Name="out" />
-      <NameCon UId="25" Name="IN" />
+      <Powerrail />
+      <NameCon UId="25" Name="in" />
     </Wire>
     <Wire UId="32">
-      <IdentCon UId="22" />
-      <NameCon UId="25" Name="PT" />
+      <IdentCon UId="21" />
+      <NameCon UId="25" Name="operand" />
     </Wire>
     <Wire UId="33">
-      <NameCon UId="25" Name="Q" />
-      <NameCon UId="27" Name="in" />
+      <NameCon UId="25" Name="out" />
+      <NameCon UId="26" Name="in" />
     </Wire>
     <Wire UId="34">
-      <NameCon UId="25" Name="ET" />
-      <OpenCon UId="28" />
+      <IdentCon UId="22" />
+      <NameCon UId="26" Name="operand" />
     </Wire>
     <Wire UId="35">
+      <NameCon UId="26" Name="out" />
+      <NameCon UId="27" Name="IN" />
+    </Wire>
+    <Wire UId="36">
       <IdentCon UId="23" />
-      <NameCon UId="27" Name="operand" />
+      <NameCon UId="27" Name="PT" />
+    </Wire>
+    <Wire UId="37">
+      <NameCon UId="27" Name="Q" />
+      <NameCon UId="29" Name="in" />
+    </Wire>
+    <Wire UId="38">
+      <NameCon UId="27" Name="ET" />
+      <OpenCon UId="30" />
+    </Wire>
+    <Wire UId="39">
+      <IdentCon UId="24" />
+      <NameCon UId="29" Name="operand" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -2454,7 +2475,7 @@
               <MultilingualTextItem ID="8E" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text>Blow Off Set</Text>
+                  <Text>Blow off (1) - Blow Off Set TOF While Wals is in standstill</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -2562,7 +2583,7 @@
               <MultilingualTextItem ID="93" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text>BlowOffReset</Text>
+                  <Text>Blow off (2) - BlowOffReset (Not Used!)</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>

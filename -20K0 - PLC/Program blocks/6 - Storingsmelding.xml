@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2025-10-07T21:39:07.8017275Z</Created>
+    <Created>2025-10-27T20:47:54.2701342Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -938,16 +938,9 @@
         <Component Name="Alarm_Axis_Not_Position" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="28">
-      <Symbol>
-        <Component Name="Alarms" />
-        <Component Name="AlarmStruct" />
-        <Component Name="Alarm_Axis_Not_Position" />
-      </Symbol>
-    </Access>
-    <Call UId="29">
+    <Call UId="28">
       <CallInfo Name="Alarm_Axis_Position_Function" BlockType="FB">
-        <Instance Scope="GlobalVariable" UId="30">
+        <Instance Scope="GlobalVariable" UId="29">
           <Component Name="Alarm_Axis_Position_Function_Wals1" />
         </Instance>
         <Parameter Name="Axis FWD command" Section="Input" Type="Bool" />
@@ -964,39 +957,39 @@
   <Wires>
     <Wire UId="31">
       <Powerrail />
-      <NameCon UId="29" Name="en" />
+      <NameCon UId="28" Name="en" />
     </Wire>
     <Wire UId="32">
       <IdentCon UId="21" />
-      <NameCon UId="29" Name="Axis FWD command" />
+      <NameCon UId="28" Name="Axis FWD command" />
     </Wire>
     <Wire UId="33">
       <IdentCon UId="22" />
-      <NameCon UId="29" Name="Axis Feedback (Sensor) signal" />
+      <NameCon UId="28" Name="Axis Feedback (Sensor) signal" />
     </Wire>
     <Wire UId="34">
       <IdentCon UId="23" />
-      <NameCon UId="29" Name="Axis Encoder Singal" />
+      <NameCon UId="28" Name="Axis Encoder Singal" />
     </Wire>
     <Wire UId="35">
       <IdentCon UId="24" />
-      <NameCon UId="29" Name="Axis Command Position" />
+      <NameCon UId="28" Name="Axis Command Position" />
     </Wire>
     <Wire UId="36">
       <IdentCon UId="25" />
-      <NameCon UId="29" Name="Sensor Controlled (HIGH) - Position Controlled (LOW)" />
+      <NameCon UId="28" Name="Sensor Controlled (HIGH) - Position Controlled (LOW)" />
     </Wire>
     <Wire UId="37">
       <IdentCon UId="26" />
-      <NameCon UId="29" Name="CheckTime Setting" />
+      <NameCon UId="28" Name="CheckTime Setting" />
     </Wire>
     <Wire UId="38">
-      <NameCon UId="29" Name="Alarm BOOL" />
+      <NameCon UId="28" Name="Alarm BOOL" />
       <IdentCon UId="27" />
     </Wire>
     <Wire UId="39">
-      <NameCon UId="29" Name="Alarm WORD" />
-      <IdentCon UId="28" />
+      <NameCon UId="28" Name="Alarm WORD" />
+      <OpenCon UId="30" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -1053,19 +1046,12 @@
     </Access>
     <Access Scope="GlobalVariable" UId="25">
       <Symbol>
-        <Component Name="Alarms" />
-        <Component Name="AlarmStruct" />
         <Component Name="Alarm_Product_Not_Position" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="26">
-      <Symbol>
-        <Component Name="Alarm_Product_Not_Position" />
-      </Symbol>
-    </Access>
-    <Call UId="27">
+    <Call UId="26">
       <CallInfo Name="Alarm_Axis_Position_Function" BlockType="FB">
-        <Instance Scope="GlobalVariable" UId="28">
+        <Instance Scope="GlobalVariable" UId="27">
           <Component Name="Alarm_Axis_Position_Function_Infeed" />
         </Instance>
         <Parameter Name="Axis FWD command" Section="Input" Type="Bool" />
@@ -1082,39 +1068,39 @@
   <Wires>
     <Wire UId="31">
       <Powerrail />
-      <NameCon UId="27" Name="en" />
+      <NameCon UId="26" Name="en" />
     </Wire>
     <Wire UId="32">
       <IdentCon UId="21" />
-      <NameCon UId="27" Name="Axis FWD command" />
+      <NameCon UId="26" Name="Axis FWD command" />
     </Wire>
     <Wire UId="33">
       <IdentCon UId="22" />
-      <NameCon UId="27" Name="Axis Feedback (Sensor) signal" />
+      <NameCon UId="26" Name="Axis Feedback (Sensor) signal" />
     </Wire>
     <Wire UId="34">
-      <OpenCon UId="29" />
-      <NameCon UId="27" Name="Axis Encoder Singal" />
+      <OpenCon UId="28" />
+      <NameCon UId="26" Name="Axis Encoder Singal" />
     </Wire>
     <Wire UId="35">
-      <OpenCon UId="30" />
-      <NameCon UId="27" Name="Axis Command Position" />
+      <OpenCon UId="29" />
+      <NameCon UId="26" Name="Axis Command Position" />
     </Wire>
     <Wire UId="36">
       <IdentCon UId="23" />
-      <NameCon UId="27" Name="Sensor Controlled (HIGH) - Position Controlled (LOW)" />
+      <NameCon UId="26" Name="Sensor Controlled (HIGH) - Position Controlled (LOW)" />
     </Wire>
     <Wire UId="37">
       <IdentCon UId="24" />
-      <NameCon UId="27" Name="CheckTime Setting" />
+      <NameCon UId="26" Name="CheckTime Setting" />
     </Wire>
     <Wire UId="38">
-      <NameCon UId="27" Name="Alarm BOOL" />
-      <IdentCon UId="25" />
+      <NameCon UId="26" Name="Alarm BOOL" />
+      <OpenCon UId="30" />
     </Wire>
     <Wire UId="39">
-      <NameCon UId="27" Name="Alarm WORD" />
-      <IdentCon UId="26" />
+      <NameCon UId="26" Name="Alarm WORD" />
+      <IdentCon UId="25" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -1154,66 +1140,104 @@
     </Access>
     <Access Scope="GlobalVariable" UId="22">
       <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="StartDevTestingInfeedSensor" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="SimulateSensor" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
         <Component Name="CounterReset" />
       </Symbol>
     </Access>
-    <Access Scope="LiteralConstant" UId="23">
+    <Access Scope="LiteralConstant" UId="25">
       <Constant>
         <ConstantType>Int</ConstantType>
         <ConstantValue>3</ConstantValue>
       </Constant>
     </Access>
-    <Access Scope="GlobalVariable" UId="24">
+    <Access Scope="GlobalVariable" UId="26">
       <Symbol>
         <Component Name="TimerCounterValue" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="25">
+    <Access Scope="GlobalVariable" UId="27">
       <Symbol>
         <Component Name="CounterReset" />
       </Symbol>
     </Access>
-    <Part Name="Contact" UId="26" />
-    <Part Name="CTU" Version="1.0" UId="27">
-      <Instance Scope="GlobalVariable" UId="28">
+    <Part Name="Contact" UId="28" />
+    <Part Name="Contact" UId="29" />
+    <Part Name="Contact" UId="30" />
+    <Part Name="O" UId="31">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="CTU" Version="1.0" UId="32">
+      <Instance Scope="GlobalVariable" UId="33">
         <Component Name="ProductCounter" />
       </Instance>
       <TemplateValue Name="value_type" Type="Type">Int</TemplateValue>
     </Part>
-    <Part Name="Coil" UId="29" />
+    <Part Name="Coil" UId="34" />
   </Parts>
   <Wires>
-    <Wire UId="30">
-      <Powerrail />
-      <NameCon UId="26" Name="in" />
-    </Wire>
-    <Wire UId="31">
-      <IdentCon UId="21" />
-      <NameCon UId="26" Name="operand" />
-    </Wire>
-    <Wire UId="32">
-      <NameCon UId="26" Name="out" />
-      <NameCon UId="27" Name="CU" />
-    </Wire>
-    <Wire UId="33">
-      <IdentCon UId="22" />
-      <NameCon UId="27" Name="R" />
-    </Wire>
-    <Wire UId="34">
-      <IdentCon UId="23" />
-      <NameCon UId="27" Name="PV" />
-    </Wire>
     <Wire UId="35">
-      <NameCon UId="27" Name="Q" />
+      <Powerrail />
+      <NameCon UId="28" Name="in" />
       <NameCon UId="29" Name="in" />
     </Wire>
     <Wire UId="36">
-      <NameCon UId="27" Name="CV" />
-      <IdentCon UId="24" />
+      <IdentCon UId="21" />
+      <NameCon UId="28" Name="operand" />
     </Wire>
     <Wire UId="37">
-      <IdentCon UId="25" />
+      <NameCon UId="28" Name="out" />
+      <NameCon UId="31" Name="in1" />
+    </Wire>
+    <Wire UId="38">
+      <IdentCon UId="22" />
       <NameCon UId="29" Name="operand" />
+    </Wire>
+    <Wire UId="39">
+      <NameCon UId="29" Name="out" />
+      <NameCon UId="30" Name="in" />
+    </Wire>
+    <Wire UId="40">
+      <IdentCon UId="23" />
+      <NameCon UId="30" Name="operand" />
+    </Wire>
+    <Wire UId="41">
+      <NameCon UId="30" Name="out" />
+      <NameCon UId="31" Name="in2" />
+    </Wire>
+    <Wire UId="42">
+      <NameCon UId="31" Name="out" />
+      <NameCon UId="32" Name="CU" />
+    </Wire>
+    <Wire UId="43">
+      <IdentCon UId="24" />
+      <NameCon UId="32" Name="R" />
+    </Wire>
+    <Wire UId="44">
+      <IdentCon UId="25" />
+      <NameCon UId="32" Name="PV" />
+    </Wire>
+    <Wire UId="45">
+      <NameCon UId="32" Name="Q" />
+      <NameCon UId="34" Name="in" />
+    </Wire>
+    <Wire UId="46">
+      <NameCon UId="32" Name="CV" />
+      <IdentCon UId="26" />
+    </Wire>
+    <Wire UId="47">
+      <IdentCon UId="27" />
+      <NameCon UId="34" Name="operand" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -1661,67 +1685,90 @@
     </Access>
     <Access Scope="GlobalVariable" UId="22">
       <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="SimulateSensor" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
         <Component Name="ResetTotalProducts" />
       </Symbol>
     </Access>
-    <Access Scope="LiteralConstant" UId="23">
+    <Access Scope="LiteralConstant" UId="24">
       <Constant>
         <ConstantType>Int</ConstantType>
         <ConstantValue>32767</ConstantValue>
       </Constant>
     </Access>
-    <Access Scope="GlobalVariable" UId="24">
+    <Access Scope="GlobalVariable" UId="25">
       <Symbol>
         <Component Name="PLCMemory" />
         <Component Name="TD_Products_Counter" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="25">
+    <Access Scope="GlobalVariable" UId="26">
       <Symbol>
         <Component Name="MaintenanceNeeded" />
       </Symbol>
     </Access>
-    <Part Name="Contact" UId="26" />
-    <Part Name="CTU" Version="1.0" UId="27">
-      <Instance Scope="GlobalVariable" UId="28">
+    <Part Name="Contact" UId="27" />
+    <Part Name="Contact" UId="28" />
+    <Part Name="O" UId="29">
+      <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="CTU" Version="1.0" UId="30">
+      <Instance Scope="GlobalVariable" UId="31">
         <Component Name="TotalProductsCounter" />
       </Instance>
       <TemplateValue Name="value_type" Type="Type">Int</TemplateValue>
     </Part>
-    <Part Name="Coil" UId="29" />
+    <Part Name="Coil" UId="32" />
   </Parts>
   <Wires>
-    <Wire UId="30">
-      <Powerrail />
-      <NameCon UId="26" Name="in" />
-    </Wire>
-    <Wire UId="31">
-      <IdentCon UId="21" />
-      <NameCon UId="26" Name="operand" />
-    </Wire>
-    <Wire UId="32">
-      <NameCon UId="26" Name="out" />
-      <NameCon UId="27" Name="CU" />
-    </Wire>
     <Wire UId="33">
-      <IdentCon UId="22" />
-      <NameCon UId="27" Name="R" />
+      <Powerrail />
+      <NameCon UId="27" Name="in" />
+      <NameCon UId="28" Name="in" />
     </Wire>
     <Wire UId="34">
-      <IdentCon UId="23" />
-      <NameCon UId="27" Name="PV" />
+      <IdentCon UId="21" />
+      <NameCon UId="27" Name="operand" />
     </Wire>
     <Wire UId="35">
-      <NameCon UId="27" Name="Q" />
-      <NameCon UId="29" Name="in" />
+      <NameCon UId="27" Name="out" />
+      <NameCon UId="29" Name="in1" />
     </Wire>
     <Wire UId="36">
-      <NameCon UId="27" Name="CV" />
-      <IdentCon UId="24" />
+      <IdentCon UId="22" />
+      <NameCon UId="28" Name="operand" />
     </Wire>
     <Wire UId="37">
+      <NameCon UId="28" Name="out" />
+      <NameCon UId="29" Name="in2" />
+    </Wire>
+    <Wire UId="38">
+      <NameCon UId="29" Name="out" />
+      <NameCon UId="30" Name="CU" />
+    </Wire>
+    <Wire UId="39">
+      <IdentCon UId="23" />
+      <NameCon UId="30" Name="R" />
+    </Wire>
+    <Wire UId="40">
+      <IdentCon UId="24" />
+      <NameCon UId="30" Name="PV" />
+    </Wire>
+    <Wire UId="41">
+      <NameCon UId="30" Name="Q" />
+      <NameCon UId="32" Name="in" />
+    </Wire>
+    <Wire UId="42">
+      <NameCon UId="30" Name="CV" />
       <IdentCon UId="25" />
-      <NameCon UId="29" Name="operand" />
+    </Wire>
+    <Wire UId="43">
+      <IdentCon UId="26" />
+      <NameCon UId="32" Name="operand" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -1776,9 +1823,38 @@
         <Component Name="Alarm_Drive1" />
       </Symbol>
     </Access>
-    <Call UId="25">
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="Drive 1 RUN FWD" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="Drive 1 REV]" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="PositionManagement" />
+        <Component Name="Data" />
+        <Component Name="Actual_Axis1_Position" />
+      </Symbol>
+    </Access>
+    <Access Scope="TypedConstant" UId="28">
+      <Constant>
+        <ConstantValue>T#1500MS</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="GlobalVariable" UId="29">
+      <Symbol>
+        <Component Name="Alarms" />
+        <Component Name="AlarmStruct" />
+        <Component Name="Alarm_Product_Not_Position" />
+      </Symbol>
+    </Access>
+    <Call UId="30">
       <CallInfo Name="DriveConfirmation_Function" BlockType="FB">
-        <Instance Scope="GlobalVariable" UId="26">
+        <Instance Scope="GlobalVariable" UId="31">
           <Component Name="DriveConfirmation_Function_Axis1" />
         </Instance>
         <Parameter Name="System RUN" Section="Input" Type="Bool" />
@@ -1789,35 +1865,81 @@
         <Parameter Name="Ouput WORD" Section="Output" Type="Bool" />
       </CallInfo>
     </Call>
+    <Call UId="32">
+      <CallInfo Name="FB_Axis_StuckWarning" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="33">
+          <Component Name="FB_Axis_StuckWarning_aXIS1" />
+        </Instance>
+        <Parameter Name="Axis Fwd command" Section="Input" Type="Bool" />
+        <Parameter Name="Axis Rev Command" Section="Input" Type="Bool" />
+        <Parameter Name="Axis Feedback (Sensor) signal" Section="Input" Type="Bool" />
+        <Parameter Name="Axis Encoder Input" Section="Input" Type="Real" />
+        <Parameter Name="Sensor Controlled (HIGH) - Position Controlled (LOW)" Section="Input" Type="Bool" />
+        <Parameter Name="CheckTime Setting" Section="Input" Type="Time" />
+        <Parameter Name="Alarm WORD" Section="Output" Type="Bool" />
+      </CallInfo>
+    </Call>
   </Parts>
   <Wires>
-    <Wire UId="29">
+    <Wire UId="38">
       <Powerrail />
-      <NameCon UId="25" Name="en" />
+      <NameCon UId="30" Name="en" />
     </Wire>
-    <Wire UId="30">
+    <Wire UId="39">
       <IdentCon UId="21" />
-      <NameCon UId="25" Name="System RUN" />
+      <NameCon UId="30" Name="System RUN" />
     </Wire>
-    <Wire UId="31">
+    <Wire UId="40">
       <IdentCon UId="22" />
-      <NameCon UId="25" Name="Drive Ouput Q" />
+      <NameCon UId="30" Name="Drive Ouput Q" />
     </Wire>
-    <Wire UId="32">
+    <Wire UId="41">
       <IdentCon UId="23" />
-      <NameCon UId="25" Name="Drive Ready Signal" />
+      <NameCon UId="30" Name="Drive Ready Signal" />
     </Wire>
-    <Wire UId="33">
-      <OpenCon UId="27" />
-      <NameCon UId="25" Name="DelayTime" />
+    <Wire UId="42">
+      <OpenCon UId="34" />
+      <NameCon UId="30" Name="DelayTime" />
     </Wire>
-    <Wire UId="34">
-      <NameCon UId="25" Name="Timer ET" />
-      <OpenCon UId="28" />
+    <Wire UId="43">
+      <NameCon UId="30" Name="eno" />
+      <NameCon UId="32" Name="en" />
     </Wire>
-    <Wire UId="35">
-      <NameCon UId="25" Name="Ouput WORD" />
+    <Wire UId="44">
+      <NameCon UId="30" Name="Timer ET" />
+      <OpenCon UId="35" />
+    </Wire>
+    <Wire UId="45">
+      <NameCon UId="30" Name="Ouput WORD" />
       <IdentCon UId="24" />
+    </Wire>
+    <Wire UId="46">
+      <IdentCon UId="25" />
+      <NameCon UId="32" Name="Axis Fwd command" />
+    </Wire>
+    <Wire UId="47">
+      <IdentCon UId="26" />
+      <NameCon UId="32" Name="Axis Rev Command" />
+    </Wire>
+    <Wire UId="48">
+      <OpenCon UId="36" />
+      <NameCon UId="32" Name="Axis Feedback (Sensor) signal" />
+    </Wire>
+    <Wire UId="49">
+      <IdentCon UId="27" />
+      <NameCon UId="32" Name="Axis Encoder Input" />
+    </Wire>
+    <Wire UId="50">
+      <OpenCon UId="37" />
+      <NameCon UId="32" Name="Sensor Controlled (HIGH) - Position Controlled (LOW)" />
+    </Wire>
+    <Wire UId="51">
+      <IdentCon UId="28" />
+      <NameCon UId="32" Name="CheckTime Setting" />
+    </Wire>
+    <Wire UId="52">
+      <NameCon UId="32" Name="Alarm WORD" />
+      <IdentCon UId="29" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -1968,9 +2090,31 @@
         <Component Name="Alarm_Drive3" />
       </Symbol>
     </Access>
-    <Call UId="25">
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="Drive 3 RUN FWD" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="Drive 3 REV" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="PositionManagement" />
+        <Component Name="Data" />
+        <Component Name="Actual_Axis3_Position" />
+      </Symbol>
+    </Access>
+    <Access Scope="TypedConstant" UId="28">
+      <Constant>
+        <ConstantValue>t#1500ms</ConstantValue>
+      </Constant>
+    </Access>
+    <Call UId="29">
       <CallInfo Name="DriveConfirmation_Function" BlockType="FB">
-        <Instance Scope="GlobalVariable" UId="26">
+        <Instance Scope="GlobalVariable" UId="30">
           <Component Name="DriveConfirmation_Function_Axis 3" />
         </Instance>
         <Parameter Name="System RUN" Section="Input" Type="Bool" />
@@ -1981,35 +2125,81 @@
         <Parameter Name="Ouput WORD" Section="Output" Type="Bool" />
       </CallInfo>
     </Call>
+    <Call UId="31">
+      <CallInfo Name="FB_Axis_StuckWarning" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="32">
+          <Component Name="FB_Axis_StuckWarning_Axis3" />
+        </Instance>
+        <Parameter Name="Axis Fwd command" Section="Input" Type="Bool" />
+        <Parameter Name="Axis Rev Command" Section="Input" Type="Bool" />
+        <Parameter Name="Axis Feedback (Sensor) signal" Section="Input" Type="Bool" />
+        <Parameter Name="Axis Encoder Input" Section="Input" Type="Real" />
+        <Parameter Name="Sensor Controlled (HIGH) - Position Controlled (LOW)" Section="Input" Type="Bool" />
+        <Parameter Name="CheckTime Setting" Section="Input" Type="Time" />
+        <Parameter Name="Alarm WORD" Section="Output" Type="Bool" />
+      </CallInfo>
+    </Call>
   </Parts>
   <Wires>
-    <Wire UId="29">
+    <Wire UId="38">
       <Powerrail />
-      <NameCon UId="25" Name="en" />
+      <NameCon UId="29" Name="en" />
     </Wire>
-    <Wire UId="30">
+    <Wire UId="39">
       <IdentCon UId="21" />
-      <NameCon UId="25" Name="System RUN" />
+      <NameCon UId="29" Name="System RUN" />
     </Wire>
-    <Wire UId="31">
+    <Wire UId="40">
       <IdentCon UId="22" />
-      <NameCon UId="25" Name="Drive Ouput Q" />
+      <NameCon UId="29" Name="Drive Ouput Q" />
     </Wire>
-    <Wire UId="32">
+    <Wire UId="41">
       <IdentCon UId="23" />
-      <NameCon UId="25" Name="Drive Ready Signal" />
+      <NameCon UId="29" Name="Drive Ready Signal" />
     </Wire>
-    <Wire UId="33">
-      <OpenCon UId="27" />
-      <NameCon UId="25" Name="DelayTime" />
+    <Wire UId="42">
+      <OpenCon UId="33" />
+      <NameCon UId="29" Name="DelayTime" />
     </Wire>
-    <Wire UId="34">
-      <NameCon UId="25" Name="Timer ET" />
-      <OpenCon UId="28" />
+    <Wire UId="43">
+      <NameCon UId="29" Name="eno" />
+      <NameCon UId="31" Name="en" />
     </Wire>
-    <Wire UId="35">
-      <NameCon UId="25" Name="Ouput WORD" />
+    <Wire UId="44">
+      <NameCon UId="29" Name="Timer ET" />
+      <OpenCon UId="34" />
+    </Wire>
+    <Wire UId="45">
+      <NameCon UId="29" Name="Ouput WORD" />
       <IdentCon UId="24" />
+    </Wire>
+    <Wire UId="46">
+      <IdentCon UId="25" />
+      <NameCon UId="31" Name="Axis Fwd command" />
+    </Wire>
+    <Wire UId="47">
+      <IdentCon UId="26" />
+      <NameCon UId="31" Name="Axis Rev Command" />
+    </Wire>
+    <Wire UId="48">
+      <OpenCon UId="35" />
+      <NameCon UId="31" Name="Axis Feedback (Sensor) signal" />
+    </Wire>
+    <Wire UId="49">
+      <IdentCon UId="27" />
+      <NameCon UId="31" Name="Axis Encoder Input" />
+    </Wire>
+    <Wire UId="50">
+      <OpenCon UId="36" />
+      <NameCon UId="31" Name="Sensor Controlled (HIGH) - Position Controlled (LOW)" />
+    </Wire>
+    <Wire UId="51">
+      <IdentCon UId="28" />
+      <NameCon UId="31" Name="CheckTime Setting" />
+    </Wire>
+    <Wire UId="52">
+      <NameCon UId="31" Name="Alarm WORD" />
+      <OpenCon UId="37" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -2582,37 +2772,9 @@
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="80" CompositionName="CompileUnits">
-        <AttributeList>
-          <NetworkSource />
-          <ProgrammingLanguage>LAD</ProgrammingLanguage>
-        </AttributeList>
+      <MultilingualText ID="80" CompositionName="Title">
         <ObjectList>
-          <MultilingualText ID="81" CompositionName="Comment">
-            <ObjectList>
-              <MultilingualTextItem ID="82" CompositionName="Items">
-                <AttributeList>
-                  <Culture>nl-NL</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-          <MultilingualText ID="83" CompositionName="Title">
-            <ObjectList>
-              <MultilingualTextItem ID="84" CompositionName="Items">
-                <AttributeList>
-                  <Culture>nl-NL</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-        </ObjectList>
-      </SW.Blocks.CompileUnit>
-      <MultilingualText ID="85" CompositionName="Title">
-        <ObjectList>
-          <MultilingualTextItem ID="86" CompositionName="Items">
+          <MultilingualTextItem ID="81" CompositionName="Items">
             <AttributeList>
               <Culture>nl-NL</Culture>
               <Text>Warnings</Text>

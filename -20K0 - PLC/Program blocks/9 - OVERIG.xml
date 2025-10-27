@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2025-10-07T21:39:07.6525691Z</Created>
+    <Created>2025-10-27T20:47:54.1413516Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -332,24 +332,30 @@
   <Parts>
     <Access Scope="GlobalVariable" UId="21">
       <Symbol>
+        <Component Name="Systeem RUN" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
         <Component Name="PLCMemory" />
         <Component Name="StartDevTestingInfeedSensor" />
       </Symbol>
     </Access>
-    <Access Scope="TypedConstant" UId="22">
+    <Access Scope="TypedConstant" UId="23">
       <Constant>
-        <ConstantValue>T#1.5S</ConstantValue>
+        <ConstantValue>T#750ms</ConstantValue>
       </Constant>
     </Access>
-    <Access Scope="GlobalVariable" UId="23">
+    <Access Scope="GlobalVariable" UId="24">
       <Symbol>
         <Component Name="PLCMemory" />
         <Component Name="SimulateSensor" />
       </Symbol>
     </Access>
-    <Call UId="24">
+    <Part Name="Contact" UId="25" />
+    <Call UId="26">
       <CallInfo Name="Blinker" BlockType="FB">
-        <Instance Scope="GlobalVariable" UId="25">
+        <Instance Scope="GlobalVariable" UId="27">
           <Component Name="Blinker_SimulateSensor_DB" />
         </Instance>
         <Parameter Name="Enable" Section="Input" Type="Bool" />
@@ -360,25 +366,33 @@
     </Call>
   </Parts>
   <Wires>
-    <Wire UId="27">
-      <Powerrail />
-      <NameCon UId="24" Name="en" />
-    </Wire>
-    <Wire UId="28">
-      <IdentCon UId="21" />
-      <NameCon UId="24" Name="Enable" />
-    </Wire>
     <Wire UId="29">
-      <IdentCon UId="22" />
-      <NameCon UId="24" Name="BlinkTime" />
+      <Powerrail />
+      <NameCon UId="25" Name="in" />
     </Wire>
     <Wire UId="30">
-      <NameCon UId="24" Name="Q_Blink" />
-      <IdentCon UId="23" />
+      <IdentCon UId="21" />
+      <NameCon UId="25" Name="operand" />
     </Wire>
     <Wire UId="31">
-      <NameCon UId="24" Name="Q_Blink2" />
-      <OpenCon UId="26" />
+      <NameCon UId="25" Name="out" />
+      <NameCon UId="26" Name="en" />
+    </Wire>
+    <Wire UId="32">
+      <IdentCon UId="22" />
+      <NameCon UId="26" Name="Enable" />
+    </Wire>
+    <Wire UId="33">
+      <IdentCon UId="23" />
+      <NameCon UId="26" Name="BlinkTime" />
+    </Wire>
+    <Wire UId="34">
+      <NameCon UId="26" Name="Q_Blink" />
+      <IdentCon UId="24" />
+    </Wire>
+    <Wire UId="35">
+      <NameCon UId="26" Name="Q_Blink2" />
+      <OpenCon UId="28" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>

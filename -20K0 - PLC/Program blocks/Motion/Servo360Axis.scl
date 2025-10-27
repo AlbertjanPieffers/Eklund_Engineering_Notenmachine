@@ -89,6 +89,7 @@ VERSION : 0.1
       "[VALUE] Position Offset" : Int;
       _ppu : Int;
       AutoMove_Q : Bool;
+      GoPos_Old : Bool;
    END_VAR
 
 
@@ -117,24 +118,17 @@ BEGIN
 	#"RefMode" := #"SetRefRun_Q" AND (NOT #"[INPUT] ReferenceSwitch_Input");
 	
 	// Auto actief zolang gelatcht, mits niet in Ref
-	IF #"RefMode" THEN
-	    // tijdens ref move wordt auto gepauzeerd
-	ELSE
+	
 	    // reset automove bij aankomen of door safety/fast stop
 	    IF #"[OUTPUT] Drive Fast Stop Command" OR (NOT #"[INPUT] Drive Ready") OR (NOT #"[INPUT] E-STOP Check") THEN
 	        #"AutoMove_Q" := FALSE;
 	    END_IF;
-	END_IF;
 	
-	// --- 4. Encoder scaling (raw -> units)
-	VAR_TEMP
-	_ppu:
-	Real;
-	END_VAR;
+	
 	
 	#_ppu := #"[VALUE] Pulsfactor";
 	IF #_ppu <= 0.0 THEN
-	    #_ppu := 1.0; // anti-div/0
+	    #_ppu := 1; // anti-div/0
 	END_IF;
 	
 	#"ActEncPos" := INT_TO_REAL("Counter2_IW102") / #_ppu + #"[VALUE] Position Offset";
@@ -212,9 +206,9 @@ BEGIN
 	    ELSIF #"diff" < 0.0 THEN
 	        #"DirCmd" := -1; // REV
 	    END_IF;
-	ELSE
-	    // tussenband: behoud vorige #"DirCmd"
 	END_IF;
+	
+	
 	
 	// --- 12. Speed select (minstens één speed aan tijdens bewegen)
 	#"[OUTPUT] Drive Speed 2 (50%)" := FALSE;
@@ -263,7 +257,7 @@ BEGIN
 	// --- 14. Referentie-offset zetten op flank van switch
 	IF (NOT #"RefSw_Old") AND #"[INPUT] ReferenceSwitch_Input" THEN
 	    // offset = RefPos - (raw/ppu)
-	    #"[VALUE] Position Offset" := INT_TO_REAL(#"[VALUE] Reference Position") - (INT_TO_REAL("Counter2_IW102") / #_ppu);
+	    #"[VALUE] Position Offset" := (#"[VALUE] Reference Position") - ("Counter2_IW102") / #_ppu;
 	    #"SetRefRun_Q" := FALSE; // ref klaar
 	END_IF;
 	#"RefSw_Old" := #"[INPUT] ReferenceSwitch_Input";
