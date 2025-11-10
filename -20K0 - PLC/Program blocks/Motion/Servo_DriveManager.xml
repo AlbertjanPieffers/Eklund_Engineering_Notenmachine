@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2025-10-07T21:39:07.9957071Z</Created>
+    <Created>2025-11-01T13:03:18.8459066Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -74,6 +74,7 @@
     <Member Name="[MESSAGE] Axis On Rest" Datatype="Bool" />
     <Member Name="[MESSAGE] Drive State" Datatype="String" />
     <Member Name="[MESSAGE] Axis Slips" Datatype="String" />
+    <Member Name="[MESSAGE] Axis Reference Run" Datatype="Bool" />
   </Section>
   <Section Name="InOut" />
   <Section Name="Temp">
@@ -168,41 +169,55 @@
         <Component Name="SetRefRun_Q" />
       </Symbol>
     </Access>
-    <Part Name="A" UId="26">
+    <Access Scope="LocalVariable" UId="26">
+      <Symbol>
+        <Component Name="[MESSAGE] Axis Reference Run" />
+      </Symbol>
+    </Access>
+    <Part Name="A" UId="27">
       <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
       <Negated Name="in2" />
     </Part>
-    <Part Name="Sr" UId="27" />
-    <Part Name="Coil" UId="28" />
+    <Part Name="Sr" UId="28" />
+    <Part Name="Coil" UId="29" />
+    <Part Name="Coil" UId="30" />
   </Parts>
   <Wires>
-    <Wire UId="29">
-      <IdentCon UId="21" />
-      <NameCon UId="26" Name="in1" />
-    </Wire>
-    <Wire UId="30">
-      <IdentCon UId="22" />
-      <NameCon UId="26" Name="in2" />
-    </Wire>
     <Wire UId="31">
-      <NameCon UId="26" Name="out" />
-      <NameCon UId="27" Name="s" />
+      <IdentCon UId="21" />
+      <NameCon UId="27" Name="in1" />
     </Wire>
     <Wire UId="32">
-      <IdentCon UId="23" />
-      <NameCon UId="27" Name="r1" />
+      <IdentCon UId="22" />
+      <NameCon UId="27" Name="in2" />
     </Wire>
     <Wire UId="33">
-      <IdentCon UId="24" />
-      <NameCon UId="27" Name="operand" />
+      <NameCon UId="27" Name="out" />
+      <NameCon UId="28" Name="s" />
     </Wire>
     <Wire UId="34">
-      <NameCon UId="27" Name="q" />
-      <NameCon UId="28" Name="in" />
+      <IdentCon UId="23" />
+      <NameCon UId="28" Name="r1" />
     </Wire>
     <Wire UId="35">
-      <IdentCon UId="25" />
+      <IdentCon UId="24" />
       <NameCon UId="28" Name="operand" />
+    </Wire>
+    <Wire UId="36">
+      <NameCon UId="28" Name="q" />
+      <NameCon UId="29" Name="in" />
+    </Wire>
+    <Wire UId="37">
+      <IdentCon UId="25" />
+      <NameCon UId="29" Name="operand" />
+    </Wire>
+    <Wire UId="38">
+      <NameCon UId="29" Name="out" />
+      <NameCon UId="30" Name="in" />
+    </Wire>
+    <Wire UId="39">
+      <IdentCon UId="26" />
+      <NameCon UId="30" Name="operand" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -2223,61 +2238,51 @@
     </Access>
     <Access Scope="LocalVariable" UId="23">
       <Symbol>
-        <Component Name="MoveToRest_Q" />
+        <Component Name="SetRefRun_Q" />
       </Symbol>
     </Access>
     <Access Scope="LocalVariable" UId="24">
       <Symbol>
-        <Component Name="SetRefRun_Q" />
+        <Component Name="[OUTPUT] Drive REV Command" />
       </Symbol>
     </Access>
     <Access Scope="LocalVariable" UId="25">
       <Symbol>
-        <Component Name="[OUTPUT] Drive REV Command" />
-      </Symbol>
-    </Access>
-    <Access Scope="LocalVariable" UId="26">
-      <Symbol>
         <Component Name="Manual_Positive" />
       </Symbol>
     </Access>
-    <Part Name="A" UId="27">
-      <TemplateValue Name="Card" Type="Cardinality">5</TemplateValue>
+    <Part Name="A" UId="26">
+      <TemplateValue Name="Card" Type="Cardinality">4</TemplateValue>
       <Negated Name="in2" />
       <Negated Name="in3" />
       <Negated Name="in4" />
-      <Negated Name="in5" />
     </Part>
-    <Part Name="Coil" UId="28" />
+    <Part Name="Coil" UId="27" />
   </Parts>
   <Wires>
-    <Wire UId="29">
+    <Wire UId="28">
       <IdentCon UId="21" />
-      <NameCon UId="27" Name="in1" />
+      <NameCon UId="26" Name="in1" />
+    </Wire>
+    <Wire UId="29">
+      <IdentCon UId="22" />
+      <NameCon UId="26" Name="in2" />
     </Wire>
     <Wire UId="30">
-      <IdentCon UId="22" />
-      <NameCon UId="27" Name="in2" />
+      <IdentCon UId="23" />
+      <NameCon UId="26" Name="in3" />
     </Wire>
     <Wire UId="31">
-      <IdentCon UId="23" />
-      <NameCon UId="27" Name="in3" />
+      <IdentCon UId="24" />
+      <NameCon UId="26" Name="in4" />
     </Wire>
     <Wire UId="32">
-      <IdentCon UId="24" />
-      <NameCon UId="27" Name="in4" />
+      <NameCon UId="26" Name="out" />
+      <NameCon UId="27" Name="in" />
     </Wire>
     <Wire UId="33">
       <IdentCon UId="25" />
-      <NameCon UId="27" Name="in5" />
-    </Wire>
-    <Wire UId="34">
-      <NameCon UId="27" Name="out" />
-      <NameCon UId="28" Name="in" />
-    </Wire>
-    <Wire UId="35">
-      <IdentCon UId="26" />
-      <NameCon UId="28" Name="operand" />
+      <NameCon UId="27" Name="operand" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -2322,61 +2327,51 @@
     </Access>
     <Access Scope="LocalVariable" UId="23">
       <Symbol>
-        <Component Name="MoveToRest_Q" />
+        <Component Name="SetRefRun_Q" />
       </Symbol>
     </Access>
     <Access Scope="LocalVariable" UId="24">
       <Symbol>
-        <Component Name="SetRefRun_Q" />
+        <Component Name="[OUTPUT] Drive FWD Command" />
       </Symbol>
     </Access>
     <Access Scope="LocalVariable" UId="25">
       <Symbol>
-        <Component Name="[OUTPUT] Drive FWD Command" />
-      </Symbol>
-    </Access>
-    <Access Scope="LocalVariable" UId="26">
-      <Symbol>
         <Component Name="Manual_Negative" />
       </Symbol>
     </Access>
-    <Part Name="A" UId="27">
-      <TemplateValue Name="Card" Type="Cardinality">5</TemplateValue>
+    <Part Name="A" UId="26">
+      <TemplateValue Name="Card" Type="Cardinality">4</TemplateValue>
       <Negated Name="in2" />
       <Negated Name="in3" />
       <Negated Name="in4" />
-      <Negated Name="in5" />
     </Part>
-    <Part Name="Coil" UId="28" />
+    <Part Name="Coil" UId="27" />
   </Parts>
   <Wires>
-    <Wire UId="29">
+    <Wire UId="28">
       <IdentCon UId="21" />
-      <NameCon UId="27" Name="in1" />
+      <NameCon UId="26" Name="in1" />
+    </Wire>
+    <Wire UId="29">
+      <IdentCon UId="22" />
+      <NameCon UId="26" Name="in2" />
     </Wire>
     <Wire UId="30">
-      <IdentCon UId="22" />
-      <NameCon UId="27" Name="in2" />
+      <IdentCon UId="23" />
+      <NameCon UId="26" Name="in3" />
     </Wire>
     <Wire UId="31">
-      <IdentCon UId="23" />
-      <NameCon UId="27" Name="in3" />
+      <IdentCon UId="24" />
+      <NameCon UId="26" Name="in4" />
     </Wire>
     <Wire UId="32">
-      <IdentCon UId="24" />
-      <NameCon UId="27" Name="in4" />
+      <NameCon UId="26" Name="out" />
+      <NameCon UId="27" Name="in" />
     </Wire>
     <Wire UId="33">
       <IdentCon UId="25" />
-      <NameCon UId="27" Name="in5" />
-    </Wire>
-    <Wire UId="34">
-      <NameCon UId="27" Name="out" />
-      <NameCon UId="28" Name="in" />
-    </Wire>
-    <Wire UId="35">
-      <IdentCon UId="26" />
-      <NameCon UId="28" Name="operand" />
+      <NameCon UId="27" Name="operand" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>

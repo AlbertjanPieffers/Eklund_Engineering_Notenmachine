@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2025-10-27T20:47:53.0615555Z</Created>
+    <Created>2025-11-10T21:24:54.1591457Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -107,6 +107,7 @@
     <Member Name="Resettt" Datatype="Bool" />
     <Member Name="BlkMovReturn" Datatype="Int" />
     <Member Name="BlkMovReturn2" Datatype="Int" />
+    <Member Name="ServoAxis3RefRun" Datatype="Bool" />
   </Section>
   <Section Name="Constant" />
 </Sections></Interface>
@@ -2094,7 +2095,7 @@ Input config is as follows:
               <MultilingualTextItem ID="61" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text>Reset Ouputs when SystemRUN is not active</Text>
+                  <Text>Reset Outputs when SystemRUN is not active</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -2649,21 +2650,89 @@ Input config is as follows:
         <Component Name="Slip State" />
       </Symbol>
     </Access>
-    <Part Name="Contact" UId="56">
+    <Access Scope="LocalVariable" UId="56">
+      <Symbol>
+        <Component Name="ServoAxis3RefRun" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="57">
+      <Symbol>
+        <Component Name="Drive_3_Manual" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="58">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="OutputUserText" />
+        <Component Name="Axis3" />
+        <Component Name="User1.Text" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="59">
+      <Symbol>
+        <Component Name="Drive_3_Manual_Rev" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="60">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="OutputUserText" />
+        <Component Name="Axis3" />
+        <Component Name="User2.Text" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="61">
+      <Symbol>
+        <Component Name="PositionManagement" />
+        <Component Name="Axis 3" />
+        <Component Name="Commands" />
+        <Component Name="Go To Position" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="62">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="OutputUserText" />
+        <Component Name="Axis3" />
+        <Component Name="User3.Text" />
+      </Symbol>
+    </Access>
+    <Access Scope="LocalVariable" UId="63">
+      <Symbol>
+        <Component Name="ServoAxis3RefRun" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="64">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="OutputUserText" />
+        <Component Name="Axis3" />
+        <Component Name="User4.Text" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="65">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="OutputUserText" />
+        <Component Name="Axis3" />
+        <Component Name="CurrentUserText" />
+      </Symbol>
+    </Access>
+    <Part Name="Contact" UId="66">
       <Negated Name="operand" />
     </Part>
-    <Part Name="Contact" UId="57" />
-    <Part Name="Contact" UId="58" />
-    <Part Name="Contact" UId="59">
+    <Part Name="Contact" UId="67" />
+    <Part Name="Contact" UId="68" />
+    <Part Name="Contact" UId="69">
       <Negated Name="operand" />
     </Part>
-    <Part Name="Contact" UId="60">
+    <Part Name="Contact" UId="70">
       <Negated Name="operand" />
     </Part>
-    <Part Name="O" UId="61">
+    <Part Name="O" UId="71">
       <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
     </Part>
-    <Call UId="62">
+    <Call UId="72">
       <CallInfo Name="Servo_DriveManager" BlockType="FC">
         <Parameter Name="[NAME] Axis Name" Section="Input" Type="String" />
         <Parameter Name="[INPUT] ReferenceSwitch_Input" Section="Input" Type="Bool" />
@@ -2697,180 +2766,241 @@ Input config is as follows:
         <Parameter Name="[MESSAGE] Axis On Rest" Section="Output" Type="Bool" />
         <Parameter Name="[MESSAGE] Drive State" Section="Output" Type="String" />
         <Parameter Name="[MESSAGE] Axis Slips" Section="Output" Type="String" />
+        <Parameter Name="[MESSAGE] Axis Reference Run" Section="Output" Type="Bool" />
+      </CallInfo>
+    </Call>
+    <Call UId="73">
+      <CallInfo Name="FB_OutputUsers" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="74">
+          <Component Name="FB_OutputUsers_Axis3" />
+        </Instance>
+        <Parameter Name="User1.Feedback" Section="Input" Type="Bool" />
+        <Parameter Name="User1.Text" Section="Input" Type="String" />
+        <Parameter Name="User2.Feedback" Section="Input" Type="Bool" />
+        <Parameter Name="User2.Text" Section="Input" Type="String" />
+        <Parameter Name="User3.Feedback" Section="Input" Type="Bool" />
+        <Parameter Name="User3.Text" Section="Input" Type="String" />
+        <Parameter Name="User4.Feedback" Section="Input" Type="Bool" />
+        <Parameter Name="User4.Text" Section="Input" Type="String" />
+        <Parameter Name="User_Text_Output" Section="Output" Type="String" />
       </CallInfo>
     </Call>
   </Parts>
   <Wires>
-    <Wire UId="63">
-      <Powerrail />
-      <NameCon UId="62" Name="en" />
-      <NameCon UId="56" Name="in" />
-      <NameCon UId="57" Name="in" />
-      <NameCon UId="58" Name="in" />
-    </Wire>
-    <Wire UId="64">
-      <IdentCon UId="21" />
-      <NameCon UId="56" Name="operand" />
-    </Wire>
-    <Wire UId="65">
-      <NameCon UId="56" Name="out" />
-      <NameCon UId="62" Name="[INPUT] Drive Ready" />
-    </Wire>
-    <Wire UId="66">
-      <IdentCon UId="22" />
-      <NameCon UId="57" Name="operand" />
-    </Wire>
-    <Wire UId="67">
-      <NameCon UId="57" Name="out" />
-      <NameCon UId="61" Name="in1" />
-    </Wire>
-    <Wire UId="68">
-      <IdentCon UId="23" />
-      <NameCon UId="58" Name="operand" />
-    </Wire>
-    <Wire UId="69">
-      <NameCon UId="58" Name="out" />
-      <NameCon UId="59" Name="in" />
-    </Wire>
-    <Wire UId="70">
-      <IdentCon UId="24" />
-      <NameCon UId="59" Name="operand" />
-    </Wire>
-    <Wire UId="71">
-      <NameCon UId="59" Name="out" />
-      <NameCon UId="60" Name="in" />
-    </Wire>
-    <Wire UId="72">
-      <IdentCon UId="25" />
-      <NameCon UId="60" Name="operand" />
-    </Wire>
-    <Wire UId="73">
-      <NameCon UId="60" Name="out" />
-      <NameCon UId="61" Name="in2" />
-    </Wire>
-    <Wire UId="74">
-      <NameCon UId="61" Name="out" />
-      <NameCon UId="62" Name="[COMMAND] Start_Reference Run" />
-    </Wire>
     <Wire UId="75">
-      <IdentCon UId="26" />
-      <NameCon UId="62" Name="[NAME] Axis Name" />
+      <Powerrail />
+      <NameCon UId="72" Name="en" />
+      <NameCon UId="66" Name="in" />
+      <NameCon UId="67" Name="in" />
+      <NameCon UId="68" Name="in" />
     </Wire>
     <Wire UId="76">
-      <IdentCon UId="27" />
-      <NameCon UId="62" Name="[INPUT] ReferenceSwitch_Input" />
+      <IdentCon UId="21" />
+      <NameCon UId="66" Name="operand" />
     </Wire>
     <Wire UId="77">
-      <IdentCon UId="28" />
-      <NameCon UId="62" Name="[INPUT] E-STOP Check" />
+      <NameCon UId="66" Name="out" />
+      <NameCon UId="72" Name="[INPUT] Drive Ready" />
     </Wire>
     <Wire UId="78">
-      <IdentCon UId="29" />
-      <NameCon UId="62" Name="[COMMAND] Take_over_Pos" />
+      <IdentCon UId="22" />
+      <NameCon UId="67" Name="operand" />
     </Wire>
     <Wire UId="79">
-      <IdentCon UId="30" />
-      <NameCon UId="62" Name="[COMMAND] Go to Position" />
+      <NameCon UId="67" Name="out" />
+      <NameCon UId="71" Name="in1" />
     </Wire>
     <Wire UId="80">
-      <IdentCon UId="31" />
-      <NameCon UId="62" Name="[COMMAND] Axis Manual Forward" />
+      <IdentCon UId="23" />
+      <NameCon UId="68" Name="operand" />
     </Wire>
     <Wire UId="81">
-      <IdentCon UId="32" />
-      <NameCon UId="62" Name="[COMMAND] Axis Manual Reverse" />
+      <NameCon UId="68" Name="out" />
+      <NameCon UId="69" Name="in" />
     </Wire>
     <Wire UId="82">
-      <IdentCon UId="33" />
-      <NameCon UId="62" Name="[COMMAND] Axis Speed" />
+      <IdentCon UId="24" />
+      <NameCon UId="69" Name="operand" />
     </Wire>
     <Wire UId="83">
-      <IdentCon UId="34" />
-      <NameCon UId="62" Name="[COMMAND] Axis Fast Stop" />
+      <NameCon UId="69" Name="out" />
+      <NameCon UId="70" Name="in" />
     </Wire>
     <Wire UId="84">
-      <IdentCon UId="35" />
-      <NameCon UId="62" Name="[COMMAND] Go To Rest" />
+      <IdentCon UId="25" />
+      <NameCon UId="70" Name="operand" />
     </Wire>
     <Wire UId="85">
-      <IdentCon UId="36" />
-      <NameCon UId="62" Name="[COMMAND] Axis Brake" />
+      <NameCon UId="70" Name="out" />
+      <NameCon UId="71" Name="in2" />
     </Wire>
     <Wire UId="86">
-      <IdentCon UId="37" />
-      <NameCon UId="62" Name="[VALUE] Reference Position" />
+      <NameCon UId="71" Name="out" />
+      <NameCon UId="72" Name="[COMMAND] Start_Reference Run" />
     </Wire>
     <Wire UId="87">
-      <IdentCon UId="38" />
-      <NameCon UId="62" Name="[VALUE] Set Position" />
+      <IdentCon UId="26" />
+      <NameCon UId="72" Name="[NAME] Axis Name" />
     </Wire>
     <Wire UId="88">
-      <IdentCon UId="39" />
-      <NameCon UId="62" Name="[VALUE] Rest Position" />
+      <IdentCon UId="27" />
+      <NameCon UId="72" Name="[INPUT] ReferenceSwitch_Input" />
     </Wire>
     <Wire UId="89">
-      <IdentCon UId="40" />
-      <NameCon UId="62" Name="[VALUE] Accelerating" />
+      <IdentCon UId="28" />
+      <NameCon UId="72" Name="[INPUT] E-STOP Check" />
     </Wire>
     <Wire UId="90">
-      <IdentCon UId="41" />
-      <NameCon UId="62" Name="[VALUE] Deaccelerating" />
+      <IdentCon UId="29" />
+      <NameCon UId="72" Name="[COMMAND] Take_over_Pos" />
     </Wire>
     <Wire UId="91">
-      <IdentCon UId="42" />
-      <NameCon UId="62" Name="[VALUE] Position Tolerance" />
+      <IdentCon UId="30" />
+      <NameCon UId="72" Name="[COMMAND] Go to Position" />
     </Wire>
     <Wire UId="92">
-      <IdentCon UId="43" />
-      <NameCon UId="62" Name="[COMMUNICATION] MasterWord" />
+      <IdentCon UId="31" />
+      <NameCon UId="72" Name="[COMMAND] Axis Manual Forward" />
     </Wire>
     <Wire UId="93">
-      <IdentCon UId="44" />
-      <NameCon UId="62" Name="[COMMUNICATION] Callback" />
+      <IdentCon UId="32" />
+      <NameCon UId="72" Name="[COMMAND] Axis Manual Reverse" />
     </Wire>
     <Wire UId="94">
-      <NameCon UId="62" Name="[OUTPUT] Drive FWD Command" />
-      <IdentCon UId="45" />
+      <IdentCon UId="33" />
+      <NameCon UId="72" Name="[COMMAND] Axis Speed" />
     </Wire>
     <Wire UId="95">
-      <NameCon UId="62" Name="[OUTPUT] Drive REV Command" />
-      <IdentCon UId="46" />
+      <IdentCon UId="34" />
+      <NameCon UId="72" Name="[COMMAND] Axis Fast Stop" />
     </Wire>
     <Wire UId="96">
-      <NameCon UId="62" Name="[OUTPUT] Drive Speed 2 (50%)" />
-      <IdentCon UId="47" />
+      <IdentCon UId="35" />
+      <NameCon UId="72" Name="[COMMAND] Go To Rest" />
     </Wire>
     <Wire UId="97">
-      <NameCon UId="62" Name="[OUTPUT] Drive Speed 3 (75%)" />
-      <IdentCon UId="48" />
+      <IdentCon UId="36" />
+      <NameCon UId="72" Name="[COMMAND] Axis Brake" />
     </Wire>
     <Wire UId="98">
-      <NameCon UId="62" Name="[OUTPUT] Drive Fast Stop Command" />
-      <IdentCon UId="49" />
+      <IdentCon UId="37" />
+      <NameCon UId="72" Name="[VALUE] Reference Position" />
     </Wire>
     <Wire UId="99">
-      <NameCon UId="62" Name="[MESSAGE] Axis Busy" />
-      <IdentCon UId="50" />
+      <IdentCon UId="38" />
+      <NameCon UId="72" Name="[VALUE] Set Position" />
     </Wire>
     <Wire UId="100">
-      <NameCon UId="62" Name="[MESSAGE] Error Executing" />
-      <IdentCon UId="51" />
+      <IdentCon UId="39" />
+      <NameCon UId="72" Name="[VALUE] Rest Position" />
     </Wire>
     <Wire UId="101">
-      <NameCon UId="62" Name="[MESSAGE] Axis On Position" />
-      <IdentCon UId="52" />
+      <IdentCon UId="40" />
+      <NameCon UId="72" Name="[VALUE] Accelerating" />
     </Wire>
     <Wire UId="102">
-      <NameCon UId="62" Name="[MESSAGE] Axis On Rest" />
-      <IdentCon UId="53" />
+      <IdentCon UId="41" />
+      <NameCon UId="72" Name="[VALUE] Deaccelerating" />
     </Wire>
     <Wire UId="103">
-      <NameCon UId="62" Name="[MESSAGE] Drive State" />
-      <IdentCon UId="54" />
+      <IdentCon UId="42" />
+      <NameCon UId="72" Name="[VALUE] Position Tolerance" />
     </Wire>
     <Wire UId="104">
-      <NameCon UId="62" Name="[MESSAGE] Axis Slips" />
+      <IdentCon UId="43" />
+      <NameCon UId="72" Name="[COMMUNICATION] MasterWord" />
+    </Wire>
+    <Wire UId="105">
+      <IdentCon UId="44" />
+      <NameCon UId="72" Name="[COMMUNICATION] Callback" />
+    </Wire>
+    <Wire UId="106">
+      <NameCon UId="72" Name="eno" />
+      <NameCon UId="73" Name="en" />
+    </Wire>
+    <Wire UId="107">
+      <NameCon UId="72" Name="[OUTPUT] Drive FWD Command" />
+      <IdentCon UId="45" />
+    </Wire>
+    <Wire UId="108">
+      <NameCon UId="72" Name="[OUTPUT] Drive REV Command" />
+      <IdentCon UId="46" />
+    </Wire>
+    <Wire UId="109">
+      <NameCon UId="72" Name="[OUTPUT] Drive Speed 2 (50%)" />
+      <IdentCon UId="47" />
+    </Wire>
+    <Wire UId="110">
+      <NameCon UId="72" Name="[OUTPUT] Drive Speed 3 (75%)" />
+      <IdentCon UId="48" />
+    </Wire>
+    <Wire UId="111">
+      <NameCon UId="72" Name="[OUTPUT] Drive Fast Stop Command" />
+      <IdentCon UId="49" />
+    </Wire>
+    <Wire UId="112">
+      <NameCon UId="72" Name="[MESSAGE] Axis Busy" />
+      <IdentCon UId="50" />
+    </Wire>
+    <Wire UId="113">
+      <NameCon UId="72" Name="[MESSAGE] Error Executing" />
+      <IdentCon UId="51" />
+    </Wire>
+    <Wire UId="114">
+      <NameCon UId="72" Name="[MESSAGE] Axis On Position" />
+      <IdentCon UId="52" />
+    </Wire>
+    <Wire UId="115">
+      <NameCon UId="72" Name="[MESSAGE] Axis On Rest" />
+      <IdentCon UId="53" />
+    </Wire>
+    <Wire UId="116">
+      <NameCon UId="72" Name="[MESSAGE] Drive State" />
+      <IdentCon UId="54" />
+    </Wire>
+    <Wire UId="117">
+      <NameCon UId="72" Name="[MESSAGE] Axis Slips" />
       <IdentCon UId="55" />
+    </Wire>
+    <Wire UId="118">
+      <NameCon UId="72" Name="[MESSAGE] Axis Reference Run" />
+      <IdentCon UId="56" />
+    </Wire>
+    <Wire UId="119">
+      <IdentCon UId="57" />
+      <NameCon UId="73" Name="User1.Feedback" />
+    </Wire>
+    <Wire UId="120">
+      <IdentCon UId="58" />
+      <NameCon UId="73" Name="User1.Text" />
+    </Wire>
+    <Wire UId="121">
+      <IdentCon UId="59" />
+      <NameCon UId="73" Name="User2.Feedback" />
+    </Wire>
+    <Wire UId="122">
+      <IdentCon UId="60" />
+      <NameCon UId="73" Name="User2.Text" />
+    </Wire>
+    <Wire UId="123">
+      <IdentCon UId="61" />
+      <NameCon UId="73" Name="User3.Feedback" />
+    </Wire>
+    <Wire UId="124">
+      <IdentCon UId="62" />
+      <NameCon UId="73" Name="User3.Text" />
+    </Wire>
+    <Wire UId="125">
+      <IdentCon UId="63" />
+      <NameCon UId="73" Name="User4.Feedback" />
+    </Wire>
+    <Wire UId="126">
+      <IdentCon UId="64" />
+      <NameCon UId="73" Name="User4.Text" />
+    </Wire>
+    <Wire UId="127">
+      <NameCon UId="73" Name="User_Text_Output" />
+      <IdentCon UId="65" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -3642,13 +3772,28 @@ Input config is as follows:
         <Component Name="ProductsCount" />
       </Symbol>
     </Access>
-    <Part Name="Contact" UId="31" />
-    <Part Name="Contact" UId="32">
+    <Access Scope="GlobalVariable" UId="31">
+      <Symbol>
+        <Component Name="ProgramDebugger" />
+        <Component Name="ProgramDebugger1" />
+        <Component Name="Prog1_Dev_Steps" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>6</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+        <Component Name="Enable" />
+      </Symbol>
+    </Access>
+    <Part Name="Contact" UId="32" />
+    <Part Name="Contact" UId="33">
       <Negated Name="operand" />
     </Part>
-    <Call UId="33">
+    <Call UId="34">
       <CallInfo Name="ProductBuffer_V3" BlockType="FB">
-        <Instance Scope="GlobalVariable" UId="34">
+        <Instance Scope="GlobalVariable" UId="35">
           <Component Name="ProductBuffer_V3_DB" />
         </Instance>
         <Parameter Name="SensorInput" Section="Input" Type="Bool" />
@@ -3661,59 +3806,68 @@ Input config is as follows:
         <Parameter Name="ProductCount" Section="Output" Type="Int" />
       </CallInfo>
     </Call>
+    <Part Name="Coil" UId="36" />
   </Parts>
   <Wires>
-    <Wire UId="35">
-      <Powerrail />
-      <NameCon UId="31" Name="in" />
-    </Wire>
-    <Wire UId="36">
-      <IdentCon UId="21" />
-      <NameCon UId="31" Name="operand" />
-    </Wire>
     <Wire UId="37">
-      <NameCon UId="31" Name="out" />
+      <Powerrail />
       <NameCon UId="32" Name="in" />
     </Wire>
     <Wire UId="38">
-      <IdentCon UId="22" />
+      <IdentCon UId="21" />
       <NameCon UId="32" Name="operand" />
     </Wire>
     <Wire UId="39">
       <NameCon UId="32" Name="out" />
-      <NameCon UId="33" Name="en" />
+      <NameCon UId="33" Name="in" />
     </Wire>
     <Wire UId="40">
-      <IdentCon UId="23" />
-      <NameCon UId="33" Name="SensorInput" />
+      <IdentCon UId="22" />
+      <NameCon UId="33" Name="operand" />
     </Wire>
     <Wire UId="41">
-      <IdentCon UId="24" />
-      <NameCon UId="33" Name="DevSensorInput" />
+      <NameCon UId="33" Name="out" />
+      <NameCon UId="34" Name="en" />
     </Wire>
     <Wire UId="42">
-      <IdentCon UId="25" />
-      <NameCon UId="33" Name="EncoderPosition" />
+      <IdentCon UId="23" />
+      <NameCon UId="34" Name="SensorInput" />
     </Wire>
     <Wire UId="43">
-      <IdentCon UId="26" />
-      <NameCon UId="33" Name="TriggerDistance" />
+      <IdentCon UId="24" />
+      <NameCon UId="34" Name="DevSensorInput" />
     </Wire>
     <Wire UId="44">
-      <IdentCon UId="27" />
-      <NameCon UId="33" Name="TriggerFeedback" />
+      <IdentCon UId="25" />
+      <NameCon UId="34" Name="EncoderPosition" />
     </Wire>
     <Wire UId="45">
-      <IdentCon UId="28" />
-      <NameCon UId="33" Name="DirectionSign" />
+      <IdentCon UId="26" />
+      <NameCon UId="34" Name="TriggerDistance" />
     </Wire>
     <Wire UId="46">
-      <NameCon UId="33" Name="TriggerMovement" />
-      <IdentCon UId="29" />
+      <IdentCon UId="27" />
+      <NameCon UId="34" Name="TriggerFeedback" />
     </Wire>
     <Wire UId="47">
-      <NameCon UId="33" Name="ProductCount" />
+      <IdentCon UId="28" />
+      <NameCon UId="34" Name="DirectionSign" />
+    </Wire>
+    <Wire UId="48">
+      <NameCon UId="34" Name="eno" />
+      <NameCon UId="36" Name="in" />
+    </Wire>
+    <Wire UId="49">
+      <NameCon UId="34" Name="TriggerMovement" />
+      <IdentCon UId="29" />
+    </Wire>
+    <Wire UId="50">
+      <NameCon UId="34" Name="ProductCount" />
       <IdentCon UId="30" />
+    </Wire>
+    <Wire UId="51">
+      <IdentCon UId="31" />
+      <NameCon UId="36" Name="operand" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -4490,9 +4644,88 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <MultilingualText ID="C6" CompositionName="Title">
+      <SW.Blocks.CompileUnit ID="C6" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="ProgramDebugger" />
+        <Component Name="ProgramDebugger1" />
+        <Component Name="Prog1_Dev_Steps" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="SystemTime" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="ProgramDebugger" />
+        <Component Name="ProgramDebugger1" />
+        <Component Name="DebuggerOutput_Steps" />
+      </Symbol>
+    </Access>
+    <Call UId="24">
+      <CallInfo Name="FB_ProgramDebugger" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="25">
+          <Component Name="FB_ProgramDebugger_Prog1" />
+        </Instance>
+        <Parameter Name="Steps" Section="Input" Type="Array[0..50] of &quot;StepType&quot;" />
+        <Parameter Name="CurrentTime" Section="Input" Type="Time" />
+        <Parameter Name="Step_Text_Output" Section="Output" Type="String" />
+      </CallInfo>
+    </Call>
+  </Parts>
+  <Wires>
+    <Wire UId="26">
+      <Powerrail />
+      <NameCon UId="24" Name="en" />
+    </Wire>
+    <Wire UId="27">
+      <IdentCon UId="21" />
+      <NameCon UId="24" Name="Steps" />
+    </Wire>
+    <Wire UId="28">
+      <IdentCon UId="22" />
+      <NameCon UId="24" Name="CurrentTime" />
+    </Wire>
+    <Wire UId="29">
+      <NameCon UId="24" Name="Step_Text_Output" />
+      <IdentCon UId="23" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
         <ObjectList>
-          <MultilingualTextItem ID="C7" CompositionName="Items">
+          <MultilingualText ID="C7" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="C8" CompositionName="Items">
+                <AttributeList>
+                  <Culture>nl-NL</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="C9" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="CA" CompositionName="Items">
+                <AttributeList>
+                  <Culture>nl-NL</Culture>
+                  <Text>Program Debugger 1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <MultilingualText ID="CB" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="CC" CompositionName="Items">
             <AttributeList>
               <Culture>nl-NL</Culture>
               <Text>MAIN Program - Sweep</Text>

@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2025-10-06T17:54:27.6815497Z</Created>
+    <Created>2025-11-10T21:24:54.8392617Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -118,9 +118,56 @@
         <Component Name="Drive 1 RUN FWD" />
       </Symbol>
     </Access>
-    <Call UId="29">
+    <Access Scope="GlobalVariable" UId="29">
+      <Symbol>
+        <Component Name="Drive_1_Manual" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="30">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="OutputUserText" />
+        <Component Name="Axis1" />
+        <Component Name="User1.Text" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="31">
+      <Symbol>
+        <Component Name="Drive_1_Auto" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="32">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="OutputUserText" />
+        <Component Name="Axis1" />
+        <Component Name="User2.Text" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="33">
+      <Symbol>
+        <Component Name="Drive_1_RefRun" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="34">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="OutputUserText" />
+        <Component Name="Axis1" />
+        <Component Name="User3.Text" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="35">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="OutputUserText" />
+        <Component Name="Axis1" />
+        <Component Name="CurrentUserText" />
+      </Symbol>
+    </Access>
+    <Call UId="36">
       <CallInfo Name="Ouput_Function_1" BlockType="FB">
-        <Instance Scope="GlobalVariable" UId="30">
+        <Instance Scope="GlobalVariable" UId="37">
           <Component Name="Ouput_Function_1_Drive1" />
         </Instance>
         <Parameter Name="Stop Contact" Section="Input" Type="Bool" />
@@ -134,47 +181,103 @@
         <Parameter Name="Ouput Signal" Section="Output" Type="Bool" />
       </CallInfo>
     </Call>
+    <Call UId="38">
+      <CallInfo Name="FB_OutputUsers" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="39">
+          <Component Name="FB_OutputUsers_Axis1" />
+        </Instance>
+        <Parameter Name="User1.Feedback" Section="Input" Type="Bool" />
+        <Parameter Name="User1.Text" Section="Input" Type="String" />
+        <Parameter Name="User2.Feedback" Section="Input" Type="Bool" />
+        <Parameter Name="User2.Text" Section="Input" Type="String" />
+        <Parameter Name="User3.Feedback" Section="Input" Type="Bool" />
+        <Parameter Name="User3.Text" Section="Input" Type="String" />
+        <Parameter Name="User4.Feedback" Section="Input" Type="Bool" />
+        <Parameter Name="User4.Text" Section="Input" Type="String" />
+        <Parameter Name="User_Text_Output" Section="Output" Type="String" />
+      </CallInfo>
+    </Call>
   </Parts>
   <Wires>
-    <Wire UId="32">
+    <Wire UId="43">
       <Powerrail />
-      <NameCon UId="29" Name="en" />
+      <NameCon UId="36" Name="en" />
     </Wire>
-    <Wire UId="33">
+    <Wire UId="44">
       <IdentCon UId="21" />
-      <NameCon UId="29" Name="Stop Contact" />
+      <NameCon UId="36" Name="Stop Contact" />
     </Wire>
-    <Wire UId="34">
+    <Wire UId="45">
       <IdentCon UId="22" />
-      <NameCon UId="29" Name="Manual Command" />
+      <NameCon UId="36" Name="Manual Command" />
     </Wire>
-    <Wire UId="35">
+    <Wire UId="46">
       <IdentCon UId="23" />
-      <NameCon UId="29" Name="Auto Command" />
+      <NameCon UId="36" Name="Auto Command" />
     </Wire>
-    <Wire UId="36">
+    <Wire UId="47">
       <IdentCon UId="24" />
-      <NameCon UId="29" Name="Option Command" />
+      <NameCon UId="36" Name="Option Command" />
     </Wire>
-    <Wire UId="37">
+    <Wire UId="48">
       <IdentCon UId="25" />
-      <NameCon UId="29" Name="Disable Command" />
+      <NameCon UId="36" Name="Disable Command" />
     </Wire>
-    <Wire UId="38">
-      <OpenCon UId="31" />
-      <NameCon UId="29" Name="Disable Command 2" />
+    <Wire UId="49">
+      <OpenCon UId="40" />
+      <NameCon UId="36" Name="Disable Command 2" />
     </Wire>
-    <Wire UId="39">
+    <Wire UId="50">
       <IdentCon UId="26" />
-      <NameCon UId="29" Name="StartScreenManual" />
+      <NameCon UId="36" Name="StartScreenManual" />
     </Wire>
-    <Wire UId="40">
+    <Wire UId="51">
       <IdentCon UId="27" />
-      <NameCon UId="29" Name="Safety_StartScreenManual" />
+      <NameCon UId="36" Name="Safety_StartScreenManual" />
     </Wire>
-    <Wire UId="41">
-      <NameCon UId="29" Name="Ouput Signal" />
+    <Wire UId="52">
+      <NameCon UId="36" Name="eno" />
+      <NameCon UId="38" Name="en" />
+    </Wire>
+    <Wire UId="53">
+      <NameCon UId="36" Name="Ouput Signal" />
       <IdentCon UId="28" />
+    </Wire>
+    <Wire UId="54">
+      <IdentCon UId="29" />
+      <NameCon UId="38" Name="User1.Feedback" />
+    </Wire>
+    <Wire UId="55">
+      <IdentCon UId="30" />
+      <NameCon UId="38" Name="User1.Text" />
+    </Wire>
+    <Wire UId="56">
+      <IdentCon UId="31" />
+      <NameCon UId="38" Name="User2.Feedback" />
+    </Wire>
+    <Wire UId="57">
+      <IdentCon UId="32" />
+      <NameCon UId="38" Name="User2.Text" />
+    </Wire>
+    <Wire UId="58">
+      <IdentCon UId="33" />
+      <NameCon UId="38" Name="User3.Feedback" />
+    </Wire>
+    <Wire UId="59">
+      <IdentCon UId="34" />
+      <NameCon UId="38" Name="User3.Text" />
+    </Wire>
+    <Wire UId="60">
+      <OpenCon UId="41" />
+      <NameCon UId="38" Name="User4.Feedback" />
+    </Wire>
+    <Wire UId="61">
+      <OpenCon UId="42" />
+      <NameCon UId="38" Name="User4.Text" />
+    </Wire>
+    <Wire UId="62">
+      <NameCon UId="38" Name="User_Text_Output" />
+      <IdentCon UId="35" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -411,9 +514,43 @@
         <Component Name="Drive 2 RUN FWD" />
       </Symbol>
     </Access>
-    <Call UId="27">
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="Drive_2_Manual" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="28">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="OutputUserText" />
+        <Component Name="Axis2" />
+        <Component Name="User1.Text" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="29">
+      <Symbol>
+        <Component Name="Drive_2_Auto" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="30">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="OutputUserText" />
+        <Component Name="Axis2" />
+        <Component Name="User2.Text" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="31">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="OutputUserText" />
+        <Component Name="Axis2" />
+        <Component Name="CurrentUserText" />
+      </Symbol>
+    </Access>
+    <Call UId="32">
       <CallInfo Name="Ouput_Function_1" BlockType="FB">
-        <Instance Scope="GlobalVariable" UId="28">
+        <Instance Scope="GlobalVariable" UId="33">
           <Component Name="Ouput_Function_1_Drive2" />
         </Instance>
         <Parameter Name="Stop Contact" Section="Input" Type="Bool" />
@@ -427,47 +564,103 @@
         <Parameter Name="Ouput Signal" Section="Output" Type="Bool" />
       </CallInfo>
     </Call>
+    <Call UId="34">
+      <CallInfo Name="FB_OutputUsers" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="35">
+          <Component Name="FB_OutputUsers_Axis2" />
+        </Instance>
+        <Parameter Name="User1.Feedback" Section="Input" Type="Bool" />
+        <Parameter Name="User1.Text" Section="Input" Type="String" />
+        <Parameter Name="User2.Feedback" Section="Input" Type="Bool" />
+        <Parameter Name="User2.Text" Section="Input" Type="String" />
+        <Parameter Name="User3.Feedback" Section="Input" Type="Bool" />
+        <Parameter Name="User3.Text" Section="Input" Type="String" />
+        <Parameter Name="User4.Feedback" Section="Input" Type="Bool" />
+        <Parameter Name="User4.Text" Section="Input" Type="String" />
+        <Parameter Name="User_Text_Output" Section="Output" Type="String" />
+      </CallInfo>
+    </Call>
   </Parts>
   <Wires>
-    <Wire UId="32">
+    <Wire UId="43">
       <Powerrail />
-      <NameCon UId="27" Name="en" />
+      <NameCon UId="32" Name="en" />
     </Wire>
-    <Wire UId="33">
+    <Wire UId="44">
       <IdentCon UId="21" />
-      <NameCon UId="27" Name="Stop Contact" />
+      <NameCon UId="32" Name="Stop Contact" />
     </Wire>
-    <Wire UId="34">
+    <Wire UId="45">
       <IdentCon UId="22" />
-      <NameCon UId="27" Name="Manual Command" />
+      <NameCon UId="32" Name="Manual Command" />
     </Wire>
-    <Wire UId="35">
+    <Wire UId="46">
       <IdentCon UId="23" />
-      <NameCon UId="27" Name="Auto Command" />
+      <NameCon UId="32" Name="Auto Command" />
     </Wire>
-    <Wire UId="36">
-      <OpenCon UId="29" />
-      <NameCon UId="27" Name="Option Command" />
+    <Wire UId="47">
+      <OpenCon UId="36" />
+      <NameCon UId="32" Name="Option Command" />
     </Wire>
-    <Wire UId="37">
+    <Wire UId="48">
       <IdentCon UId="24" />
-      <NameCon UId="27" Name="Disable Command" />
+      <NameCon UId="32" Name="Disable Command" />
     </Wire>
-    <Wire UId="38">
+    <Wire UId="49">
       <IdentCon UId="25" />
-      <NameCon UId="27" Name="Disable Command 2" />
+      <NameCon UId="32" Name="Disable Command 2" />
     </Wire>
-    <Wire UId="39">
-      <OpenCon UId="30" />
-      <NameCon UId="27" Name="StartScreenManual" />
+    <Wire UId="50">
+      <OpenCon UId="37" />
+      <NameCon UId="32" Name="StartScreenManual" />
     </Wire>
-    <Wire UId="40">
-      <OpenCon UId="31" />
-      <NameCon UId="27" Name="Safety_StartScreenManual" />
+    <Wire UId="51">
+      <OpenCon UId="38" />
+      <NameCon UId="32" Name="Safety_StartScreenManual" />
     </Wire>
-    <Wire UId="41">
-      <NameCon UId="27" Name="Ouput Signal" />
+    <Wire UId="52">
+      <NameCon UId="32" Name="eno" />
+      <NameCon UId="34" Name="en" />
+    </Wire>
+    <Wire UId="53">
+      <NameCon UId="32" Name="Ouput Signal" />
       <IdentCon UId="26" />
+    </Wire>
+    <Wire UId="54">
+      <IdentCon UId="27" />
+      <NameCon UId="34" Name="User1.Feedback" />
+    </Wire>
+    <Wire UId="55">
+      <IdentCon UId="28" />
+      <NameCon UId="34" Name="User1.Text" />
+    </Wire>
+    <Wire UId="56">
+      <IdentCon UId="29" />
+      <NameCon UId="34" Name="User2.Feedback" />
+    </Wire>
+    <Wire UId="57">
+      <IdentCon UId="30" />
+      <NameCon UId="34" Name="User2.Text" />
+    </Wire>
+    <Wire UId="58">
+      <OpenCon UId="39" />
+      <NameCon UId="34" Name="User3.Feedback" />
+    </Wire>
+    <Wire UId="59">
+      <OpenCon UId="40" />
+      <NameCon UId="34" Name="User3.Text" />
+    </Wire>
+    <Wire UId="60">
+      <OpenCon UId="41" />
+      <NameCon UId="34" Name="User4.Feedback" />
+    </Wire>
+    <Wire UId="61">
+      <OpenCon UId="42" />
+      <NameCon UId="34" Name="User4.Text" />
+    </Wire>
+    <Wire UId="62">
+      <NameCon UId="34" Name="User_Text_Output" />
+      <IdentCon UId="31" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -507,12 +700,17 @@
     </Access>
     <Access Scope="GlobalVariable" UId="22">
       <Symbol>
+        <Component Name="Drive_3_Manual" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
         <Component Name="Drive_3_Auto" />
       </Symbol>
     </Access>
-    <Call UId="23">
+    <Call UId="24">
       <CallInfo Name="Ouput_Function_1" BlockType="FB">
-        <Instance Scope="GlobalVariable" UId="24">
+        <Instance Scope="GlobalVariable" UId="25">
           <Component Name="Ouput_Function_1_Drive3" />
         </Instance>
         <Parameter Name="Stop Contact" Section="Input" Type="Bool" />
@@ -530,42 +728,42 @@
   <Wires>
     <Wire UId="32">
       <Powerrail />
-      <NameCon UId="23" Name="en" />
+      <NameCon UId="24" Name="en" />
     </Wire>
     <Wire UId="33">
       <IdentCon UId="21" />
-      <NameCon UId="23" Name="Stop Contact" />
+      <NameCon UId="24" Name="Stop Contact" />
     </Wire>
     <Wire UId="34">
-      <OpenCon UId="25" />
-      <NameCon UId="23" Name="Manual Command" />
+      <IdentCon UId="22" />
+      <NameCon UId="24" Name="Manual Command" />
     </Wire>
     <Wire UId="35">
-      <IdentCon UId="22" />
-      <NameCon UId="23" Name="Auto Command" />
+      <IdentCon UId="23" />
+      <NameCon UId="24" Name="Auto Command" />
     </Wire>
     <Wire UId="36">
       <OpenCon UId="26" />
-      <NameCon UId="23" Name="Option Command" />
+      <NameCon UId="24" Name="Option Command" />
     </Wire>
     <Wire UId="37">
       <OpenCon UId="27" />
-      <NameCon UId="23" Name="Disable Command" />
+      <NameCon UId="24" Name="Disable Command" />
     </Wire>
     <Wire UId="38">
       <OpenCon UId="28" />
-      <NameCon UId="23" Name="Disable Command 2" />
+      <NameCon UId="24" Name="Disable Command 2" />
     </Wire>
     <Wire UId="39">
       <OpenCon UId="29" />
-      <NameCon UId="23" Name="StartScreenManual" />
+      <NameCon UId="24" Name="StartScreenManual" />
     </Wire>
     <Wire UId="40">
       <OpenCon UId="30" />
-      <NameCon UId="23" Name="Safety_StartScreenManual" />
+      <NameCon UId="24" Name="Safety_StartScreenManual" />
     </Wire>
     <Wire UId="41">
-      <NameCon UId="23" Name="Ouput Signal" />
+      <NameCon UId="24" Name="Ouput Signal" />
       <OpenCon UId="31" />
     </Wire>
   </Wires>
@@ -588,7 +786,7 @@
               <MultilingualTextItem ID="1B" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text>Drive 3 - Control</Text>
+                  <Text>Drive 3 - Control (Currently controlled by Servo Drive Manager!)</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -631,9 +829,43 @@
         <Component Name="Drive 4 RUN FWD" />
       </Symbol>
     </Access>
-    <Call UId="27">
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="Drive_4_Manual" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="28">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="OutputUserText" />
+        <Component Name="Axis4" />
+        <Component Name="User1.Text" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="29">
+      <Symbol>
+        <Component Name="Drive_4_Auto" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="30">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="OutputUserText" />
+        <Component Name="Axis4" />
+        <Component Name="User2.Text" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="31">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="OutputUserText" />
+        <Component Name="Axis4" />
+        <Component Name="CurrentUserText" />
+      </Symbol>
+    </Access>
+    <Call UId="32">
       <CallInfo Name="Ouput_Function_1" BlockType="FB">
-        <Instance Scope="GlobalVariable" UId="28">
+        <Instance Scope="GlobalVariable" UId="33">
           <Component Name="Ouput_Function_1_Drive4" />
         </Instance>
         <Parameter Name="Stop Contact" Section="Input" Type="Bool" />
@@ -647,47 +879,103 @@
         <Parameter Name="Ouput Signal" Section="Output" Type="Bool" />
       </CallInfo>
     </Call>
+    <Call UId="34">
+      <CallInfo Name="FB_OutputUsers" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="35">
+          <Component Name="FB_OutputUsers_Axis4" />
+        </Instance>
+        <Parameter Name="User1.Feedback" Section="Input" Type="Bool" />
+        <Parameter Name="User1.Text" Section="Input" Type="String" />
+        <Parameter Name="User2.Feedback" Section="Input" Type="Bool" />
+        <Parameter Name="User2.Text" Section="Input" Type="String" />
+        <Parameter Name="User3.Feedback" Section="Input" Type="Bool" />
+        <Parameter Name="User3.Text" Section="Input" Type="String" />
+        <Parameter Name="User4.Feedback" Section="Input" Type="Bool" />
+        <Parameter Name="User4.Text" Section="Input" Type="String" />
+        <Parameter Name="User_Text_Output" Section="Output" Type="String" />
+      </CallInfo>
+    </Call>
   </Parts>
   <Wires>
-    <Wire UId="32">
+    <Wire UId="43">
       <Powerrail />
-      <NameCon UId="27" Name="en" />
+      <NameCon UId="32" Name="en" />
     </Wire>
-    <Wire UId="33">
+    <Wire UId="44">
       <IdentCon UId="21" />
-      <NameCon UId="27" Name="Stop Contact" />
+      <NameCon UId="32" Name="Stop Contact" />
     </Wire>
-    <Wire UId="34">
+    <Wire UId="45">
       <IdentCon UId="22" />
-      <NameCon UId="27" Name="Manual Command" />
+      <NameCon UId="32" Name="Manual Command" />
     </Wire>
-    <Wire UId="35">
+    <Wire UId="46">
       <IdentCon UId="23" />
-      <NameCon UId="27" Name="Auto Command" />
+      <NameCon UId="32" Name="Auto Command" />
     </Wire>
-    <Wire UId="36">
-      <OpenCon UId="29" />
-      <NameCon UId="27" Name="Option Command" />
+    <Wire UId="47">
+      <OpenCon UId="36" />
+      <NameCon UId="32" Name="Option Command" />
     </Wire>
-    <Wire UId="37">
+    <Wire UId="48">
       <IdentCon UId="24" />
-      <NameCon UId="27" Name="Disable Command" />
+      <NameCon UId="32" Name="Disable Command" />
     </Wire>
-    <Wire UId="38">
+    <Wire UId="49">
       <IdentCon UId="25" />
-      <NameCon UId="27" Name="Disable Command 2" />
+      <NameCon UId="32" Name="Disable Command 2" />
     </Wire>
-    <Wire UId="39">
-      <OpenCon UId="30" />
-      <NameCon UId="27" Name="StartScreenManual" />
+    <Wire UId="50">
+      <OpenCon UId="37" />
+      <NameCon UId="32" Name="StartScreenManual" />
     </Wire>
-    <Wire UId="40">
-      <OpenCon UId="31" />
-      <NameCon UId="27" Name="Safety_StartScreenManual" />
+    <Wire UId="51">
+      <OpenCon UId="38" />
+      <NameCon UId="32" Name="Safety_StartScreenManual" />
     </Wire>
-    <Wire UId="41">
-      <NameCon UId="27" Name="Ouput Signal" />
+    <Wire UId="52">
+      <NameCon UId="32" Name="eno" />
+      <NameCon UId="34" Name="en" />
+    </Wire>
+    <Wire UId="53">
+      <NameCon UId="32" Name="Ouput Signal" />
       <IdentCon UId="26" />
+    </Wire>
+    <Wire UId="54">
+      <IdentCon UId="27" />
+      <NameCon UId="34" Name="User1.Feedback" />
+    </Wire>
+    <Wire UId="55">
+      <IdentCon UId="28" />
+      <NameCon UId="34" Name="User1.Text" />
+    </Wire>
+    <Wire UId="56">
+      <IdentCon UId="29" />
+      <NameCon UId="34" Name="User2.Feedback" />
+    </Wire>
+    <Wire UId="57">
+      <IdentCon UId="30" />
+      <NameCon UId="34" Name="User2.Text" />
+    </Wire>
+    <Wire UId="58">
+      <OpenCon UId="39" />
+      <NameCon UId="34" Name="User3.Feedback" />
+    </Wire>
+    <Wire UId="59">
+      <OpenCon UId="40" />
+      <NameCon UId="34" Name="User3.Text" />
+    </Wire>
+    <Wire UId="60">
+      <OpenCon UId="41" />
+      <NameCon UId="34" Name="User4.Feedback" />
+    </Wire>
+    <Wire UId="61">
+      <OpenCon UId="42" />
+      <NameCon UId="34" Name="User4.Text" />
+    </Wire>
+    <Wire UId="62">
+      <NameCon UId="34" Name="User_Text_Output" />
+      <IdentCon UId="31" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -747,9 +1035,43 @@
         <Component Name="Drive 5 RUN FWD" />
       </Symbol>
     </Access>
-    <Call UId="26">
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="Drive_5_Manual" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="OutputUserText" />
+        <Component Name="Axis5" />
+        <Component Name="User1.Text" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="28">
+      <Symbol>
+        <Component Name="Drive_5_Auto" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="29">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="OutputUserText" />
+        <Component Name="Axis5" />
+        <Component Name="User2.Text" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="30">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="OutputUserText" />
+        <Component Name="Axis5" />
+        <Component Name="CurrentUserText" />
+      </Symbol>
+    </Access>
+    <Call UId="31">
       <CallInfo Name="Ouput_Function_1" BlockType="FB">
-        <Instance Scope="GlobalVariable" UId="27">
+        <Instance Scope="GlobalVariable" UId="32">
           <Component Name="Ouput_Function_1_Drive5" />
         </Instance>
         <Parameter Name="Stop Contact" Section="Input" Type="Bool" />
@@ -763,47 +1085,103 @@
         <Parameter Name="Ouput Signal" Section="Output" Type="Bool" />
       </CallInfo>
     </Call>
+    <Call UId="33">
+      <CallInfo Name="FB_OutputUsers" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="34">
+          <Component Name="FB_OutputUsers_Axis4" />
+        </Instance>
+        <Parameter Name="User1.Feedback" Section="Input" Type="Bool" />
+        <Parameter Name="User1.Text" Section="Input" Type="String" />
+        <Parameter Name="User2.Feedback" Section="Input" Type="Bool" />
+        <Parameter Name="User2.Text" Section="Input" Type="String" />
+        <Parameter Name="User3.Feedback" Section="Input" Type="Bool" />
+        <Parameter Name="User3.Text" Section="Input" Type="String" />
+        <Parameter Name="User4.Feedback" Section="Input" Type="Bool" />
+        <Parameter Name="User4.Text" Section="Input" Type="String" />
+        <Parameter Name="User_Text_Output" Section="Output" Type="String" />
+      </CallInfo>
+    </Call>
   </Parts>
   <Wires>
-    <Wire UId="32">
+    <Wire UId="43">
       <Powerrail />
-      <NameCon UId="26" Name="en" />
+      <NameCon UId="31" Name="en" />
     </Wire>
-    <Wire UId="33">
+    <Wire UId="44">
       <IdentCon UId="21" />
-      <NameCon UId="26" Name="Stop Contact" />
+      <NameCon UId="31" Name="Stop Contact" />
     </Wire>
-    <Wire UId="34">
+    <Wire UId="45">
       <IdentCon UId="22" />
-      <NameCon UId="26" Name="Manual Command" />
+      <NameCon UId="31" Name="Manual Command" />
     </Wire>
-    <Wire UId="35">
+    <Wire UId="46">
       <IdentCon UId="23" />
-      <NameCon UId="26" Name="Auto Command" />
+      <NameCon UId="31" Name="Auto Command" />
     </Wire>
-    <Wire UId="36">
-      <OpenCon UId="28" />
-      <NameCon UId="26" Name="Option Command" />
+    <Wire UId="47">
+      <OpenCon UId="35" />
+      <NameCon UId="31" Name="Option Command" />
     </Wire>
-    <Wire UId="37">
+    <Wire UId="48">
       <IdentCon UId="24" />
-      <NameCon UId="26" Name="Disable Command" />
+      <NameCon UId="31" Name="Disable Command" />
     </Wire>
-    <Wire UId="38">
-      <OpenCon UId="29" />
-      <NameCon UId="26" Name="Disable Command 2" />
+    <Wire UId="49">
+      <OpenCon UId="36" />
+      <NameCon UId="31" Name="Disable Command 2" />
     </Wire>
-    <Wire UId="39">
-      <OpenCon UId="30" />
-      <NameCon UId="26" Name="StartScreenManual" />
+    <Wire UId="50">
+      <OpenCon UId="37" />
+      <NameCon UId="31" Name="StartScreenManual" />
     </Wire>
-    <Wire UId="40">
-      <OpenCon UId="31" />
-      <NameCon UId="26" Name="Safety_StartScreenManual" />
+    <Wire UId="51">
+      <OpenCon UId="38" />
+      <NameCon UId="31" Name="Safety_StartScreenManual" />
     </Wire>
-    <Wire UId="41">
-      <NameCon UId="26" Name="Ouput Signal" />
+    <Wire UId="52">
+      <NameCon UId="31" Name="eno" />
+      <NameCon UId="33" Name="en" />
+    </Wire>
+    <Wire UId="53">
+      <NameCon UId="31" Name="Ouput Signal" />
       <IdentCon UId="25" />
+    </Wire>
+    <Wire UId="54">
+      <IdentCon UId="26" />
+      <NameCon UId="33" Name="User1.Feedback" />
+    </Wire>
+    <Wire UId="55">
+      <IdentCon UId="27" />
+      <NameCon UId="33" Name="User1.Text" />
+    </Wire>
+    <Wire UId="56">
+      <IdentCon UId="28" />
+      <NameCon UId="33" Name="User2.Feedback" />
+    </Wire>
+    <Wire UId="57">
+      <IdentCon UId="29" />
+      <NameCon UId="33" Name="User2.Text" />
+    </Wire>
+    <Wire UId="58">
+      <OpenCon UId="39" />
+      <NameCon UId="33" Name="User3.Feedback" />
+    </Wire>
+    <Wire UId="59">
+      <OpenCon UId="40" />
+      <NameCon UId="33" Name="User3.Text" />
+    </Wire>
+    <Wire UId="60">
+      <OpenCon UId="41" />
+      <NameCon UId="33" Name="User4.Feedback" />
+    </Wire>
+    <Wire UId="61">
+      <OpenCon UId="42" />
+      <NameCon UId="33" Name="User4.Text" />
+    </Wire>
+    <Wire UId="62">
+      <NameCon UId="33" Name="User_Text_Output" />
+      <IdentCon UId="30" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -838,12 +1216,16 @@
   <Parts>
     <Access Scope="GlobalVariable" UId="21">
       <Symbol>
-        <Component Name="Stop_valve_1" />
+        <Component Name="Valve_1_Manual" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="22">
       <Symbol>
-        <Component Name="Valve_1_Manual" />
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_1" />
+        <Component Name="Input" />
+        <Component Name="OptionCommand" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="23">
@@ -853,73 +1235,227 @@
     </Access>
     <Access Scope="GlobalVariable" UId="24">
       <Symbol>
+        <Component Name="Stop_valve_1" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
         <Component Name="PLCMemory" />
         <Component Name="Disable_Modules" />
         <Component Name="Disable_Afsluiter" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="25">
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_1" />
+        <Component Name="Input" />
+        <Component Name="DisableCommand2" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_1" />
+        <Component Name="Input" />
+        <Component Name="ControlMode" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="28">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_1" />
+        <Component Name="Input" />
+        <Component Name="InvertOutput" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="29">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_1" />
+        <Component Name="Input" />
+        <Component Name="Rising Edge Delay" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="30">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_1" />
+        <Component Name="Input" />
+        <Component Name="Falling Edge Delay" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="31">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_1" />
+        <Component Name="Input" />
+        <Component Name="Pulse On Time" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="32">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_1" />
+        <Component Name="Input" />
+        <Component Name="Pulse Off Time" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="33">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_1" />
+        <Component Name="Input" />
+        <Component Name="Force Off" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="34">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_1" />
+        <Component Name="Input" />
+        <Component Name="Force On" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="35">
       <Symbol>
         <Component Name="Valve 1" />
       </Symbol>
     </Access>
-    <Call UId="26">
-      <CallInfo Name="Ouput_Function_1" BlockType="FB">
-        <Instance Scope="GlobalVariable" UId="27">
-          <Component Name="Ouput_Function_1_Valve1" />
+    <Access Scope="GlobalVariable" UId="36">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_1" />
+        <Component Name="Output" />
+        <Component Name="Raw Base Signal" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="37">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_1" />
+        <Component Name="Output" />
+        <Component Name="Mode Result" />
+      </Symbol>
+    </Access>
+    <Call UId="38">
+      <CallInfo Name="FB_AdvOutputController" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="39">
+          <Component Name="FB_AdvOutputController_Valve1" />
         </Instance>
-        <Parameter Name="Stop Contact" Section="Input" Type="Bool" />
-        <Parameter Name="Manual Command" Section="Input" Type="Bool" />
-        <Parameter Name="Auto Command" Section="Input" Type="Bool" />
-        <Parameter Name="Option Command" Section="Input" Type="Bool" />
-        <Parameter Name="Disable Command" Section="Input" Type="Bool" />
-        <Parameter Name="Disable Command 2" Section="Input" Type="Bool" />
-        <Parameter Name="StartScreenManual" Section="Input" Type="Bool" />
+        <Parameter Name="ManualCommand" Section="Input" Type="Bool" />
+        <Parameter Name="OptionCommand" Section="Input" Type="Bool" />
+        <Parameter Name="AutoCommand" Section="Input" Type="Bool" />
+        <Parameter Name="StopContact" Section="Input" Type="Bool" />
+        <Parameter Name="DisableCommand" Section="Input" Type="Bool" />
+        <Parameter Name="DisableCommand2" Section="Input" Type="Bool" />
+        <Parameter Name="Mode" Section="Input" Type="Int" />
+        <Parameter Name="InvertOutput" Section="Input" Type="Bool" />
+        <Parameter Name="RiseDelay" Section="Input" Type="Time" />
+        <Parameter Name="FallDelay" Section="Input" Type="Time" />
+        <Parameter Name="PulseOnTime" Section="Input" Type="Time" />
+        <Parameter Name="PulseOffTime" Section="Input" Type="Time" />
+        <Parameter Name="ForceOff" Section="Input" Type="Bool" />
+        <Parameter Name="ForceOn" Section="Input" Type="Bool" />
         <Parameter Name="Safety_StartScreenManual" Section="Input" Type="Bool" />
-        <Parameter Name="Ouput Signal" Section="Output" Type="Bool" />
+        <Parameter Name="StartScreenManual" Section="Input" Type="Bool" />
+        <Parameter Name="OutputSignal" Section="Output" Type="Bool" />
+        <Parameter Name="RawBaseCommand" Section="Output" Type="Bool" />
+        <Parameter Name="ModeResult" Section="Output" Type="Bool" />
       </CallInfo>
     </Call>
   </Parts>
   <Wires>
-    <Wire UId="32">
+    <Wire UId="42">
       <Powerrail />
-      <NameCon UId="26" Name="en" />
+      <NameCon UId="38" Name="en" />
     </Wire>
-    <Wire UId="33">
+    <Wire UId="43">
       <IdentCon UId="21" />
-      <NameCon UId="26" Name="Stop Contact" />
+      <NameCon UId="38" Name="ManualCommand" />
     </Wire>
-    <Wire UId="34">
+    <Wire UId="44">
       <IdentCon UId="22" />
-      <NameCon UId="26" Name="Manual Command" />
+      <NameCon UId="38" Name="OptionCommand" />
     </Wire>
-    <Wire UId="35">
+    <Wire UId="45">
       <IdentCon UId="23" />
-      <NameCon UId="26" Name="Auto Command" />
+      <NameCon UId="38" Name="AutoCommand" />
     </Wire>
-    <Wire UId="36">
-      <OpenCon UId="28" />
-      <NameCon UId="26" Name="Option Command" />
-    </Wire>
-    <Wire UId="37">
+    <Wire UId="46">
       <IdentCon UId="24" />
-      <NameCon UId="26" Name="Disable Command" />
+      <NameCon UId="38" Name="StopContact" />
     </Wire>
-    <Wire UId="38">
-      <OpenCon UId="29" />
-      <NameCon UId="26" Name="Disable Command 2" />
-    </Wire>
-    <Wire UId="39">
-      <OpenCon UId="30" />
-      <NameCon UId="26" Name="StartScreenManual" />
-    </Wire>
-    <Wire UId="40">
-      <OpenCon UId="31" />
-      <NameCon UId="26" Name="Safety_StartScreenManual" />
-    </Wire>
-    <Wire UId="41">
-      <NameCon UId="26" Name="Ouput Signal" />
+    <Wire UId="47">
       <IdentCon UId="25" />
+      <NameCon UId="38" Name="DisableCommand" />
+    </Wire>
+    <Wire UId="48">
+      <IdentCon UId="26" />
+      <NameCon UId="38" Name="DisableCommand2" />
+    </Wire>
+    <Wire UId="49">
+      <IdentCon UId="27" />
+      <NameCon UId="38" Name="Mode" />
+    </Wire>
+    <Wire UId="50">
+      <IdentCon UId="28" />
+      <NameCon UId="38" Name="InvertOutput" />
+    </Wire>
+    <Wire UId="51">
+      <IdentCon UId="29" />
+      <NameCon UId="38" Name="RiseDelay" />
+    </Wire>
+    <Wire UId="52">
+      <IdentCon UId="30" />
+      <NameCon UId="38" Name="FallDelay" />
+    </Wire>
+    <Wire UId="53">
+      <IdentCon UId="31" />
+      <NameCon UId="38" Name="PulseOnTime" />
+    </Wire>
+    <Wire UId="54">
+      <IdentCon UId="32" />
+      <NameCon UId="38" Name="PulseOffTime" />
+    </Wire>
+    <Wire UId="55">
+      <IdentCon UId="33" />
+      <NameCon UId="38" Name="ForceOff" />
+    </Wire>
+    <Wire UId="56">
+      <IdentCon UId="34" />
+      <NameCon UId="38" Name="ForceOn" />
+    </Wire>
+    <Wire UId="57">
+      <OpenCon UId="40" />
+      <NameCon UId="38" Name="Safety_StartScreenManual" />
+    </Wire>
+    <Wire UId="58">
+      <OpenCon UId="41" />
+      <NameCon UId="38" Name="StartScreenManual" />
+    </Wire>
+    <Wire UId="59">
+      <NameCon UId="38" Name="OutputSignal" />
+      <IdentCon UId="35" />
+    </Wire>
+    <Wire UId="60">
+      <NameCon UId="38" Name="RawBaseCommand" />
+      <IdentCon UId="36" />
+    </Wire>
+    <Wire UId="61">
+      <NameCon UId="38" Name="ModeResult" />
+      <IdentCon UId="37" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -1070,12 +1606,16 @@
   <Parts>
     <Access Scope="GlobalVariable" UId="21">
       <Symbol>
-        <Component Name="Stop_valve_3" />
+        <Component Name="Valve_3_Manual" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="22">
       <Symbol>
-        <Component Name="Valve_3_Manual" />
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_3" />
+        <Component Name="Input" />
+        <Component Name="OptionCommand" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="23">
@@ -1085,73 +1625,227 @@
     </Access>
     <Access Scope="GlobalVariable" UId="24">
       <Symbol>
+        <Component Name="Stop_valve_3" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
         <Component Name="PLCMemory" />
         <Component Name="Disable_Modules" />
         <Component Name="Disable_Aandruk1" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="25">
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_3" />
+        <Component Name="Input" />
+        <Component Name="DisableCommand2" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_3" />
+        <Component Name="Input" />
+        <Component Name="ControlMode" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="28">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_3" />
+        <Component Name="Input" />
+        <Component Name="InvertOutput" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="29">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_3" />
+        <Component Name="Input" />
+        <Component Name="Rising Edge Delay" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="30">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_3" />
+        <Component Name="Input" />
+        <Component Name="Falling Edge Delay" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="31">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_3" />
+        <Component Name="Input" />
+        <Component Name="Pulse On Time" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="32">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_3" />
+        <Component Name="Input" />
+        <Component Name="Pulse Off Time" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="33">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_3" />
+        <Component Name="Input" />
+        <Component Name="Force Off" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="34">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_3" />
+        <Component Name="Input" />
+        <Component Name="Force On" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="35">
       <Symbol>
         <Component Name="Valve 3" />
       </Symbol>
     </Access>
-    <Call UId="26">
-      <CallInfo Name="Ouput_Function_1" BlockType="FB">
-        <Instance Scope="GlobalVariable" UId="27">
-          <Component Name="Ouput_Function_1_Valve3" />
+    <Access Scope="GlobalVariable" UId="36">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_3" />
+        <Component Name="Output" />
+        <Component Name="Raw Base Signal" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="37">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_3" />
+        <Component Name="Output" />
+        <Component Name="Mode Result" />
+      </Symbol>
+    </Access>
+    <Call UId="38">
+      <CallInfo Name="FB_AdvOutputController" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="39">
+          <Component Name="FB_AdvOutputController_Valve3" />
         </Instance>
-        <Parameter Name="Stop Contact" Section="Input" Type="Bool" />
-        <Parameter Name="Manual Command" Section="Input" Type="Bool" />
-        <Parameter Name="Auto Command" Section="Input" Type="Bool" />
-        <Parameter Name="Option Command" Section="Input" Type="Bool" />
-        <Parameter Name="Disable Command" Section="Input" Type="Bool" />
-        <Parameter Name="Disable Command 2" Section="Input" Type="Bool" />
-        <Parameter Name="StartScreenManual" Section="Input" Type="Bool" />
+        <Parameter Name="ManualCommand" Section="Input" Type="Bool" />
+        <Parameter Name="OptionCommand" Section="Input" Type="Bool" />
+        <Parameter Name="AutoCommand" Section="Input" Type="Bool" />
+        <Parameter Name="StopContact" Section="Input" Type="Bool" />
+        <Parameter Name="DisableCommand" Section="Input" Type="Bool" />
+        <Parameter Name="DisableCommand2" Section="Input" Type="Bool" />
+        <Parameter Name="Mode" Section="Input" Type="Int" />
+        <Parameter Name="InvertOutput" Section="Input" Type="Bool" />
+        <Parameter Name="RiseDelay" Section="Input" Type="Time" />
+        <Parameter Name="FallDelay" Section="Input" Type="Time" />
+        <Parameter Name="PulseOnTime" Section="Input" Type="Time" />
+        <Parameter Name="PulseOffTime" Section="Input" Type="Time" />
+        <Parameter Name="ForceOff" Section="Input" Type="Bool" />
+        <Parameter Name="ForceOn" Section="Input" Type="Bool" />
         <Parameter Name="Safety_StartScreenManual" Section="Input" Type="Bool" />
-        <Parameter Name="Ouput Signal" Section="Output" Type="Bool" />
+        <Parameter Name="StartScreenManual" Section="Input" Type="Bool" />
+        <Parameter Name="OutputSignal" Section="Output" Type="Bool" />
+        <Parameter Name="RawBaseCommand" Section="Output" Type="Bool" />
+        <Parameter Name="ModeResult" Section="Output" Type="Bool" />
       </CallInfo>
     </Call>
   </Parts>
   <Wires>
-    <Wire UId="32">
+    <Wire UId="42">
       <Powerrail />
-      <NameCon UId="26" Name="en" />
+      <NameCon UId="38" Name="en" />
     </Wire>
-    <Wire UId="33">
+    <Wire UId="43">
       <IdentCon UId="21" />
-      <NameCon UId="26" Name="Stop Contact" />
+      <NameCon UId="38" Name="ManualCommand" />
     </Wire>
-    <Wire UId="34">
+    <Wire UId="44">
       <IdentCon UId="22" />
-      <NameCon UId="26" Name="Manual Command" />
+      <NameCon UId="38" Name="OptionCommand" />
     </Wire>
-    <Wire UId="35">
+    <Wire UId="45">
       <IdentCon UId="23" />
-      <NameCon UId="26" Name="Auto Command" />
+      <NameCon UId="38" Name="AutoCommand" />
     </Wire>
-    <Wire UId="36">
-      <OpenCon UId="28" />
-      <NameCon UId="26" Name="Option Command" />
-    </Wire>
-    <Wire UId="37">
+    <Wire UId="46">
       <IdentCon UId="24" />
-      <NameCon UId="26" Name="Disable Command" />
+      <NameCon UId="38" Name="StopContact" />
     </Wire>
-    <Wire UId="38">
-      <OpenCon UId="29" />
-      <NameCon UId="26" Name="Disable Command 2" />
-    </Wire>
-    <Wire UId="39">
-      <OpenCon UId="30" />
-      <NameCon UId="26" Name="StartScreenManual" />
-    </Wire>
-    <Wire UId="40">
-      <OpenCon UId="31" />
-      <NameCon UId="26" Name="Safety_StartScreenManual" />
-    </Wire>
-    <Wire UId="41">
-      <NameCon UId="26" Name="Ouput Signal" />
+    <Wire UId="47">
       <IdentCon UId="25" />
+      <NameCon UId="38" Name="DisableCommand" />
+    </Wire>
+    <Wire UId="48">
+      <IdentCon UId="26" />
+      <NameCon UId="38" Name="DisableCommand2" />
+    </Wire>
+    <Wire UId="49">
+      <IdentCon UId="27" />
+      <NameCon UId="38" Name="Mode" />
+    </Wire>
+    <Wire UId="50">
+      <IdentCon UId="28" />
+      <NameCon UId="38" Name="InvertOutput" />
+    </Wire>
+    <Wire UId="51">
+      <IdentCon UId="29" />
+      <NameCon UId="38" Name="RiseDelay" />
+    </Wire>
+    <Wire UId="52">
+      <IdentCon UId="30" />
+      <NameCon UId="38" Name="FallDelay" />
+    </Wire>
+    <Wire UId="53">
+      <IdentCon UId="31" />
+      <NameCon UId="38" Name="PulseOnTime" />
+    </Wire>
+    <Wire UId="54">
+      <IdentCon UId="32" />
+      <NameCon UId="38" Name="PulseOffTime" />
+    </Wire>
+    <Wire UId="55">
+      <IdentCon UId="33" />
+      <NameCon UId="38" Name="ForceOff" />
+    </Wire>
+    <Wire UId="56">
+      <IdentCon UId="34" />
+      <NameCon UId="38" Name="ForceOn" />
+    </Wire>
+    <Wire UId="57">
+      <OpenCon UId="40" />
+      <NameCon UId="38" Name="Safety_StartScreenManual" />
+    </Wire>
+    <Wire UId="58">
+      <OpenCon UId="41" />
+      <NameCon UId="38" Name="StartScreenManual" />
+    </Wire>
+    <Wire UId="59">
+      <NameCon UId="38" Name="OutputSignal" />
+      <IdentCon UId="35" />
+    </Wire>
+    <Wire UId="60">
+      <NameCon UId="38" Name="RawBaseCommand" />
+      <IdentCon UId="36" />
+    </Wire>
+    <Wire UId="61">
+      <NameCon UId="38" Name="ModeResult" />
+      <IdentCon UId="37" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -1186,12 +1880,16 @@
   <Parts>
     <Access Scope="GlobalVariable" UId="21">
       <Symbol>
-        <Component Name="Stop_valve_4" />
+        <Component Name="Valve_4_Manual" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="22">
       <Symbol>
-        <Component Name="Valve_4_Manual" />
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_4" />
+        <Component Name="Input" />
+        <Component Name="OptionCommand" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="23">
@@ -1201,73 +1899,227 @@
     </Access>
     <Access Scope="GlobalVariable" UId="24">
       <Symbol>
+        <Component Name="Stop_valve_4" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
         <Component Name="PLCMemory" />
         <Component Name="Disable_Modules" />
         <Component Name="Disable_Aandruk2" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="25">
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_4" />
+        <Component Name="Input" />
+        <Component Name="DisableCommand2" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_4" />
+        <Component Name="Input" />
+        <Component Name="ControlMode" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="28">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_4" />
+        <Component Name="Input" />
+        <Component Name="InvertOutput" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="29">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_4" />
+        <Component Name="Input" />
+        <Component Name="Rising Edge Delay" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="30">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_4" />
+        <Component Name="Input" />
+        <Component Name="Falling Edge Delay" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="31">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_4" />
+        <Component Name="Input" />
+        <Component Name="Pulse On Time" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="32">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_4" />
+        <Component Name="Input" />
+        <Component Name="Pulse Off Time" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="33">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_4" />
+        <Component Name="Input" />
+        <Component Name="Force Off" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="34">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_4" />
+        <Component Name="Input" />
+        <Component Name="Force On" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="35">
       <Symbol>
         <Component Name="Valve 4" />
       </Symbol>
     </Access>
-    <Call UId="26">
-      <CallInfo Name="Ouput_Function_1" BlockType="FB">
-        <Instance Scope="GlobalVariable" UId="27">
-          <Component Name="Ouput_Function_1_Valve4" />
+    <Access Scope="GlobalVariable" UId="36">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_4" />
+        <Component Name="Output" />
+        <Component Name="Raw Base Signal" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="37">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_4" />
+        <Component Name="Output" />
+        <Component Name="Mode Result" />
+      </Symbol>
+    </Access>
+    <Call UId="38">
+      <CallInfo Name="FB_AdvOutputController" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="39">
+          <Component Name="FB_AdvOutputController_Valve4" />
         </Instance>
-        <Parameter Name="Stop Contact" Section="Input" Type="Bool" />
-        <Parameter Name="Manual Command" Section="Input" Type="Bool" />
-        <Parameter Name="Auto Command" Section="Input" Type="Bool" />
-        <Parameter Name="Option Command" Section="Input" Type="Bool" />
-        <Parameter Name="Disable Command" Section="Input" Type="Bool" />
-        <Parameter Name="Disable Command 2" Section="Input" Type="Bool" />
-        <Parameter Name="StartScreenManual" Section="Input" Type="Bool" />
+        <Parameter Name="ManualCommand" Section="Input" Type="Bool" />
+        <Parameter Name="OptionCommand" Section="Input" Type="Bool" />
+        <Parameter Name="AutoCommand" Section="Input" Type="Bool" />
+        <Parameter Name="StopContact" Section="Input" Type="Bool" />
+        <Parameter Name="DisableCommand" Section="Input" Type="Bool" />
+        <Parameter Name="DisableCommand2" Section="Input" Type="Bool" />
+        <Parameter Name="Mode" Section="Input" Type="Int" />
+        <Parameter Name="InvertOutput" Section="Input" Type="Bool" />
+        <Parameter Name="RiseDelay" Section="Input" Type="Time" />
+        <Parameter Name="FallDelay" Section="Input" Type="Time" />
+        <Parameter Name="PulseOnTime" Section="Input" Type="Time" />
+        <Parameter Name="PulseOffTime" Section="Input" Type="Time" />
+        <Parameter Name="ForceOff" Section="Input" Type="Bool" />
+        <Parameter Name="ForceOn" Section="Input" Type="Bool" />
         <Parameter Name="Safety_StartScreenManual" Section="Input" Type="Bool" />
-        <Parameter Name="Ouput Signal" Section="Output" Type="Bool" />
+        <Parameter Name="StartScreenManual" Section="Input" Type="Bool" />
+        <Parameter Name="OutputSignal" Section="Output" Type="Bool" />
+        <Parameter Name="RawBaseCommand" Section="Output" Type="Bool" />
+        <Parameter Name="ModeResult" Section="Output" Type="Bool" />
       </CallInfo>
     </Call>
   </Parts>
   <Wires>
-    <Wire UId="32">
+    <Wire UId="42">
       <Powerrail />
-      <NameCon UId="26" Name="en" />
+      <NameCon UId="38" Name="en" />
     </Wire>
-    <Wire UId="33">
+    <Wire UId="43">
       <IdentCon UId="21" />
-      <NameCon UId="26" Name="Stop Contact" />
+      <NameCon UId="38" Name="ManualCommand" />
     </Wire>
-    <Wire UId="34">
+    <Wire UId="44">
       <IdentCon UId="22" />
-      <NameCon UId="26" Name="Manual Command" />
+      <NameCon UId="38" Name="OptionCommand" />
     </Wire>
-    <Wire UId="35">
+    <Wire UId="45">
       <IdentCon UId="23" />
-      <NameCon UId="26" Name="Auto Command" />
+      <NameCon UId="38" Name="AutoCommand" />
     </Wire>
-    <Wire UId="36">
-      <OpenCon UId="28" />
-      <NameCon UId="26" Name="Option Command" />
-    </Wire>
-    <Wire UId="37">
+    <Wire UId="46">
       <IdentCon UId="24" />
-      <NameCon UId="26" Name="Disable Command" />
+      <NameCon UId="38" Name="StopContact" />
     </Wire>
-    <Wire UId="38">
-      <OpenCon UId="29" />
-      <NameCon UId="26" Name="Disable Command 2" />
-    </Wire>
-    <Wire UId="39">
-      <OpenCon UId="30" />
-      <NameCon UId="26" Name="StartScreenManual" />
-    </Wire>
-    <Wire UId="40">
-      <OpenCon UId="31" />
-      <NameCon UId="26" Name="Safety_StartScreenManual" />
-    </Wire>
-    <Wire UId="41">
-      <NameCon UId="26" Name="Ouput Signal" />
+    <Wire UId="47">
       <IdentCon UId="25" />
+      <NameCon UId="38" Name="DisableCommand" />
+    </Wire>
+    <Wire UId="48">
+      <IdentCon UId="26" />
+      <NameCon UId="38" Name="DisableCommand2" />
+    </Wire>
+    <Wire UId="49">
+      <IdentCon UId="27" />
+      <NameCon UId="38" Name="Mode" />
+    </Wire>
+    <Wire UId="50">
+      <IdentCon UId="28" />
+      <NameCon UId="38" Name="InvertOutput" />
+    </Wire>
+    <Wire UId="51">
+      <IdentCon UId="29" />
+      <NameCon UId="38" Name="RiseDelay" />
+    </Wire>
+    <Wire UId="52">
+      <IdentCon UId="30" />
+      <NameCon UId="38" Name="FallDelay" />
+    </Wire>
+    <Wire UId="53">
+      <IdentCon UId="31" />
+      <NameCon UId="38" Name="PulseOnTime" />
+    </Wire>
+    <Wire UId="54">
+      <IdentCon UId="32" />
+      <NameCon UId="38" Name="PulseOffTime" />
+    </Wire>
+    <Wire UId="55">
+      <IdentCon UId="33" />
+      <NameCon UId="38" Name="ForceOff" />
+    </Wire>
+    <Wire UId="56">
+      <IdentCon UId="34" />
+      <NameCon UId="38" Name="ForceOn" />
+    </Wire>
+    <Wire UId="57">
+      <OpenCon UId="40" />
+      <NameCon UId="38" Name="Safety_StartScreenManual" />
+    </Wire>
+    <Wire UId="58">
+      <OpenCon UId="41" />
+      <NameCon UId="38" Name="StartScreenManual" />
+    </Wire>
+    <Wire UId="59">
+      <NameCon UId="38" Name="OutputSignal" />
+      <IdentCon UId="35" />
+    </Wire>
+    <Wire UId="60">
+      <NameCon UId="38" Name="RawBaseCommand" />
+      <IdentCon UId="36" />
+    </Wire>
+    <Wire UId="61">
+      <NameCon UId="38" Name="ModeResult" />
+      <IdentCon UId="37" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -1302,12 +2154,16 @@
   <Parts>
     <Access Scope="GlobalVariable" UId="21">
       <Symbol>
-        <Component Name="Stop_valve_5" />
+        <Component Name="Valve_5_Manual" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="22">
       <Symbol>
-        <Component Name="Valve_5_Manual" />
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_5" />
+        <Component Name="Input" />
+        <Component Name="OptionCommand" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="23">
@@ -1317,73 +2173,227 @@
     </Access>
     <Access Scope="GlobalVariable" UId="24">
       <Symbol>
+        <Component Name="Stop_valve_5" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
         <Component Name="PLCMemory" />
         <Component Name="Disable_Modules" />
         <Component Name="Disable_Aandruk3" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="25">
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_5" />
+        <Component Name="Input" />
+        <Component Name="DisableCommand2" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_5" />
+        <Component Name="Input" />
+        <Component Name="ControlMode" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="28">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_5" />
+        <Component Name="Input" />
+        <Component Name="InvertOutput" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="29">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_5" />
+        <Component Name="Input" />
+        <Component Name="Rising Edge Delay" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="30">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_5" />
+        <Component Name="Input" />
+        <Component Name="Falling Edge Delay" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="31">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_5" />
+        <Component Name="Input" />
+        <Component Name="Pulse On Time" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="32">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_5" />
+        <Component Name="Input" />
+        <Component Name="Pulse Off Time" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="33">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_5" />
+        <Component Name="Input" />
+        <Component Name="Force Off" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="34">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_5" />
+        <Component Name="Input" />
+        <Component Name="Force On" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="35">
       <Symbol>
         <Component Name="Valve 5" />
       </Symbol>
     </Access>
-    <Call UId="26">
-      <CallInfo Name="Ouput_Function_1" BlockType="FB">
-        <Instance Scope="GlobalVariable" UId="27">
-          <Component Name="Ouput_Function_1_Valve5" />
+    <Access Scope="GlobalVariable" UId="36">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_5" />
+        <Component Name="Output" />
+        <Component Name="Raw Base Signal" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="37">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_5" />
+        <Component Name="Output" />
+        <Component Name="Mode Result" />
+      </Symbol>
+    </Access>
+    <Call UId="38">
+      <CallInfo Name="FB_AdvOutputController" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="39">
+          <Component Name="FB_AdvOutputController_Valve4" />
         </Instance>
-        <Parameter Name="Stop Contact" Section="Input" Type="Bool" />
-        <Parameter Name="Manual Command" Section="Input" Type="Bool" />
-        <Parameter Name="Auto Command" Section="Input" Type="Bool" />
-        <Parameter Name="Option Command" Section="Input" Type="Bool" />
-        <Parameter Name="Disable Command" Section="Input" Type="Bool" />
-        <Parameter Name="Disable Command 2" Section="Input" Type="Bool" />
-        <Parameter Name="StartScreenManual" Section="Input" Type="Bool" />
+        <Parameter Name="ManualCommand" Section="Input" Type="Bool" />
+        <Parameter Name="OptionCommand" Section="Input" Type="Bool" />
+        <Parameter Name="AutoCommand" Section="Input" Type="Bool" />
+        <Parameter Name="StopContact" Section="Input" Type="Bool" />
+        <Parameter Name="DisableCommand" Section="Input" Type="Bool" />
+        <Parameter Name="DisableCommand2" Section="Input" Type="Bool" />
+        <Parameter Name="Mode" Section="Input" Type="Int" />
+        <Parameter Name="InvertOutput" Section="Input" Type="Bool" />
+        <Parameter Name="RiseDelay" Section="Input" Type="Time" />
+        <Parameter Name="FallDelay" Section="Input" Type="Time" />
+        <Parameter Name="PulseOnTime" Section="Input" Type="Time" />
+        <Parameter Name="PulseOffTime" Section="Input" Type="Time" />
+        <Parameter Name="ForceOff" Section="Input" Type="Bool" />
+        <Parameter Name="ForceOn" Section="Input" Type="Bool" />
         <Parameter Name="Safety_StartScreenManual" Section="Input" Type="Bool" />
-        <Parameter Name="Ouput Signal" Section="Output" Type="Bool" />
+        <Parameter Name="StartScreenManual" Section="Input" Type="Bool" />
+        <Parameter Name="OutputSignal" Section="Output" Type="Bool" />
+        <Parameter Name="RawBaseCommand" Section="Output" Type="Bool" />
+        <Parameter Name="ModeResult" Section="Output" Type="Bool" />
       </CallInfo>
     </Call>
   </Parts>
   <Wires>
-    <Wire UId="32">
+    <Wire UId="42">
       <Powerrail />
-      <NameCon UId="26" Name="en" />
+      <NameCon UId="38" Name="en" />
     </Wire>
-    <Wire UId="33">
+    <Wire UId="43">
       <IdentCon UId="21" />
-      <NameCon UId="26" Name="Stop Contact" />
+      <NameCon UId="38" Name="ManualCommand" />
     </Wire>
-    <Wire UId="34">
+    <Wire UId="44">
       <IdentCon UId="22" />
-      <NameCon UId="26" Name="Manual Command" />
+      <NameCon UId="38" Name="OptionCommand" />
     </Wire>
-    <Wire UId="35">
+    <Wire UId="45">
       <IdentCon UId="23" />
-      <NameCon UId="26" Name="Auto Command" />
+      <NameCon UId="38" Name="AutoCommand" />
     </Wire>
-    <Wire UId="36">
-      <OpenCon UId="28" />
-      <NameCon UId="26" Name="Option Command" />
-    </Wire>
-    <Wire UId="37">
+    <Wire UId="46">
       <IdentCon UId="24" />
-      <NameCon UId="26" Name="Disable Command" />
+      <NameCon UId="38" Name="StopContact" />
     </Wire>
-    <Wire UId="38">
-      <OpenCon UId="29" />
-      <NameCon UId="26" Name="Disable Command 2" />
-    </Wire>
-    <Wire UId="39">
-      <OpenCon UId="30" />
-      <NameCon UId="26" Name="StartScreenManual" />
-    </Wire>
-    <Wire UId="40">
-      <OpenCon UId="31" />
-      <NameCon UId="26" Name="Safety_StartScreenManual" />
-    </Wire>
-    <Wire UId="41">
-      <NameCon UId="26" Name="Ouput Signal" />
+    <Wire UId="47">
       <IdentCon UId="25" />
+      <NameCon UId="38" Name="DisableCommand" />
+    </Wire>
+    <Wire UId="48">
+      <IdentCon UId="26" />
+      <NameCon UId="38" Name="DisableCommand2" />
+    </Wire>
+    <Wire UId="49">
+      <IdentCon UId="27" />
+      <NameCon UId="38" Name="Mode" />
+    </Wire>
+    <Wire UId="50">
+      <IdentCon UId="28" />
+      <NameCon UId="38" Name="InvertOutput" />
+    </Wire>
+    <Wire UId="51">
+      <IdentCon UId="29" />
+      <NameCon UId="38" Name="RiseDelay" />
+    </Wire>
+    <Wire UId="52">
+      <IdentCon UId="30" />
+      <NameCon UId="38" Name="FallDelay" />
+    </Wire>
+    <Wire UId="53">
+      <IdentCon UId="31" />
+      <NameCon UId="38" Name="PulseOnTime" />
+    </Wire>
+    <Wire UId="54">
+      <IdentCon UId="32" />
+      <NameCon UId="38" Name="PulseOffTime" />
+    </Wire>
+    <Wire UId="55">
+      <IdentCon UId="33" />
+      <NameCon UId="38" Name="ForceOff" />
+    </Wire>
+    <Wire UId="56">
+      <IdentCon UId="34" />
+      <NameCon UId="38" Name="ForceOn" />
+    </Wire>
+    <Wire UId="57">
+      <OpenCon UId="40" />
+      <NameCon UId="38" Name="Safety_StartScreenManual" />
+    </Wire>
+    <Wire UId="58">
+      <OpenCon UId="41" />
+      <NameCon UId="38" Name="StartScreenManual" />
+    </Wire>
+    <Wire UId="59">
+      <NameCon UId="38" Name="OutputSignal" />
+      <IdentCon UId="35" />
+    </Wire>
+    <Wire UId="60">
+      <NameCon UId="38" Name="RawBaseCommand" />
+      <IdentCon UId="36" />
+    </Wire>
+    <Wire UId="61">
+      <NameCon UId="38" Name="ModeResult" />
+      <IdentCon UId="37" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
@@ -1414,7 +2424,253 @@
       </SW.Blocks.CompileUnit>
       <SW.Blocks.CompileUnit ID="3F" CompositionName="CompileUnits">
         <AttributeList>
-          <NetworkSource />
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="Valve_6_Manual" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_6" />
+        <Component Name="Input" />
+        <Component Name="OptionCommand" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="Valve_6_Auto" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="Stop_valve_6" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Disable_Modules" />
+        <Component Name="Disable_Nootstopper" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_6" />
+        <Component Name="Input" />
+        <Component Name="DisableCommand2" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_6" />
+        <Component Name="Input" />
+        <Component Name="ControlMode" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="28">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_6" />
+        <Component Name="Input" />
+        <Component Name="InvertOutput" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="29">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_6" />
+        <Component Name="Input" />
+        <Component Name="Rising Edge Delay" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="30">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_6" />
+        <Component Name="Input" />
+        <Component Name="Falling Edge Delay" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="31">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_6" />
+        <Component Name="Input" />
+        <Component Name="Pulse On Time" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="32">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_6" />
+        <Component Name="Input" />
+        <Component Name="Pulse Off Time" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="33">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_6" />
+        <Component Name="Input" />
+        <Component Name="Force Off" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="34">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_6" />
+        <Component Name="Input" />
+        <Component Name="Force On" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="35">
+      <Symbol>
+        <Component Name="Nootstopper" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="36">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_6" />
+        <Component Name="Output" />
+        <Component Name="Raw Base Signal" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="37">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_6" />
+        <Component Name="Output" />
+        <Component Name="Mode Result" />
+      </Symbol>
+    </Access>
+    <Call UId="38">
+      <CallInfo Name="FB_AdvOutputController" BlockType="FB">
+        <Instance Scope="GlobalVariable" UId="39">
+          <Component Name="FB_AdvOutputController_Valve6" />
+        </Instance>
+        <Parameter Name="ManualCommand" Section="Input" Type="Bool" />
+        <Parameter Name="OptionCommand" Section="Input" Type="Bool" />
+        <Parameter Name="AutoCommand" Section="Input" Type="Bool" />
+        <Parameter Name="StopContact" Section="Input" Type="Bool" />
+        <Parameter Name="DisableCommand" Section="Input" Type="Bool" />
+        <Parameter Name="DisableCommand2" Section="Input" Type="Bool" />
+        <Parameter Name="Mode" Section="Input" Type="Int" />
+        <Parameter Name="InvertOutput" Section="Input" Type="Bool" />
+        <Parameter Name="RiseDelay" Section="Input" Type="Time" />
+        <Parameter Name="FallDelay" Section="Input" Type="Time" />
+        <Parameter Name="PulseOnTime" Section="Input" Type="Time" />
+        <Parameter Name="PulseOffTime" Section="Input" Type="Time" />
+        <Parameter Name="ForceOff" Section="Input" Type="Bool" />
+        <Parameter Name="ForceOn" Section="Input" Type="Bool" />
+        <Parameter Name="Safety_StartScreenManual" Section="Input" Type="Bool" />
+        <Parameter Name="StartScreenManual" Section="Input" Type="Bool" />
+        <Parameter Name="OutputSignal" Section="Output" Type="Bool" />
+        <Parameter Name="RawBaseCommand" Section="Output" Type="Bool" />
+        <Parameter Name="ModeResult" Section="Output" Type="Bool" />
+      </CallInfo>
+    </Call>
+  </Parts>
+  <Wires>
+    <Wire UId="42">
+      <Powerrail />
+      <NameCon UId="38" Name="en" />
+    </Wire>
+    <Wire UId="43">
+      <IdentCon UId="21" />
+      <NameCon UId="38" Name="ManualCommand" />
+    </Wire>
+    <Wire UId="44">
+      <IdentCon UId="22" />
+      <NameCon UId="38" Name="OptionCommand" />
+    </Wire>
+    <Wire UId="45">
+      <IdentCon UId="23" />
+      <NameCon UId="38" Name="AutoCommand" />
+    </Wire>
+    <Wire UId="46">
+      <IdentCon UId="24" />
+      <NameCon UId="38" Name="StopContact" />
+    </Wire>
+    <Wire UId="47">
+      <IdentCon UId="25" />
+      <NameCon UId="38" Name="DisableCommand" />
+    </Wire>
+    <Wire UId="48">
+      <IdentCon UId="26" />
+      <NameCon UId="38" Name="DisableCommand2" />
+    </Wire>
+    <Wire UId="49">
+      <IdentCon UId="27" />
+      <NameCon UId="38" Name="Mode" />
+    </Wire>
+    <Wire UId="50">
+      <IdentCon UId="28" />
+      <NameCon UId="38" Name="InvertOutput" />
+    </Wire>
+    <Wire UId="51">
+      <IdentCon UId="29" />
+      <NameCon UId="38" Name="RiseDelay" />
+    </Wire>
+    <Wire UId="52">
+      <IdentCon UId="30" />
+      <NameCon UId="38" Name="FallDelay" />
+    </Wire>
+    <Wire UId="53">
+      <IdentCon UId="31" />
+      <NameCon UId="38" Name="PulseOnTime" />
+    </Wire>
+    <Wire UId="54">
+      <IdentCon UId="32" />
+      <NameCon UId="38" Name="PulseOffTime" />
+    </Wire>
+    <Wire UId="55">
+      <IdentCon UId="33" />
+      <NameCon UId="38" Name="ForceOff" />
+    </Wire>
+    <Wire UId="56">
+      <IdentCon UId="34" />
+      <NameCon UId="38" Name="ForceOn" />
+    </Wire>
+    <Wire UId="57">
+      <OpenCon UId="40" />
+      <NameCon UId="38" Name="Safety_StartScreenManual" />
+    </Wire>
+    <Wire UId="58">
+      <OpenCon UId="41" />
+      <NameCon UId="38" Name="StartScreenManual" />
+    </Wire>
+    <Wire UId="59">
+      <NameCon UId="38" Name="OutputSignal" />
+      <IdentCon UId="35" />
+    </Wire>
+    <Wire UId="60">
+      <NameCon UId="38" Name="RawBaseCommand" />
+      <IdentCon UId="36" />
+    </Wire>
+    <Wire UId="61">
+      <NameCon UId="38" Name="ModeResult" />
+      <IdentCon UId="37" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
@@ -1433,7 +2689,7 @@
               <MultilingualTextItem ID="43" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text>Blow Off Manual</Text>
+                  <Text>Valve 6 - Control</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
@@ -1441,6 +2697,34 @@
         </ObjectList>
       </SW.Blocks.CompileUnit>
       <SW.Blocks.CompileUnit ID="44" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource />
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="45" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="46" CompositionName="Items">
+                <AttributeList>
+                  <Culture>nl-NL</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="47" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="48" CompositionName="Items">
+                <AttributeList>
+                  <Culture>nl-NL</Culture>
+                  <Text>Blow Off Manual</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="49" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -1516,9 +2800,9 @@
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="45" CompositionName="Comment">
+          <MultilingualText ID="4A" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="46" CompositionName="Items">
+              <MultilingualTextItem ID="4B" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text />
@@ -1526,9 +2810,9 @@
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="47" CompositionName="Title">
+          <MultilingualText ID="4C" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="48" CompositionName="Items">
+              <MultilingualTextItem ID="4D" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text />
@@ -1538,7 +2822,7 @@
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="49" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="4E" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -1577,34 +2861,6 @@
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="4A" CompositionName="Comment">
-            <ObjectList>
-              <MultilingualTextItem ID="4B" CompositionName="Items">
-                <AttributeList>
-                  <Culture>nl-NL</Culture>
-                  <Text />
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-          <MultilingualText ID="4C" CompositionName="Title">
-            <ObjectList>
-              <MultilingualTextItem ID="4D" CompositionName="Items">
-                <AttributeList>
-                  <Culture>nl-NL</Culture>
-                  <Text>Blow Off</Text>
-                </AttributeList>
-              </MultilingualTextItem>
-            </ObjectList>
-          </MultilingualText>
-        </ObjectList>
-      </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="4E" CompositionName="CompileUnits">
-        <AttributeList>
-          <NetworkSource />
-          <ProgrammingLanguage>LAD</ProgrammingLanguage>
-        </AttributeList>
-        <ObjectList>
           <MultilingualText ID="4F" CompositionName="Comment">
             <ObjectList>
               <MultilingualTextItem ID="50" CompositionName="Items">
@@ -1620,6 +2876,34 @@
               <MultilingualTextItem ID="52" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
+                  <Text>Blow Off</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="53" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource />
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="54" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="55" CompositionName="Items">
+                <AttributeList>
+                  <Culture>nl-NL</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="56" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="57" CompositionName="Items">
+                <AttributeList>
+                  <Culture>nl-NL</Culture>
                   <Text />
                 </AttributeList>
               </MultilingualTextItem>
@@ -1627,9 +2911,9 @@
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <MultilingualText ID="53" CompositionName="Title">
+      <MultilingualText ID="58" CompositionName="Title">
         <ObjectList>
-          <MultilingualTextItem ID="54" CompositionName="Items">
+          <MultilingualTextItem ID="59" CompositionName="Items">
             <AttributeList>
               <Culture>nl-NL</Culture>
               <Text />
