@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2025-11-12T20:15:10.721681Z</Created>
+    <Created>2025-11-12T21:51:11.0106241Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -1648,7 +1648,7 @@
     <Access Scope="GlobalVariable" UId="26">
       <Symbol>
         <Component Name="PLCMemory" />
-        <Component Name="TriggerDistanceAandruk1" />
+        <Component Name="TriggerDistanceAandruk2" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="27">
@@ -2390,7 +2390,7 @@
         <Component Name="PositionManagement" />
         <Component Name="Axis 3" />
         <Component Name="Messages" />
-        <Component Name="Axis Busy" />
+        <Component Name="Axis On Position" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="23">
@@ -2488,6 +2488,78 @@
   <Parts>
     <Access Scope="GlobalVariable" UId="21">
       <Symbol>
+        <Component Name="BlowOffTimerV2" />
+        <Component Name="Q" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="ProgramDebugger" />
+        <Component Name="ProgramDebugger1" />
+        <Component Name="Prog1_Dev_Steps" AccessModifier="Array">
+          <Access Scope="LiteralConstant">
+            <Constant>
+              <ConstantType>DInt</ConstantType>
+              <ConstantValue>3</ConstantValue>
+            </Constant>
+          </Access>
+        </Component>
+        <Component Name="Enable" />
+      </Symbol>
+    </Access>
+    <Part Name="Contact" UId="23" />
+    <Part Name="Coil" UId="24" />
+  </Parts>
+  <Wires>
+    <Wire UId="25">
+      <Powerrail />
+      <NameCon UId="23" Name="in" />
+    </Wire>
+    <Wire UId="26">
+      <IdentCon UId="21" />
+      <NameCon UId="23" Name="operand" />
+    </Wire>
+    <Wire UId="27">
+      <NameCon UId="23" Name="out" />
+      <NameCon UId="24" Name="in" />
+    </Wire>
+    <Wire UId="28">
+      <IdentCon UId="22" />
+      <NameCon UId="24" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="90" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="91" CompositionName="Items">
+                <AttributeList>
+                  <Culture>nl-NL</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="92" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="93" CompositionName="Items">
+                <AttributeList>
+                  <Culture>nl-NL</Culture>
+                  <Text>Debugger Option Output</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="94" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
         <Component Name="BlowOffStartTimer" />
         <Component Name="Q" />
       </Symbol>
@@ -2568,9 +2640,9 @@
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="90" CompositionName="Comment">
+          <MultilingualText ID="95" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="91" CompositionName="Items">
+              <MultilingualTextItem ID="96" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text />
@@ -2578,9 +2650,9 @@
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="92" CompositionName="Title">
+          <MultilingualText ID="97" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="93" CompositionName="Items">
+              <MultilingualTextItem ID="98" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>Blow off (2) - BlowOffReset (Not Used!)</Text>
@@ -2590,9 +2662,9 @@
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <MultilingualText ID="94" CompositionName="Title">
+      <MultilingualText ID="99" CompositionName="Title">
         <ObjectList>
-          <MultilingualTextItem ID="95" CompositionName="Items">
+          <MultilingualTextItem ID="9A" CompositionName="Items">
             <AttributeList>
               <Culture>nl-NL</Culture>
               <Text>System Program 2</Text>
