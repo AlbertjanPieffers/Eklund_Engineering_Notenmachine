@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2025-11-01T13:03:18.4996884Z</Created>
+    <Created>2025-11-12T20:15:10.5251349Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -1943,7 +1943,7 @@
     <Access Scope="GlobalVariable" UId="26">
       <Symbol>
         <Component Name="PLCMemory" />
-        <Component Name="TriggerDistanceAandruk" />
+        <Component Name="TriggerDistanceAandruk1" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="27">
@@ -2151,7 +2151,7 @@
     </Access>
     <Access Scope="GlobalVariable" UId="22">
       <Symbol>
-        <Component Name="Valve_4_Auto" />
+        <Component Name="Valve_3_Auto" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="23">
@@ -3031,7 +3031,7 @@
     </Access>
     <Access Scope="GlobalVariable" UId="29">
       <Symbol>
-        <Component Name="Valve_6_Auto" />
+        <Component Name="Valve_6_Auto(1)" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="30">
@@ -3227,7 +3227,7 @@
   <Parts>
     <Access Scope="GlobalVariable" UId="21">
       <Symbol>
-        <Component Name="Valve_6_Auto" />
+        <Component Name="Valve_6_Auto(1)" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="22">

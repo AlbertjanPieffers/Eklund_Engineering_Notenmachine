@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2025-10-27T20:47:53.9836989Z</Created>
+    <Created>2025-11-12T20:15:10.8951008Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -1648,7 +1648,7 @@
     <Access Scope="GlobalVariable" UId="26">
       <Symbol>
         <Component Name="PLCMemory" />
-        <Component Name="TriggerDistanceAandruk" />
+        <Component Name="TriggerDistanceAandruk1" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="27">

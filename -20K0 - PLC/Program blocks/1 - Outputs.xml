@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2025-11-10T21:24:54.8392617Z</Created>
+    <Created>2025-11-12T20:15:11.0489154Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -2290,7 +2290,7 @@
     <Call UId="38">
       <CallInfo Name="FB_AdvOutputController" BlockType="FB">
         <Instance Scope="GlobalVariable" UId="39">
-          <Component Name="FB_AdvOutputController_Valve4" />
+          <Component Name="FB_AdvOutputController_Valve5" />
         </Instance>
         <Parameter Name="ManualCommand" Section="Input" Type="Bool" />
         <Parameter Name="OptionCommand" Section="Input" Type="Bool" />
@@ -2428,7 +2428,7 @@
   <Parts>
     <Access Scope="GlobalVariable" UId="21">
       <Symbol>
-        <Component Name="Valve_6_Manual" />
+        <Component Name="Valve_6_Manual(1)" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="22">
@@ -2442,12 +2442,12 @@
     </Access>
     <Access Scope="GlobalVariable" UId="23">
       <Symbol>
-        <Component Name="Valve_6_Auto" />
+        <Component Name="Valve_6_Auto(1)" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="24">
       <Symbol>
-        <Component Name="Stop_valve_6" />
+        <Component Name="Valve_6_Stop" />
       </Symbol>
     </Access>
     <Access Scope="GlobalVariable" UId="25">
