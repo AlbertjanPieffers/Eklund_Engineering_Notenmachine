@@ -1,7 +1,7 @@
 # Eklund Engineering – Notenmachine
 
 <p align="center">
-	<img src="https://img.shields.io/badge/Current%20Version%3A-V2.1.3--Beta-yellow?style=for-the-badge&logo=siemens" alt="Badge">
+	<img src="https://img.shields.io/badge/Current%20Version%3A-V2.1.3.0-yellow?style=for-the-badge&logo=siemens" alt="Badge">
 </p>
 
 This repository contains all project files related to the **Eklund Engineering Notenmachine** project.

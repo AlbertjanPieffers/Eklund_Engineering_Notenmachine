@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2025-11-12T20:15:09.6752429Z</Created>
+    <Created>2025-11-15T17:54:37.8569611Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -3300,6 +3300,245 @@ Input config is as follows:
   <Parts>
     <Access Scope="GlobalVariable" UId="21">
       <Symbol>
+        <Component Name="TON_ModulesToRest" />
+        <Component Name="Q" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="22">
+      <Constant>
+        <ConstantType>Real</ConstantType>
+        <ConstantValue>-100.0</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="PositionManagement" />
+        <Component Name="Demo_Pos" />
+        <Component Name="Desired_Pos" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="24">
+      <Symbol>
+        <Component Name="WalsToRest" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="25">
+      <Symbol>
+        <Component Name="ModulesToRest" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="26">
+      <Symbol>
+        <Component Name="PositionManagement" />
+        <Component Name="Demo_Pos" />
+        <Component Name="Start" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="27">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="Modules" />
+        <Component Name="Valve_6" />
+        <Component Name="Input" />
+        <Component Name="OptionCommand" />
+      </Symbol>
+    </Access>
+    <Part Name="Contact" UId="28" />
+    <Part Name="Move" UId="29">
+      <TemplateValue Name="Card" Type="Cardinality">1</TemplateValue>
+    </Part>
+    <Part Name="Coil" UId="30" />
+    <Part Name="Coil" UId="31" />
+    <Part Name="Coil" UId="32" />
+    <Part Name="Coil" UId="33" />
+  </Parts>
+  <Wires>
+    <Wire UId="34">
+      <Powerrail />
+      <NameCon UId="28" Name="in" />
+    </Wire>
+    <Wire UId="35">
+      <IdentCon UId="21" />
+      <NameCon UId="28" Name="operand" />
+    </Wire>
+    <Wire UId="36">
+      <NameCon UId="28" Name="out" />
+      <NameCon UId="29" Name="en" />
+    </Wire>
+    <Wire UId="37">
+      <IdentCon UId="22" />
+      <NameCon UId="29" Name="in" />
+    </Wire>
+    <Wire UId="38">
+      <NameCon UId="29" Name="eno" />
+      <NameCon UId="30" Name="in" />
+    </Wire>
+    <Wire UId="39">
+      <NameCon UId="29" Name="out1" />
+      <IdentCon UId="23" />
+    </Wire>
+    <Wire UId="40">
+      <IdentCon UId="24" />
+      <NameCon UId="30" Name="operand" />
+    </Wire>
+    <Wire UId="41">
+      <NameCon UId="30" Name="out" />
+      <NameCon UId="31" Name="in" />
+    </Wire>
+    <Wire UId="42">
+      <IdentCon UId="25" />
+      <NameCon UId="31" Name="operand" />
+    </Wire>
+    <Wire UId="43">
+      <NameCon UId="31" Name="out" />
+      <NameCon UId="32" Name="in" />
+    </Wire>
+    <Wire UId="44">
+      <IdentCon UId="26" />
+      <NameCon UId="32" Name="operand" />
+    </Wire>
+    <Wire UId="45">
+      <NameCon UId="32" Name="out" />
+      <NameCon UId="33" Name="in" />
+    </Wire>
+    <Wire UId="46">
+      <IdentCon UId="27" />
+      <NameCon UId="33" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="8B" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="8C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>nl-NL</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="8D" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="8E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>nl-NL</Culture>
+                  <Text>Modules to rest when no production</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="8F" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="PLCMemory" />
+        <Component Name="ProductBuffer_1" />
+        <Component Name="ProductsCount" />
+      </Symbol>
+    </Access>
+    <Access Scope="LiteralConstant" UId="22">
+      <Constant>
+        <ConstantType>Int</ConstantType>
+        <ConstantValue>0</ConstantValue>
+      </Constant>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="PositionManagement" />
+        <Component Name="Axis 3" />
+        <Component Name="Messages" />
+        <Component Name="AxisHasReference" />
+      </Symbol>
+    </Access>
+    <Access Scope="TypedConstant" UId="24">
+      <Constant>
+        <ConstantValue>t#3s</ConstantValue>
+      </Constant>
+    </Access>
+    <Part Name="Eq" UId="25">
+      <TemplateValue Name="SrcType" Type="Type">Int</TemplateValue>
+    </Part>
+    <Part Name="Contact" UId="26" />
+    <Part Name="TON" Version="1.0" UId="27">
+      <Instance Scope="GlobalVariable" UId="28">
+        <Component Name="TON_ModulesToRest" />
+      </Instance>
+      <TemplateValue Name="time_type" Type="Type">Time</TemplateValue>
+    </Part>
+  </Parts>
+  <Wires>
+    <Wire UId="30">
+      <Powerrail />
+      <NameCon UId="25" Name="pre" />
+    </Wire>
+    <Wire UId="31">
+      <IdentCon UId="21" />
+      <NameCon UId="25" Name="in1" />
+    </Wire>
+    <Wire UId="32">
+      <IdentCon UId="22" />
+      <NameCon UId="25" Name="in2" />
+    </Wire>
+    <Wire UId="33">
+      <NameCon UId="25" Name="out" />
+      <NameCon UId="26" Name="in" />
+    </Wire>
+    <Wire UId="34">
+      <IdentCon UId="23" />
+      <NameCon UId="26" Name="operand" />
+    </Wire>
+    <Wire UId="35">
+      <NameCon UId="26" Name="out" />
+      <NameCon UId="27" Name="IN" />
+    </Wire>
+    <Wire UId="36">
+      <IdentCon UId="24" />
+      <NameCon UId="27" Name="PT" />
+    </Wire>
+    <Wire UId="37">
+      <NameCon UId="27" Name="ET" />
+      <OpenCon UId="29" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="90" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="91" CompositionName="Items">
+                <AttributeList>
+                  <Culture>nl-NL</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="92" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="93" CompositionName="Items">
+                <AttributeList>
+                  <Culture>nl-NL</Culture>
+                  <Text>Timer Modules to Rest</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="94" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
         <Component Name="Manual Jog Fwd" />
       </Symbol>
     </Access>
@@ -3390,9 +3629,9 @@ Input config is as follows:
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="8B" CompositionName="Comment">
+          <MultilingualText ID="95" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="8C" CompositionName="Items">
+              <MultilingualTextItem ID="96" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>This Function Block is used for manual jogging of Axis 3</Text>
@@ -3400,9 +3639,9 @@ Input config is as follows:
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="8D" CompositionName="Title">
+          <MultilingualText ID="97" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="8E" CompositionName="Items">
+              <MultilingualTextItem ID="98" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>Drive 3 Jog</Text>
@@ -3412,7 +3651,7 @@ Input config is as follows:
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="8F" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="99" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -3520,9 +3759,9 @@ Input config is as follows:
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="90" CompositionName="Comment">
+          <MultilingualText ID="9A" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="91" CompositionName="Items">
+              <MultilingualTextItem ID="9B" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>This is the Oldest version of the productBuffer it's not used anymore.</Text>
@@ -3530,9 +3769,9 @@ Input config is as follows:
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="92" CompositionName="Title">
+          <MultilingualText ID="9C" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="93" CompositionName="Items">
+              <MultilingualTextItem ID="9D" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>ProductBuffer - Old (Legacy)</Text>
@@ -3542,7 +3781,7 @@ Input config is as follows:
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="94" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="9E" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -3689,9 +3928,9 @@ Input config is as follows:
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="95" CompositionName="Comment">
+          <MultilingualText ID="9F" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="96" CompositionName="Items">
+              <MultilingualTextItem ID="A0" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>This is Version 2 of the product buffer, and also not used anymore.</Text>
@@ -3699,9 +3938,9 @@ Input config is as follows:
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="97" CompositionName="Title">
+          <MultilingualText ID="A1" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="98" CompositionName="Items">
+              <MultilingualTextItem ID="A2" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>ProductBuffer V2 (Old - Don't use!)</Text>
@@ -3711,7 +3950,7 @@ Input config is as follows:
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="99" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="A3" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -3895,9 +4134,9 @@ Input config is as follows:
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="9A" CompositionName="Comment">
+          <MultilingualText ID="A4" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="9B" CompositionName="Items">
+              <MultilingualTextItem ID="A5" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>This is the newest version of the Product Buffer, it's working great, and uses the encoder position of Axis 1 to ensure precise product place data. 
@@ -3906,19 +4145,19 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="9C" CompositionName="Title">
+          <MultilingualText ID="A6" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="9D" CompositionName="Items">
+              <MultilingualTextItem ID="A7" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text>ProductBuffer V3 - Currently in production testing)</Text>
+                  <Text>ProductBuffer V3 - Currently in production )</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="9E" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="A8" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -3974,9 +4213,9 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="9F" CompositionName="Comment">
+          <MultilingualText ID="A9" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="A0" CompositionName="Items">
+              <MultilingualTextItem ID="AA" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>This Program ensures that when the machine is not in automatic mode, and the axis will always go to an safe position it will be done with a safe speed (25%)</Text>
@@ -3984,9 +4223,9 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="A1" CompositionName="Title">
+          <MultilingualText ID="AB" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="A2" CompositionName="Items">
+              <MultilingualTextItem ID="AC" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>Speed Select 25%</Text>
@@ -3996,7 +4235,7 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="A3" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="AD" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -4050,9 +4289,9 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="A4" CompositionName="Comment">
+          <MultilingualText ID="AE" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="A5" CompositionName="Items">
+              <MultilingualTextItem ID="AF" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>This program ensures that when the machine is in automatic mode, the speed will rise up to 75% what is 105-110 Hz on the Frequency Converter.</Text>
@@ -4060,9 +4299,9 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="A6" CompositionName="Title">
+          <MultilingualText ID="B0" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="A7" CompositionName="Items">
+              <MultilingualTextItem ID="B1" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>Speed Select 75%</Text>
@@ -4072,7 +4311,7 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="A8" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="B2" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -4222,9 +4461,9 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="A9" CompositionName="Comment">
+          <MultilingualText ID="B3" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="AA" CompositionName="Items">
+              <MultilingualTextItem ID="B4" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>This Function Block is for controlling and reading encoder data from the Axis 1 SIKO IG09 encoder. More can be found on the wiki.</Text>
@@ -4232,9 +4471,9 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="AB" CompositionName="Title">
+          <MultilingualText ID="B5" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="AC" CompositionName="Items">
+              <MultilingualTextItem ID="B6" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>Encoder Band Function Block</Text>
@@ -4244,7 +4483,7 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="AD" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="B7" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -4306,9 +4545,9 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="AE" CompositionName="Comment">
+          <MultilingualText ID="B8" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="AF" CompositionName="Items">
+              <MultilingualTextItem ID="B9" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>This program makes sure that when the E-Stop is pressed, the axis Has Reference flag is removed. It's done, because otherwise the Axis will lose position, due to the encoder position is set to zero locally on the PLC Card.</Text>
@@ -4316,9 +4555,9 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="B0" CompositionName="Title">
+          <MultilingualText ID="BA" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="B1" CompositionName="Items">
+              <MultilingualTextItem ID="BB" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>Reference Run Band (1)</Text>
@@ -4328,7 +4567,86 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="B2" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="BC" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+  <Parts>
+    <Access Scope="GlobalVariable" UId="21">
+      <Symbol>
+        <Component Name="IEC_Timer_0_DB_2" />
+        <Component Name="Q" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="22">
+      <Symbol>
+        <Component Name="PositionManagement" />
+        <Component Name="Axis_1" />
+        <Component Name="Commands" />
+        <Component Name="Start Ref Run" />
+      </Symbol>
+    </Access>
+    <Access Scope="GlobalVariable" UId="23">
+      <Symbol>
+        <Component Name="Drive_1_StartRefRun" />
+      </Symbol>
+    </Access>
+    <Part Name="Contact" UId="24" />
+    <Part Name="Coil" UId="25" />
+    <Part Name="Coil" UId="26" />
+  </Parts>
+  <Wires>
+    <Wire UId="27">
+      <Powerrail />
+      <NameCon UId="24" Name="in" />
+    </Wire>
+    <Wire UId="28">
+      <IdentCon UId="21" />
+      <NameCon UId="24" Name="operand" />
+    </Wire>
+    <Wire UId="29">
+      <NameCon UId="24" Name="out" />
+      <NameCon UId="25" Name="in" />
+    </Wire>
+    <Wire UId="30">
+      <IdentCon UId="22" />
+      <NameCon UId="25" Name="operand" />
+    </Wire>
+    <Wire UId="31">
+      <NameCon UId="25" Name="out" />
+      <NameCon UId="26" Name="in" />
+    </Wire>
+    <Wire UId="32">
+      <IdentCon UId="23" />
+      <NameCon UId="26" Name="operand" />
+    </Wire>
+  </Wires>
+</FlgNet></NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="BD" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="BE" CompositionName="Items">
+                <AttributeList>
+                  <Culture>nl-NL</Culture>
+                  <Text>This Program will demand Axis 1 to do an Reference run. It wil only turn about half a turn, to find the indexpuls of the encoder. For Axis 3 it's done with an external sensor. This Axis uses the internal indexpuls of the encoder. And that's because we're not going to control this Axis on position, but on velocity.</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="BF" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="C0" CompositionName="Items">
+                <AttributeList>
+                  <Culture>nl-NL</Culture>
+                  <Text>Reference Run Band (2)</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="C1" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -4358,115 +4676,107 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
         <Component Name="Systeem RUN" />
       </Symbol>
     </Access>
-    <Access Scope="GlobalVariable" UId="25">
-      <Symbol>
-        <Component Name="PositionManagement" />
-        <Component Name="Axis_1" />
-        <Component Name="Commands" />
-        <Component Name="Start Ref Run" />
-      </Symbol>
+    <Access Scope="TypedConstant" UId="25">
+      <Constant>
+        <ConstantValue>t#2ms</ConstantValue>
+      </Constant>
     </Access>
-    <Access Scope="GlobalVariable" UId="26">
-      <Symbol>
-        <Component Name="Drive_1_RefRun" />
-      </Symbol>
-    </Access>
+    <Part Name="Contact" UId="26" />
     <Part Name="Contact" UId="27" />
-    <Part Name="Contact" UId="28" />
-    <Part Name="O" UId="29">
+    <Part Name="O" UId="28">
       <TemplateValue Name="Card" Type="Cardinality">2</TemplateValue>
+    </Part>
+    <Part Name="Contact" UId="29">
+      <Negated Name="operand" />
     </Part>
     <Part Name="Contact" UId="30">
       <Negated Name="operand" />
     </Part>
-    <Part Name="Contact" UId="31">
-      <Negated Name="operand" />
+    <Part Name="TON" Version="1.0" UId="31">
+      <Instance Scope="GlobalVariable" UId="32">
+        <Component Name="IEC_Timer_0_DB_2" />
+      </Instance>
+      <TemplateValue Name="time_type" Type="Type">Time</TemplateValue>
     </Part>
-    <Part Name="Coil" UId="32" />
-    <Part Name="Coil" UId="33" />
   </Parts>
   <Wires>
     <Wire UId="34">
       <Powerrail />
+      <NameCon UId="26" Name="in" />
       <NameCon UId="27" Name="in" />
-      <NameCon UId="28" Name="in" />
     </Wire>
     <Wire UId="35">
       <IdentCon UId="21" />
-      <NameCon UId="27" Name="operand" />
+      <NameCon UId="26" Name="operand" />
     </Wire>
     <Wire UId="36">
-      <NameCon UId="27" Name="out" />
-      <NameCon UId="29" Name="in1" />
+      <NameCon UId="26" Name="out" />
+      <NameCon UId="28" Name="in1" />
     </Wire>
     <Wire UId="37">
       <IdentCon UId="22" />
-      <NameCon UId="28" Name="operand" />
+      <NameCon UId="27" Name="operand" />
     </Wire>
     <Wire UId="38">
-      <NameCon UId="28" Name="out" />
-      <NameCon UId="29" Name="in2" />
+      <NameCon UId="27" Name="out" />
+      <NameCon UId="28" Name="in2" />
     </Wire>
     <Wire UId="39">
-      <NameCon UId="29" Name="out" />
-      <NameCon UId="30" Name="in" />
+      <NameCon UId="28" Name="out" />
+      <NameCon UId="29" Name="in" />
     </Wire>
     <Wire UId="40">
       <IdentCon UId="23" />
-      <NameCon UId="30" Name="operand" />
+      <NameCon UId="29" Name="operand" />
     </Wire>
     <Wire UId="41">
-      <NameCon UId="30" Name="out" />
-      <NameCon UId="31" Name="in" />
+      <NameCon UId="29" Name="out" />
+      <NameCon UId="30" Name="in" />
     </Wire>
     <Wire UId="42">
       <IdentCon UId="24" />
-      <NameCon UId="31" Name="operand" />
+      <NameCon UId="30" Name="operand" />
     </Wire>
     <Wire UId="43">
-      <NameCon UId="31" Name="out" />
-      <NameCon UId="32" Name="in" />
+      <NameCon UId="30" Name="out" />
+      <NameCon UId="31" Name="IN" />
     </Wire>
     <Wire UId="44">
       <IdentCon UId="25" />
-      <NameCon UId="32" Name="operand" />
+      <NameCon UId="31" Name="PT" />
     </Wire>
     <Wire UId="45">
-      <NameCon UId="32" Name="out" />
-      <NameCon UId="33" Name="in" />
-    </Wire>
-    <Wire UId="46">
-      <IdentCon UId="26" />
-      <NameCon UId="33" Name="operand" />
+      <NameCon UId="31" Name="ET" />
+      <OpenCon UId="33" />
     </Wire>
   </Wires>
 </FlgNet></NetworkSource>
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="B3" CompositionName="Comment">
+          <MultilingualText ID="C2" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="B4" CompositionName="Items">
+              <MultilingualTextItem ID="C3" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text>This Program will demand Axis 1 to do an Reference run. It wil only turn about half a turn, to find the indexpuls of the encoder. For Axis 3 it's done with an external sensor. This Axis uses the internal indexpuls of the encoder. And that's because we're not going to control this Axis on position, but on velocity.</Text>
+                  <Text />
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="B5" CompositionName="Title">
+          <MultilingualText ID="C4" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="B6" CompositionName="Items">
+              <MultilingualTextItem ID="C5" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
-                  <Text>Reference Run Band (2)</Text>
+                  <Text>RefRun DelayTimer</Text>
                 </AttributeList>
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="B7" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="C6" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -4521,9 +4831,9 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="B8" CompositionName="Comment">
+          <MultilingualText ID="C7" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="B9" CompositionName="Items">
+              <MultilingualTextItem ID="C8" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>This Program is for controlling the Z-pulse or Index Pulse of the Axis 1 Encoder.</Text>
@@ -4531,9 +4841,9 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="BA" CompositionName="Title">
+          <MultilingualText ID="C9" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="BB" CompositionName="Items">
+              <MultilingualTextItem ID="CA" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>Set Reference Sensor</Text>
@@ -4543,7 +4853,7 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="BC" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="CB" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -4594,9 +4904,9 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="BD" CompositionName="Comment">
+          <MultilingualText ID="CC" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="BE" CompositionName="Items">
+              <MultilingualTextItem ID="CD" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>This network is used for some internal use - Probably legacy ;)
@@ -4605,9 +4915,9 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="BF" CompositionName="Title">
+          <MultilingualText ID="CE" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="C0" CompositionName="Items">
+              <MultilingualTextItem ID="CF" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>Reference Run Band (3)</Text>
@@ -4617,7 +4927,7 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="C1" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="D0" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -4643,9 +4953,9 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="C2" CompositionName="Comment">
+          <MultilingualText ID="D1" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="C3" CompositionName="Items">
+              <MultilingualTextItem ID="D2" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>This network will read the PLC Uptime. It was used for timestamp purposes.</Text>
@@ -4653,9 +4963,9 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="C4" CompositionName="Title">
+          <MultilingualText ID="D3" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="C5" CompositionName="Items">
+              <MultilingualTextItem ID="D4" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>SystemTime</Text>
@@ -4665,15 +4975,15 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="C6" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="D5" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource />
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="C7" CompositionName="Comment">
+          <MultilingualText ID="D6" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="C8" CompositionName="Items">
+              <MultilingualTextItem ID="D7" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text />
@@ -4681,9 +4991,9 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="C9" CompositionName="Title">
+          <MultilingualText ID="D8" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="CA" CompositionName="Items">
+              <MultilingualTextItem ID="D9" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>Program Debugger 1</Text>
@@ -4693,7 +5003,7 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="CB" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="DA" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource><FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
   <Parts>
@@ -4846,9 +5156,9 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="CC" CompositionName="Comment">
+          <MultilingualText ID="DB" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="CD" CompositionName="Items">
+              <MultilingualTextItem ID="DC" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text />
@@ -4856,9 +5166,9 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="CE" CompositionName="Title">
+          <MultilingualText ID="DD" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="CF" CompositionName="Items">
+              <MultilingualTextItem ID="DE" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text>Test Modules</Text>
@@ -4868,15 +5178,15 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <SW.Blocks.CompileUnit ID="D0" CompositionName="CompileUnits">
+      <SW.Blocks.CompileUnit ID="DF" CompositionName="CompileUnits">
         <AttributeList>
           <NetworkSource />
           <ProgrammingLanguage>LAD</ProgrammingLanguage>
         </AttributeList>
         <ObjectList>
-          <MultilingualText ID="D1" CompositionName="Comment">
+          <MultilingualText ID="E0" CompositionName="Comment">
             <ObjectList>
-              <MultilingualTextItem ID="D2" CompositionName="Items">
+              <MultilingualTextItem ID="E1" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text />
@@ -4884,9 +5194,9 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
               </MultilingualTextItem>
             </ObjectList>
           </MultilingualText>
-          <MultilingualText ID="D3" CompositionName="Title">
+          <MultilingualText ID="E2" CompositionName="Title">
             <ObjectList>
-              <MultilingualTextItem ID="D4" CompositionName="Items">
+              <MultilingualTextItem ID="E3" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text />
@@ -4896,9 +5206,9 @@ Switching between PB V2 and V3 can be done in the Automatiek Settings in the HMI
           </MultilingualText>
         </ObjectList>
       </SW.Blocks.CompileUnit>
-      <MultilingualText ID="D5" CompositionName="Title">
+      <MultilingualText ID="E4" CompositionName="Title">
         <ObjectList>
-          <MultilingualTextItem ID="D6" CompositionName="Items">
+          <MultilingualTextItem ID="E5" CompositionName="Items">
             <AttributeList>
               <Culture>nl-NL</Culture>
               <Text>MAIN Program - Sweep</Text>

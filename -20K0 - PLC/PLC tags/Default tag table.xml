@@ -2,7 +2,7 @@
 <Document>
   <Engineering version="V16" />
   <DocumentInfo>
-    <Created>2025-11-01T13:03:19.1132276Z</Created>
+    <Created>2025-11-15T15:47:46.110562Z</Created>
     <ExportSetting>WithDefaults</ExportSetting>
     <InstalledProducts>
       <Product>
@@ -3965,6 +3965,72 @@
           <MultilingualText ID="218" CompositionName="Comment">
             <ObjectList>
               <MultilingualTextItem ID="219" CompositionName="Items">
+                <AttributeList>
+                  <Culture>nl-NL</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="21A" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%M180.5</LogicalAddress>
+          <Name>WalsToRest</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="21B" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="21C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>nl-NL</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="21D" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%M180.6</LogicalAddress>
+          <Name>ModulesToRest</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="21E" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="21F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>nl-NL</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="220" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Bool</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%M180.7</LogicalAddress>
+          <Name>Drive_1_StartRefRun</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="221" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="222" CompositionName="Items">
                 <AttributeList>
                   <Culture>nl-NL</Culture>
                   <Text />
